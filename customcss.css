@@ -1,0 +1,25 @@
+/* Xu ly nen trang */
+    #form1 + div[align="center"] > div
+    {
+        background: none !important;
+    }
+    #pnCenter{
+        margin: 0px 5px !important;
+        width: 590px !important;
+    }
+    #pnCenterDisplay {
+        background: none !important;
+        padding: 0px !important;
+        width: 100% !important;
+    }
+    tr[valign="top"] div[id^='portlet_'] td {
+        background: none !important;
+    }
+
+    tr[valign="top"] div[id^='portlet_'] {
+        background: #fff;
+    }
+
+    tr:child(td[height="8"]){
+        visibility: hidden;
+    }

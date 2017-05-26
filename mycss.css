@@ -1,0 +1,437 @@
+/* Cac mau sac tren toan bo trang
+   Mau menu va teu de cac muc: #006cb6
+*/
+
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Baloo');
+body {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: "Times New Roman", Times, serif !important;
+}
+/* Top menu */
+    #mbt-menu,
+    #mbt-menu ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #mbt-menu {
+        width: 1000px;/* do rong toan menu */
+        background: #006cb6;
+        border-radius: 10px 10px 0px 0px;
+        position: relative;
+        z-index: 100;
+        margin: 5px auto -4px auto;
+    }
+
+    #mbt-menu:before,
+    #mbt-menu:after {
+        content: "";
+        display: table;
+    }
+
+    #mbt-menu:after {
+        clear: both;
+    }
+
+    #mbt-menu li {
+        float: left;
+        position: relative;
+        border-right: 1px solid #fff;
+    }
+
+    #mbt-menu a {
+        float: left;
+        padding: 5px 22px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 12px;
+        color: #fff;
+        margin: 0;
+        display: block;
+        line-height: 2;
+        text-decoration: none;
+    }
+
+    #mbt-menu a:hover {
+        background-color: #c60000;
+    }
+
+    #mbt-menu li a:hover {
+        color: #fafafa;
+    }
+
+    #mbt-menu ul {
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 35px;
+        left: 0;
+        z-index: 9999;
+        background: #006cb6;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+    }
+
+    #mbt-menu li:hover > ul {
+        opacity: 1;
+        visibility: visible;
+        margin: 0;
+    }
+
+    #mbt-menu ul ul {
+        top: 0;
+        left: 198px; /* menu con cap 2 thut vao*/
+    }
+
+    #mbt-menu ul li {
+        float: none;
+        display: block;
+        border: 0;
+        border-top: 1px solid #fff;
+    }
+
+    #mbt-menu ul li:first-child {
+        border: 0px;
+    }
+
+    #mbt-menu ul li:last-child {
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    #mbt-menu ul a {
+        padding: 8px;
+        width: 180px; /* do rong menu con */
+        display: block;
+        white-spaco: nowrap;
+        float: none;
+        text-transform: none;
+    }
+
+    #mbt-menu > li:first-child > a:hover {
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    #mbt-menu ul li:first-child > a {
+        -moz-border-radius: 5px 5px 0 0;
+        -webkit-border-radius: 5px 5px 0 0;
+        border-radius: 5px 5px 0 0;
+    }
+
+    #mbt-menu ul li:last-child > a {
+        -moz-border-radius: 0 0 5px 5px;
+        -webkit-border-radius: 0 0 5px 5px;
+        border-radius: 0 0 5px 5px;
+    }
+
+/* Xu ly gian cach va vien cho cac bai dang */
+
+    tr[valign="top"] div[id^='portlet_'] > div:not(.c_tintuc) {
+        border-right: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        overflow: hidden;
+    }
+
+    tr[valign="top"] div[id^='portlet_'] > div:only-child {
+        margin-top: -10px;
+    }
+
+    tr[valign="top"] div[id^='portlet_'] > div:last-child {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+
+/* Tieu de cua cac muc */
+    .c_tintuc {
+        border: 1px solid #ddd;
+        margin-top: 15px;
+    }
+
+    .tintuc {
+        height: 33px;
+        border-bottom: 3px solid #006cb6;
+        margin: -10px -1px -1px -1px;
+    }
+
+    .tintuc span {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 13px;
+        font-family: Verdana, Geneva, sans-serif;
+        padding: 0px 10px;
+        text-transform: uppercase;
+        line-height: 30px;
+        position: relative;
+        color: #fff;
+        background: #006cb6;
+        margin-top: 2px;
+    }
+
+    .tintuc span:before {
+        border-right: 20px solid transparent;
+        border-bottom: 30px solid #006cb6;
+        content: "";
+        display: inline-block;
+        height: 0;
+        position: absolute;
+        right: -20px;
+        top: 0;
+        width: 0;
+    }
+
+/* xu ly gian cach cua nut xem them o cac bai dang*/
+    td[height="24"],
+    td[height="24"] > p[align="right"] {
+        height: auto;
+        margin: 0px;
+    }
+
+/* Xu ly Tieu de*/
+    #pnTopDisplay {
+        border-bottom: 4px solid #006cb6;
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+    }
+
+    #pnTopDisplay #banner {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+
+    #pnTopDisplay #banner > img {
+        margin-bottom: -35px;
+    }
+
+/* Search box cua google*/
+    #pnTopDisplay #banner > #SearchBox {
+        position: absolute;
+        width: 50%;
+        right: 0px;
+        top: 100px;
+    }
+
+    #pnTopDisplay #banner > #SearchBox > #Search {
+        width: 450px;
+    }
+
+    .gsc-control-cse {
+        font-family: Arial, sans-serif;
+        border: 0px !important;
+        background-color: rgba(255, 255, 255, 0) !important;
+    }
+
+    #gsc-iw-id1 {
+        border: 0px !important;
+        background-color: rgba(255, 255, 255, 0) !important;
+        box-shadow: none !important;
+        width: 375px;
+    }
+
+    #gsc-i-id1 {
+        border: 1px solid rgba(7, 91, 148, 0.69) !important;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -khtml-border-radius: 20px;
+        border-radius: 20px;
+        height: 30px !important;
+        width: 350px !important;
+        padding: 5px 10px !important;
+    }
+
+    td.gsc-search-button > input {
+        padding: 6px 20px;
+        margin-left: -60px;
+        margin-top: 15px;
+        height: 25px;
+        width: 50px;
+    }
+
+/* Xu ly Chan trang */
+    #pnBottomDisplay {
+        width: 100% !important;
+    }
+
+    .footer-distributed {
+        background-color: #e7e5e5;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+        box-sizing: border-box;
+        width: 100%;
+        text-align: left;
+        font: bold 16px sans-serif;
+        padding: 5px 50px;
+    }
+
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    /* Footer left */
+    .footer-distributed .footer-left {
+        width: 35%;
+        margin: 0px 10px;
+        text-align: right;
+    }
+
+    /* The company logo */
+    .footer-distributed h3 {
+        color: #33383b;
+        font: normal 35px 'Baloo' !important;
+        margin: 0;
+    }
+
+    .footer-distributed h3 span {
+        color: #5383d3;
+    }
+
+    .footer-distributed p {
+        color: #33383b;
+        margin: 5px;
+    }
+
+    .footer-distributed .footer-icons {
+        margin-top: 5px;
+    }
+
+    .footer-distributed .footer-icons a .fa {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        background-color: #33383b;
+        border-radius: 2px;
+        font-size: 20px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 35px;
+        margin-right: 3px;
+        margin-bottom: 5px;
+    }
+
+    .footer-distributed .footer-company-name {
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    /* Footer Center */
+    .footer-distributed .footer-center {
+        width: 25%;
+        margin: 0px 15px;
+        text-align: center;
+    }
+
+    .footer-distributed i.fa {
+        background-color: #33383b;
+        color: #ffffff;
+        font-size: 25px;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 42px;
+        margin: 5px 5px;
+        vertical-align: middle;
+    }
+
+    .footer-distributed i.fa-envelope,
+    .footer-distributed i.fa-fax {
+        font-size: 17px;
+        line-height: 38px;
+    }
+
+    .footer-distributed i.fa + p {
+        display: inline-block;
+        color: #33383b;
+        vertical-align: middle;
+        margin: 0;
+    }
+
+    .footer-distributed i.fa + p span {
+        display: block;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    .footer-distributed i.fa + p a {
+        color: #5383d3;
+        text-decoration: none;
+    }
+
+    /* Footer Right */
+    .footer-distributed .footer-right {
+        width: 28%;
+    }
+
+    .footer-distributed .footer-company-about {
+        line-height: 20px;
+        font-size: 13px;
+        font-weight: normal;
+        margin-left: 10px;
+    }
+
+    /* If you don't want the footer to be responsive, remove these media queries */
+    @media (max-width:880px) {
+        .footer-distributed {
+            font: bold 14px sans-serif;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .footer-distributed .footer-center i {
+            margin-left: 0;
+        }
+
+    }
+
+/* Tao nut tu link */
+    a.downloadlink:link,
+    a.downloadlink:visited {
+        background-color: rgb(50, 150, 50);
+        color: #ffffff;
+        font-size: 20px;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        line-height: 60px;
+        padding: 15px;
+        vertical-align: middle;
+    }
+
+    a.downloadlink:hover,
+    a.downloadlink:active {
+        background-color: rgb(30, 130, 30);
+    }
+
+/* Xy ly cai du bao thoi tiet */
+    #link_get_widget{
+        visibility: hidden !important;
+    }
