@@ -1,0 +1,97 @@
+{
+    "Text": "Các thầy cô giảng dạy môn Hoá học",
+    "Data": [
+        {
+            "Call": "Cô giáo",
+            "Name": "Lê Hải Âu",
+            "Birthday": "24/05/1988",
+            "Phone": ["0922392252"],
+            "Email": ["lhau.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "lhau.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Nguyễn Ngọc Hưng",
+            "Birthday": "12/12/1983",
+            "Phone": ["0975433254"],
+            "Email": ["nnhung.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nnhung.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Lê Thị Thanh Hương",
+            "Birthday": "05/08/1987",
+            "Phone": [""],
+            "Email": ["ltthuong.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ltthuong.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Nguyễn Văn Lưu",
+            "Birthday": "01/08/1972",
+            "Phone": ["0989776467"],
+            "Email": ["nvluu.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nvluu.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Phạm Thị Ngân",
+            "Birthday": "20/11/1986",
+            "Phone": ["0583635877",
+                "0905763118"],
+            "Email": ["ptngan.hoa.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ptngan.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Phạm Thị Hồng Phượng",
+            "Birthday": "06/08/1994",
+            "Phone": ["01648648303"],
+            "Email": ["pthphuong.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "pthphuong.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Vũ Hoàng Thanh",
+            "Birthday": "08/07/1965",
+            "Phone": ["0913430985"],
+            "Email": ["vhthanh.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "vhthanh.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Đinh Thị Thanh Thảo",
+            "Birthday": "21/03/1979",
+            "Phone": ["225113282",
+                "01656272569"],
+            "Email": ["dttthao.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "dttthao.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Trần Thị Ngọc Thọ",
+            "Birthday": "23/01/1985",
+            "Phone": ["03635039",
+                "0975888425"],
+            "Email": ["ttntho.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ttntho.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Thị Thanh Tố",
+            "Birthday": "20/09/1987",
+            "Phone": ["0583845226",
+                "0984219234"],
+            "Email": ["nttto.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nttto.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Hồ Thị Hoàng Yến",
+            "Birthday": "03/08/1992",
+            "Phone": ["01649563685"],
+            "Email": ["hthyen.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "hthyen.png"
+        }
+    ]
+}

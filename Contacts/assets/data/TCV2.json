@@ -1,0 +1,730 @@
+[
+    {
+        "B": "Hóa",
+        "Name": "Nguyễn Quốc Cường",
+        "Birthday": "02/01/1993",
+        "Phone": ["01684759449"],
+        "Email": ["nqcuong.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Lê Thị Thanh Hương",
+        "Birthday": "05/08/1987",
+        "Phone": [""],
+        "Email": [""]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Trần Thị Ngọc Thọ",
+        "Birthday": "23/01/1985",
+        "Phone": ["3635039","0975888425"],
+        "Email": ["ttntho.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Hồ Thị Hoàng Yến",
+        "Birthday": "03/08/1992",
+        "Phone": ["01649563685"],
+        "Email": ["hthyen.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Nguyễn Ngọc Hưng",
+        "Birthday": "12/12/1983",
+        "Phone": ["0975433254","0975433254"],
+        "Email": ["nnhung.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Lê Hải Âu",
+        "Birthday": "24/05/1988",
+        "Phone": ["0922392252"],
+        "Email": ["lhau.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Mai Xuân Văn",
+        "Birthday": "22/07/1956",
+        "Phone": [""],
+        "Email": [""]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Nguyễn Văn Lưu",
+        "Birthday": "01/08/1972",
+        "Phone": ["0989776467"],
+        "Email": [""]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Nguyễn Thị Thanh Tố",
+        "Birthday": "20/09/1987",
+        "Phone": ["0583845226","0984219234"],
+        "Email": ["nttto.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Vũ Hoàng Thanh",
+        "Birthday": "08/07/1965",
+        "Phone": ["0913430985","0913430985"],
+        "Email": ["vhthanh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Phạm Thị Hồng Phượng",
+        "Birthday": "06/08/1994",
+        "Phone": ["01648648303","01648648303"],
+        "Email": [""]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Phạm Thị Ngân",
+        "Birthday": "20/11/1986",
+        "Phone": ["0583635877","0905763118"],
+        "Email": ["ptngan.hoa.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Hóa",
+        "Name": "Đinh Thị Thanh Thảo",
+        "Birthday": "21/03/1979",
+        "Phone": ["225113282","01656272569"],
+        "Email": ["dttthao.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Phan Trần Thuý Liễu",
+        "Birthday": "16/08/1978",
+        "Phone": ["01223517405","01223517405"],
+        "Email": ["pttlieu.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Trần Thị Giang",
+        "Birthday": "10/04/1990",
+        "Phone": ["01864449048","0935925171"],
+        "Email": [""]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Nguyễn Phú Thinh",
+        "Birthday": "24/02/1977",
+        "Phone": ["01689696216","01689696216"],
+        "Email": ["npthinh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Ngô Thị Thanh Phương",
+        "Birthday": "22/02/1989",
+        "Phone": ["0973756814"],
+        "Email": [""]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Trần Thanh Định",
+        "Birthday": "20/09/1981",
+        "Phone": ["0905104437","0905104437"],
+        "Email": ["ttdinh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Phạm Thị Ngân",
+        "Birthday": "06/11/1989",
+        "Phone": ["0905614290","0905614290"],
+        "Email": ["ptngan.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Phùng Thanh Đàm",
+        "Birthday": "21/10/1986",
+        "Phone": ["0972757621","0972757621"],
+        "Email": ["ptdam.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Nguyễn Dương",
+        "Birthday": "20/06/1964",
+        "Phone": ["01205987463"],
+        "Email": [""]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Nguyễn Thanh An",
+        "Birthday": "06/03/1965",
+        "Phone": ["01686007035"],
+        "Email": [""]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Nguyễn Thị Thơ",
+        "Birthday": "12/08/1985",
+        "Phone": ["01648721421","01648721421"],
+        "Email": ["nttho.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Trần Thị Kim Anh",
+        "Birthday": "10/06/1986",
+        "Phone": ["01645484742","0986145559"],
+        "Email": ["ttkanh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Huỳnh Thị Tố Như",
+        "Birthday": "01/01/1993",
+        "Phone": ["0988783698","0988783698"],
+        "Email": ["huynhnhuspl12@gmail.com"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Lê Thị Phương Thảo",
+        "Birthday": "16/10/1986",
+        "Phone": ["0983514100","0983514100"],
+        "Email": ["ltpthao.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Lý - CN",
+        "Name": "Hoàng Thị Mơ",
+        "Birthday": "20/02/1991",
+        "Phone": ["0973406152"],
+        "Email": ["htmo.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Mai Thị Hồng Hạnh",
+        "Birthday": "02/12/1976",
+        "Phone": ["0905757360"],
+        "Email": ["mthhanh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Trầm Lợi Nguyễn Nhị Minh",
+        "Birthday": "12/06/1976",
+        "Phone": ["01228553631"],
+        "Email": [""]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Lâm Mỹ Ngân",
+        "Birthday": "20/09/1978",
+        "Phone": ["01263508717"],
+        "Email": [""]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Trần Thị Quý Trinh",
+        "Birthday": "20/04/1993",
+        "Phone": ["01658968435","01658968435"],
+        "Email": ["ttqtrinh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Liên Khôi Thực",
+        "Birthday": "30/07/1956",
+        "Phone": [""],
+        "Email": [""]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Trần Thị Thu",
+        "Birthday": "13/11/1976",
+        "Phone": ["01672882465"],
+        "Email": [""]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Phạm Đình Phi",
+        "Birthday": "20/10/1973",
+        "Phone": ["0935606460"],
+        "Email": [""]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Nguyễn Hữu Hoàng",
+        "Birthday": "02/08/1992",
+        "Phone": ["01699179097","01699179097"],
+        "Email": ["nhhoang.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Lê Bảo Hà My",
+        "Birthday": "26/08/1993",
+        "Phone": ["0934700485"],
+        "Email": [""]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Đinh Quang Trung",
+        "Birthday": "20/07/1983",
+        "Phone": ["01697864206","01697864206"],
+        "Email": ["dqtrung.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Nguyễn Văn Định",
+        "Birthday": "16/03/1975",
+        "Phone": ["0583844219","0905125998"],
+        "Email": ["nvdinh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Ngoại ngữ",
+        "Name": "Lê Thị Thanh Loan",
+        "Birthday": "06/12/1976",
+        "Phone": [""],
+        "Email": [""]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Nguyễn Thị Ánh Vân",
+        "Birthday": "11/06/1988",
+        "Phone": ["0989676247"],
+        "Email": [""]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Võ Thị Bích Liễu",
+        "Birthday": "02/01/1986",
+        "Phone": ["0974828462"],
+        "Email": ["vtblieu.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Nguyễn Trần Xuân Vủ",
+        "Birthday": "25/06/1987",
+        "Phone": ["0973836167","0973836167"],
+        "Email": ["ntxvu.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Đặng Thị Thùy Trang",
+        "Birthday": "06/04/1987",
+        "Phone": ["0935925347","0935925347"],
+        "Email": ["dtttrang.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Trần Thị Thùy Giang",
+        "Birthday": "09/11/1987",
+        "Phone": ["0936798819"],
+        "Email": ["tttgiang.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Phạm Xuân Trường",
+        "Birthday": "23/07/1983",
+        "Phone": ["01649538968","0907979783"],
+        "Email": ["pxtruong.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Ngô Thị Thùy Dương",
+        "Birthday": "18/02/1989",
+        "Phone": ["0989868405"],
+        "Email": ["nttduong.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Nguyễn Minh Xang",
+        "Birthday": "10/04/1984",
+        "Phone": ["01685834863"],
+        "Email": ["nmxang.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Phan Như Quỳnh",
+        "Birthday": "22/09/1992",
+        "Phone": ["01653931480","01653931480"],
+        "Email": ["pnquynh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Lê Hoàn Chân",
+        "Birthday": "04/08/1991",
+        "Phone": ["0997230273"],
+        "Email": ["lhchan.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Nguyễn Thị kim Duyên",
+        "Birthday": "01/07/1985",
+        "Phone": ["01688939008"],
+        "Email": [""]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Nguyễn Ngọc Thạch",
+        "Birthday": "27/03/1982",
+        "Phone": ["0946701077"],
+        "Email": ["nnthach.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sinh - Tin",
+        "Name": "Nguyễn Thị Nghĩa",
+        "Birthday": "08/01/1976",
+        "Phone": ["0993527027"],
+        "Email": [""]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Trần Thị Mỹ Linh",
+        "Birthday": "02/08/1991",
+        "Phone": ["01652610664","01652610664"],
+        "Email": [""]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Nguyễn Thanh Thiên Phúc",
+        "Birthday": "27/05/1984",
+        "Phone": ["0907789502"],
+        "Email": ["nttphuc.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Phan Thị Hoa",
+        "Birthday": "28/11/1991",
+        "Phone": ["01667369861"],
+        "Email": ["phanhoageo@gmail.com"]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Trần Thị Như Ý",
+        "Birthday": "21/01/1992",
+        "Phone": ["01675091165","01675091165"],
+        "Email": ["ttny.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Nguyễn Thị Hồng Gấm",
+        "Birthday": "06/06/1992",
+        "Phone": ["01668936427","01668936427"],
+        "Email": ["nthgam.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Trần Thị Thu",
+        "Birthday": "13/06/1989",
+        "Phone": ["01683358141","01683358141"],
+        "Email": ["ttthu_di.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Đỗ Thị Thảo Hiền",
+        "Birthday": "08/03/1987",
+        "Phone": ["01288444859","01223505546"],
+        "Email": ["dtthien.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Võ Như Quyền",
+        "Birthday": "20/06/1984",
+        "Phone": ["01684178549"],
+        "Email": ["vnquyen.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Hoàng Thị Kim Lương",
+        "Birthday": "13/08/1964",
+        "Phone": ["0973115838","0973115838"],
+        "Email": ["htkluong.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Phạm Thị Quyền",
+        "Birthday": "19/09/1979",
+        "Phone": ["0986003290"],
+        "Email": ["ptquyen.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Sử-Địa-GDCD",
+        "Name": "Nguyễn Vũ Vy Diệu",
+        "Birthday": "23/08/1988",
+        "Phone": ["01639793338","01639793338"],
+        "Email": ["nvvdieu.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "TD-QP",
+        "Name": "Nguyễn Thái Cường",
+        "Birthday": "28/04/1989",
+        "Phone": ["01656101989"],
+        "Email": ["ntcuong.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "TD-QP",
+        "Name": "Lê Văn Tiên",
+        "Birthday": "06/05/1987",
+        "Phone": ["01667208422","01667208422"],
+        "Email": ["lvtien.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "TD-QP",
+        "Name": "Trần Quốc Tịnh",
+        "Birthday": "01/07/1991",
+        "Phone": ["01674606474",""],
+        "Email": ["tqtinh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "TD-QP",
+        "Name": "Tạ Thanh Toàn",
+        "Birthday": "28/02/1978",
+        "Phone": ["01664272455"],
+        "Email": ["tttoan.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "TD-QP",
+        "Name": "Nguyễn Thanh Tuấn",
+        "Birthday": "26/06/1994",
+        "Phone": ["0927123357","0927123357"],
+        "Email": [""]
+    },
+    {
+        "B": "TD-QP",
+        "Name": "Nguyễn Long Thành",
+        "Birthday": "02/10/1992",
+        "Phone": ["01645975767","01645975767"],
+        "Email": [""]
+    },
+    {
+        "B": "TD-QP",
+        "Name": "Trịnh Quốc Đạt",
+        "Birthday": "30/10/1981",
+        "Phone": ["0989770802","0989770802"],
+        "Email": ["tqdat.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "TD-QP",
+        "Name": "Nguyễn Thị Thu Hiền",
+        "Birthday": "20/05/1990",
+        "Phone": [""],
+        "Email": [""]
+    },
+    {
+        "B": "TD-QP",
+        "Name": "Nguyễn Văn Thành",
+        "Birthday": "30/06/1986",
+        "Phone": ["0906671404","0906671404"],
+        "Email": ["nvthanh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Nguyễn Thị Hoài Phương",
+        "Birthday": "03/10/1988",
+        "Phone": ["01696106700"],
+        "Email": ["nthphuong.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Hoàng Vũ Phi",
+        "Birthday": "22/02/1987",
+        "Phone": ["01692061954","01692061954"],
+        "Email": ["hvphi.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Lê Thanh Tuấn",
+        "Birthday": "12/07/1982",
+        "Phone": ["0932139777"],
+        "Email": [""]
+    },
+    {
+        "B": "Toán",
+        "Name": "Nguyễn Thị Hương Trang",
+        "Birthday": "25/09/1986",
+        "Phone": ["0914252524","0914252524"],
+        "Email": ["nthtrang.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Nguyễn Thị Ngọc Trinh",
+        "Birthday": "02/11/1987",
+        "Phone": ["01227538456"],
+        "Email": ["ntntrinh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Nguyễn Đức Sơn",
+        "Birthday": "01/01/1978",
+        "Phone": ["0583635728","0905174608"],
+        "Email": ["ndson.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Lương Thị Ngọc Khương",
+        "Birthday": "15/05/1988",
+        "Phone": ["0979437985","01225531505"],
+        "Email": ["ltnkhuong.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Đỗ Thị Thu Thảo",
+        "Birthday": "14/10/1980",
+        "Phone": ["0906441772"],
+        "Email": [""]
+    },
+    {
+        "B": "Toán",
+        "Name": "Đỗ Vương Vũ",
+        "Birthday": "24/10/1984",
+        "Phone": ["0915823977"],
+        "Email": [""]
+    },
+    {
+        "B": "Toán",
+        "Name": "Nguyễn Sĩ Trung",
+        "Birthday": "01/11/1987",
+        "Phone": ["0987202721"],
+        "Email": ["nstrung.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Hoàng Văn Tuấn",
+        "Birthday": "15/10/1982",
+        "Phone": ["0972169796"],
+        "Email": ["hvtuan.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Huỳnh Hữu Thuận",
+        "Birthday": "15/12/1987",
+        "Phone": ["0993414022","0993414022"],
+        "Email": ["hhthuan.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Phan Hoàng Phương",
+        "Birthday": "09/12/1990",
+        "Phone": ["0933877938"],
+        "Email": [""]
+    },
+    {
+        "B": "Toán",
+        "Name": "Nguyễn Thị Thanh Lam",
+        "Birthday": "21/12/1980",
+        "Phone": ["0909511882","0909511882"],
+        "Email": ["nttlam.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Phan Thị Hồng Nhân",
+        "Birthday": "21/10/1993",
+        "Phone": ["0935435104","01668335153"],
+        "Email": ["pthnhan.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Toán",
+        "Name": "Nguyễn Thị Thuý",
+        "Birthday": "27/02/1981",
+        "Phone": ["0989638083","0989638083"],
+        "Email": [""]
+    },
+    {
+        "B": "Toán",
+        "Name": "Hồ Quốc Đạt",
+        "Birthday": "17/12/1983",
+        "Phone": ["0905310730"],
+        "Email": [""]
+    },
+    {
+        "B": "Tổ bộ môn",
+        "Name": "Họ và Tên",
+        "Birthday": "Ngày sinh",
+        "Phone": ["Số điện thoại","SĐT Di động"],
+        "Email": ["Email"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Nguyễn Thị Vân",
+        "Birthday": "26/08/1992",
+        "Phone": ["868860092","868860092"],
+        "Email": ["vannguyenk55@gmail.com"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Phan Thị Lam",
+        "Birthday": "22/06/1990",
+        "Phone": ["0988747006"],
+        "Email": ["ptlam.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Lê Thị Phượng",
+        "Birthday": "01/05/1990",
+        "Phone": ["0989031698","0989031698"],
+        "Email": ["ltphuong.c3tcvan@khanhhoa.edu"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Lê Thị Tuyết",
+        "Birthday": "07/01/1989",
+        "Phone": ["01227470787","01674715891"],
+        "Email": ["lttuyet.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Hồ Thị Thùy Trang",
+        "Birthday": "10/12/1987",
+        "Phone": ["0982232140","0982232140"],
+        "Email": ["htttrang.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Lê Thị Hải Yến",
+        "Birthday": "04/07/1985",
+        "Phone": ["01674654396"],
+        "Email": ["lthyen.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Nguyễn Thị Kim Thanh",
+        "Birthday": "06/06/1990",
+        "Phone": ["01206002654","01206002654"],
+        "Email": ["ntkthanh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Lữ Thị Vĩ Hạ",
+        "Birthday": "06/06/1983",
+        "Phone": ["01648530992"],
+        "Email": ["ltvha.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Phan My Linh",
+        "Birthday": "17/01/1983",
+        "Phone": ["01659668379","01659668379"],
+        "Email": ["pmlinh.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Nguyễn Thị Thanh Tâm",
+        "Birthday": "01/01/1993",
+        "Phone": ["0978612214","0978612214"],
+        "Email": [""]
+    },
+    {
+        "B": "Văn",
+        "Name": "Trần Ngọc Lan",
+        "Birthday": "10/03/1985",
+        "Phone": ["0978604600"],
+        "Email": ["tnlan.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Võ Thị Phú",
+        "Birthday": "11/07/1983",
+        "Phone": ["01654885275"],
+        "Email": ["vtphu.c3tcvan@khanhhoa.edu.vn"]
+    },
+    {
+        "B": "Văn",
+        "Name": "Dương Thị Phương Lưu",
+        "Birthday": "10/10/1993",
+        "Phone": ["01697651823","01697651823"],
+        "Email": [""]
+    },
+    {
+        "B": "Văn",
+        "Name": "Nguyễn Thị Thu Tuyền",
+        "Birthday": "30/10/1987",
+        "Phone": [""],
+        "Email": [""]
+    }
+]

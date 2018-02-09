@@ -1,0 +1,30 @@
+{
+    "Text": "Các thầy cô giảng dạy môn Giáo dục công dân",
+    "Data": [
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Vũ Vy Diệu",
+            "Birthday": "23/08/1988",
+            "Phone": ["01639793338"],
+            "Email": ["nvvdieu.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nvvdieu.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Đỗ Thị Thảo Hiền",
+            "Birthday": "08/03/1987",
+            "Phone": ["01288444859",
+                "01223505546"],
+            "Email": ["dtthien.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "dtthien.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Thanh Thiên Phúc",
+            "Birthday": "27/05/1984",
+            "Phone": ["0907789502"],
+            "Email": ["nttphuc.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nttphuc.png"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+<div class="row profile">
+	<div class="col-sm-4 col-sm-offset-1">
+		<div class="picture-container">
+			<div class="picture">
+				<img id="image" src="{0}" class="picture-src" data-toggle="modal" data-target="#myModal" onerror="$(this).unbind('error').unbind('click').attr('src', 'assets/img/default-avatar.png').attr('data-toggle', '').attr('data-target', '');" />
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="info">
+			<i class="material-icons">record_voice_over</i><span class="call">{1}</span>
+		</div>
+		<div class="info">
+			<i class="material-icons">face</i><span class="name">{2}</span>
+		</div>
+		<div class="info">
+			<i class="material-icons">today</i><span class="birthday">{3}</span>
+		</div>
+		<!--   Phone   -->
+		{4}
+		<!--   Email   -->
+		{5}
+	</div>
+</div>
+<div class="row">
+	<hr>
+</div>

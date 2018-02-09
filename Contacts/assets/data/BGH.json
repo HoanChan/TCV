@@ -1,0 +1,29 @@
+{
+  "Text": "Ban giám hiệu nhà trường",
+  "Data": [
+    {
+      "Call": "Thầy hiệu trưởng",
+      "Name": "Nguyễn Đình Dân",
+      "Email": ["nddan.c3tcvan@khanhhoa.edu.vn"],
+      "Phone": ["0968160677", "0936944479"],
+      "Birthday": "07/05/1964",
+      "Image": "nddan.png"
+    },
+    {
+      "Call": "Thầy hiệu phó",
+      "Name": "Nguyễn Văn Định",
+      "Email": ["nvdinh.c3tcvan@khanhhoa.edu.vn"],
+      "Phone": ["0905125998"],
+      "Birthday": "16/03/1975",
+      "Image": "nvdinh.png"
+    },
+    {
+      "Call": "Thầy hiệu phó",
+      "Name": "Lê Thanh Tuấn",
+      "Email": ["lttuan.c3tcvan@khanhhoa.edu.vn"],
+      "Phone": ["0932139777"],
+      "Birthday": "12/07/1982",
+      "Image": "lttuan.png"
+    }
+  ]
+}

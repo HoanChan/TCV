@@ -1,0 +1,37 @@
+{
+    "Text": "Các thầy cô giảng dạy môn Địa lý",
+    "Data": [
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Thị Hồng Gấm",
+            "Birthday": "06/06/1992",
+            "Phone": ["01668936427"],
+            "Email": ["honggam0606@gmail.com", "nthgam.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nthgam.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Phan Thị Hoa",
+            "Birthday": "28/11/1991",
+            "Phone": ["01667369861"],
+            "Email": ["phanhoageo@gmail.com", "pthoa.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "pthoa.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Võ Như Quyền",
+            "Birthday": "20/06/1984",
+            "Phone": ["01684178549"],
+            "Email": ["vnquyen.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "vnquyen.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Trần Thị Thu",
+            "Birthday": "13/06/1989",
+            "Phone": ["01683358141"],
+            "Email": ["ttthu_di.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ttthu.png"
+        }
+    ]
+}

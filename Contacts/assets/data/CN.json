@@ -1,0 +1,21 @@
+{
+    "Text": "Các thầy cô giảng dạy môn Công nghệ",
+    "Data": [
+        {
+            "Call": "Cô giáo",
+            "Name": "Hoàng Thị Mơ",
+            "Birthday": "20/02/1991",
+            "Phone": ["0973406152"],
+            "Email": ["htmo.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "htmo.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Ngô Thị Thanh Phương",
+            "Birthday": "22/02/1989",
+            "Phone": ["0973756814"],
+            "Email": ["nttphuong.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nttphuong.png"
+        }
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "Text": "Các thầy cô giảng dạy môn Thể dục và Quốc phòng",
+    "Data": [
+        {
+            "Call": "Thầy giáo",
+            "Name": "Nguyễn Thái Cường",
+            "Birthday": "28/04/1989",
+            "Phone": ["01656101989"],
+            "Email": ["ntcuong.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ntcuong.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Trịnh Quốc Đạt",
+            "Birthday": "30/10/1981",
+            "Phone": ["0989770802"],
+            "Email": ["tqdat.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "tqdat.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Thị Thu Hiền",
+            "Birthday": "20/05/1990",
+            "Phone": [""],
+            "Email": ["ntthien.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ntthien.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Nguyễn Long Thành",
+            "Birthday": "02/10/1992",
+            "Phone": ["01645975767"],
+            "Email": ["nlthanh.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nlthanh.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Nguyễn Văn Thành",
+            "Birthday": "30/06/1986",
+            "Phone": ["0906671404"],
+            "Email": ["nvthanh.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nvthanh.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Lê Văn Tiên",
+            "Birthday": "06/05/1987",
+            "Phone": ["01667208422"],
+            "Email": ["lvtien.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "lvtien.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Trần Quốc Tịnh",
+            "Birthday": "01/07/1991",
+            "Phone": ["01674606474"],
+            "Email": ["tqtinh.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "tqtinh.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Tạ Thanh Toàn",
+            "Birthday": "28/02/1978",
+            "Phone": ["01664272455"],
+            "Email": ["tttoan.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "tttoan.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Nguyễn Thanh Tuấn",
+            "Birthday": "26/06/1994",
+            "Phone": ["0927123357"],
+            "Email": ["nttuan.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nttuan.png"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "Text": "Các thầy cô giảng dạy môn Tin học",
+    "Data": [
+      {
+            "Call": "Thầy giáo",
+            "Name": "Lê Hoàn Chân",
+            "Email": ["Le.Hoan.Chan@gmail.com", "lhchan.c3tcvan@khanhhoa.edu.vn"],
+            "Phone": ["0997230273"],
+            "Birthday": "27/03/1991",
+            "Image": "lhchan.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Ngô Thị Thùy Dương",
+            "Email": ["nttduong.c3tcvan@khanhhoa.edu.vn"],
+            "Phone": ["0989868405"],
+            "Birthday": "18/02/1989",
+            "Image": "nttduong.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Võ Thị Bích Liễu",
+            "Email": ["vtblieu.c3tcvan@khanhhoa.edu.vn"],
+            "Phone": ["0974828462"],
+            "Birthday": "02/01/1986",
+            "Image": "vtblieu.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Nguyễn Ngọc Thạch",
+            "Email": ["nnthach.c3tcvan@khanhhoa.edu.vn"],
+            "Phone": ["0946701077"],
+            "Birthday": "27/03/1982",
+            "Image": "nnthach.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Phạm Xuân Trường",
+            "Email": ["pxtruong.c3tcvan@khanhhoa.edu.vn"],
+            "Phone": ["1649538968",
+                "0907979783"],
+            "Birthday": "23/07/1983",
+            "Image": "pxtruong.png"
+        }
+    ]
+}

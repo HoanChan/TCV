@@ -1,0 +1,37 @@
+{
+    "Text": "Các thầy cô giảng dạy môn Lịch sử",
+    "Data": [
+        {
+            "Call": "Cô giáo",
+            "Name": "Trần Thị Mỹ Linh",
+            "Birthday": "02/08/1991",
+            "Phone": ["01652610664"],
+            "Email": ["thmlinh.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "thmlinh.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Hoàng Thị Kim Lương",
+            "Birthday": "13/08/1964",
+            "Phone": ["0973115838"],
+            "Email": ["htkluong.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "htkluong.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Phạm Thị Quyền",
+            "Birthday": "19/09/1979",
+            "Phone": ["0986003290"],
+            "Email": ["ptquyen.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ptquyen.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Trần Thị Như Ý",
+            "Birthday": "21/01/1992",
+            "Phone": ["01675091165"],
+            "Email": ["ttny.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ttny.png"
+        }
+    ]
+}

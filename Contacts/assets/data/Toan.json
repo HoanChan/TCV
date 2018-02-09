@@ -1,0 +1,127 @@
+{
+    "Text": "Các thầy cô giảng dạy môn Toán học",
+    "Data": [
+        {
+            "Call": "Thầy giáo",
+            "Name": "Hồ Quốc Đạt",
+            "Birthday": "17/12/1983",
+            "Phone": ["0905310730"],
+            "Email": ["hqdat.c3tcvan@khanhhoa.edu"],
+            "Image": "hqdat.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Lương Thị Ngọc Khương",
+            "Birthday": "15/05/1988",
+            "Phone": ["0979437985",
+                "01225531505"],
+            "Email": ["ltnkhuong.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ltnkhuong.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Thị Thanh Lam",
+            "Birthday": "21/12/1980",
+            "Phone": ["0909511882"],
+            "Email": ["nttlam.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nttlam.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Phan Thị Hồng Nhân",
+            "Birthday": "21/10/1993",
+            "Phone": ["0935435104",
+                "01668335153"],
+            "Email": ["pthnhan.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "pthnhan.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Hoàng Vũ Phi",
+            "Birthday": "22/02/1987",
+            "Phone": ["01692061954"],
+            "Email": ["hvphi.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "hvphi.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Thị Hoài Phương",
+            "Birthday": "03/10/1988",
+            "Phone": ["01696106700"],
+            "Email": ["nthphuong.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nthphuong.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Phan Hoàng Phương",
+            "Birthday": "09/12/1990",
+            "Phone": ["0933877938"],
+            "Email": ["phphuong.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "phphuong.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Đỗ Thị Thu Thảo",
+            "Birthday": "14/10/1980",
+            "Phone": ["0906441772"],
+            "Email": ["dttthao.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "dttthao.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Huỳnh Hữu Thuận",
+            "Birthday": "15/12/1987",
+            "Phone": ["0993414022"],
+            "Email": ["hhthuan.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "hhthuan.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Thị Thuý",
+            "Birthday": "27/02/1981",
+            "Phone": ["0989638083"],
+            "Email": ["ntthuy.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ntthuy.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Thị Hương Trang",
+            "Birthday": "25/09/1986",
+            "Phone": ["0914252524"],
+            "Email": ["nthtrang.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nthtrang.png"
+        },
+        {
+            "Call": "Cô giáo",
+            "Name": "Nguyễn Thị Ngọc Trinh",
+            "Birthday": "02/11/1987",
+            "Phone": ["01227538456"],
+            "Email": ["ntntrinh.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "ntntrinh.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Nguyễn Sĩ Trung",
+            "Birthday": "01/11/1987",
+            "Phone": ["0987202721"],
+            "Email": ["nstrung.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "nstrung.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Hoàng Văn Tuấn",
+            "Birthday": "15/10/1982",
+            "Phone": ["0972169796"],
+            "Email": ["hvtuan.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "hvtuan.png"
+        },
+        {
+            "Call": "Thầy giáo",
+            "Name": "Đỗ Vương Vũ",
+            "Birthday": "24/10/1984",
+            "Phone": ["0915823977"],
+            "Email": ["dvvu.c3tcvan@khanhhoa.edu.vn"],
+            "Image": "dvvu.png"
+        }
+    ]
+}
