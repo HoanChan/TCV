@@ -34,7 +34,7 @@ function getText(url) {
     return text;
 }
 
-var HCGitUrlRaw = 'https://raw.githubusercontent.com/HoanChan/HoanChan.github.io/master/live/TCV/';
+var HCGitUrlRaw = '';//'https://raw.githubusercontent.com/HoanChan/HoanChan.github.io/master/live/TCV/';
 
 function getImage(divID, image) {
     var image_url = HCGitUrlRaw + 'assets/img/' + divID + '/' + image;
