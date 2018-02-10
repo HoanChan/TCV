@@ -1,0 +1,1770 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon.ico">
+  <title>THPT Trần Cao Vân</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/mycss.css" />
+  <link rel="stylesheet" href="assets/css/tcv.main.css" />
+</head>
+<body>
+  <div onmouseover="HiddenTooltip();" id="DisplayToolTip" style="border-style: solid; border-width: thin; visibility: hidden; position: absolute; width: 400px; z-index: 1; background-color:#FEFBD6" ;="">
+    <table style="width: 100%;">
+      <tbody>
+        <tr>
+          <td>
+            <div id="DisplayTooltipdescription">
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <form name="form1" method="post" action="default.aspx" id="form1">
+    <div>
+      <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+      <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+      <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
+    </div>
+    <div>
+      <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334">
+      <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+      <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="6iGY7MlfGiR4QXinlOqgidoxcF5SbX1fkTh1QY6XFO19nfcUZpzJZW4MxaW/szsIqkby/+7FogKCYJ65PkEA0ccQEEc=">
+    </div>
+    <input type="hidden" name="HiddenField1" id="HiddenField1">
+    <div id="pnTopDisplay" style="background-color:#ffffff;width:1000px">
+      <div id="portlet_7abb90731a284d87946db29642ebe60a" style="">
+        <div>
+          <link rel="stylesheet" href="http://rawgit.com/HoanChan/TCV/master/mycss.css">
+          <link rel="stylesheet" href="http://rawgit.com/HoanChan/TCV/master/WOW/style.css">
+        </div>
+      </div>
+      <div id="portlet_df9c0bd9cd1f4101908381e31657f4de" style="text-align: center;">
+        <div>
+          <div id="banner"><img src="http://cdn.rawgit.com/HoanChan/TCV/master/LogoTCV.png" alt="" height="200px">
+            <div id="SearchBox">
+              <div id="Search">
+                <p>
+                  <gcse:search></gcse:search>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="portlet_ce6927ec98ed436eb8b9008b2a7d2bd2" style="">
+        <div>
+          <ul id="mbt-menu">
+            <li><a href="#">&nbsp;</a></li>
+            <li><a href="http://tcvan.khanhhoa.edu.vn/">Trang chủ</a></li>
+            <li><a href="#">Giới thiệu</a>
+              <ul>
+                <li><a href="#">Lược sử hình thành Trường</a></li>
+                <li><a href="Default.aspx?ArticleId=d2dbc807-fad1-4361-932b-da2f5c6d7a1c">Lược sử lãnh đạo</a></li>
+              </ul>
+            </li>
+            <li><a href="https://tcv.netlify.com/contacts/index.html">Thầy cô</a></li>
+            <li><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlbFBqQm5UZ3hoNVk">Dữ liệu</a></li>
+            <li><a href="#">Tài nguyên</a>
+              <ul class="rmVertical rmGroup rmLevel1">
+                <li><a href="./?ModuleId=4&amp;TopicId=121">Phần mềm</a></li>
+                <li><a href="#">Thủ thuật Word</a></li>
+                <li><a href="Default.aspx?ArticleId=2aabc9fd-4e2b-408b-9ce2-d4b3411699aa">Nghiên cứu KHSPƯD và SKKN</a></li>
+                <li><a href="./?ModuleID=4&amp;TopicID=122">Đề thi ĐH - CĐ</a></li>
+                <li><a href="./?ModuleId=4&amp;TopicId=123">Đề thi tốt nghiệp THPT</a></li>
+                <li><a href="./?ModuleId=4&amp;TopicId=124">Đề thi HS giỏi</a></li>
+                <li><a href="Default.aspx?ArticleId=f9c22d47-cf90-42bf-a85a-cea47b64de44">Bài tập - Đề kiểm tra</a></li>
+              </ul>
+            </li>
+            <li><a href="http://smas.edu.vn/">Sổ điểm - Học bạ</a></li>
+            <li><a href="./?ModuleId=4&amp;TopicId=128">Ảnh hoạt động</a></li>
+            <li><a href="./?ModuleId=1">Liên hệ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div align="center">
+      <div style="width: 1002px; background-color: #FFFFFF">
+        <table cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td colspan="3">
+                <div id="pnTop">
+                </div>
+              </td>
+            </tr>
+            <tr valign="top">
+              <td>
+                <div id="pnLeft">
+                  <div id="pnLeftDisplay" style="width:200px">
+                    <div id="portlet_a1bb039690bc453984488edd29824338" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>&nbsp;                      Thông Tin               </span></div>
+                      </div>
+                      <div>
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                          </tbody>
+                        </table>
+                        <div align="center">
+                          <h6 class="lead"><strong class="text-primary">Thời khoá biểu số 8<br>
+19/02/2018</strong></h6>
+                          <p><a href="https://drive.google.com/open?id=1NHp3vdz9bWW5Sfe8vLS1sqT7sZe122YM" class="btn btn-primary"><i class="fa fa-graduation-cap " aria-hidden="true">&nbsp;</i> TKB chính khoá</a></p>
+                          <p><a href="https://drive.google.com/open?id=1Te8KkkWutvrfvzMfmF5mBYGt59dPCml7" class="btn btn-success"><i class="fa fa-laptop" aria-hidden="true">&nbsp;</i> TKB Tin số 7</a></p>
+                          <p><a href="https://drive.google.com/open?id=1nVDNfRp8tqbNDmRXMWi1SD7nfc8B-raj" class="btn btn-success"><i class="fa fa-heartbeat" aria-hidden="true">&nbsp;</i> TKB TD-QP số 4</a></p>
+                          <h6 class="lead"><strong class="text-primary">Khác</strong></h6>
+                          <p><a href="https://drive.google.com/open?id=1EImoawsKPnlZZWuQKK_LKjOV_qxKkTMX" class="btn btn-danger">Kế hoạch KT HK I</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJldlBjejNqWTFyQmM" class="btn btn-success">TKB Nghề - khối 11</a></p>
+                          <p><a href="https://drive.google.com/open?id=1dqOE2WC-1tTJYoxRmX5as7P_1pxslJrE" class="btn btn-primary">Danh sách SBD <br>
+KT đề chung khối 10</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlV1d6ekFZb0RCX3M" class="btn btn-primary">Danh sách SBD <br>
+KT đề chung khối 11</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJleFhuRjhvQU96T2M" class="btn btn-primary">Danh sách SBD <br>
+KT đề chung khối 12</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlY2dFZDF4ZHFPM2s" class="btn btn-warning">Kế hoạch kiểm tra <br>
+nội bộ</a></p>
+                          <p><a href="https://drive.google.com/open?id=1SOSwcoND2-J_plI_fm5SSCuw3NQvpTju" class="btn btn-danger">Bộ quy tắc ứng xử<br>
+dành cho GV &amp; HS</a></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="portlet_733e88c1e68846e3b4a5179a2142fefd" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>&nbsp;                      THI THPT                        
+              </span></div>
+                      </div>
+                      <div>
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                          </tbody>
+                        </table>
+                        <div align="center">
+                          <h6 class="lead">Văn bản</h6>
+                          <p><a href="http://vnexpress.net/tin-tuc/giao-duc/tuyen-sinh/bo-giao-duc-cong-bo-quy-che-thi-thpt-va-xet-tuyen-dai-hoc-3534877.html" class="btn btn-success">Quy chế THI THPT 2017</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlcE1vNkd0RlJLMW8" class="btn btn-success">Xét tuyển tốt nghiệp</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlVUFYbFlzUkRia0k" class="btn btn-success">Quy chế tuyển sinh</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlNXdkeHpXTnhVZTJ6bnVHNEdJd0tfS1JmT0xR" class="btn btn-success">Danh sách máy tính<br>
+bỏ túi được sử dụng</a></p>
+                          <h6 class="lead">Tài liệu</h6>
+                          <p><a href="http://thiquocgia.vn/" class="btn btn-success">Luyện thi THPT Quốc gia</a></p>
+                          <p><a href="http://dethithu.net/tai-lieu-on-thi-dai-hoc/" class="btn btn-success">Tài liệu ôn thi THPT</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlSkdhdTVrMkRWRUU" class="btn btn-success">Đề thi thử THPT 2017</a></p>
+                          <p><a href="https://drive.google.com/open?id=1eles44oKEkoll81Xu2luEmO6BUnDvPNl" class="btn btn-primary">Đề thi thử THPT 2018</a></p>
+                          <h6 class="lead">Lịch thi</h6>
+                          <table class="table table-bordered">
+                            <tbody>
+                              <tr>
+                                <td style="text-align: center;"><strong>Ngày</strong></td>
+                                <td style="text-align: center;"><strong>Buổi</strong></td>
+                                <td style="text-align: center;"><strong>Môn thi</strong></td>
+                              </tr>
+                              <tr>
+                                <td rowspan="2" style="vertical-align: middle!important;">22/6</td>
+                                <td>Sáng</td>
+                                <td>Ngữ văn</td>
+                              </tr>
+                              <tr>
+                                <td>Chiều</td>
+                                <td>Toán</td>
+                              </tr>
+                              <tr>
+                                <td rowspan="2" style="vertical-align: middle!important;">23/6</td>
+                                <td>Sáng</td>
+                                <td>Tự nhiên</td>
+                              </tr>
+                              <tr>
+                                <td>Chiều</td>
+                                <td>Ngoại ngữ</td>
+                              </tr>
+                              <tr>
+                                <td>24/6</td>
+                                <td>Sáng</td>
+                                <td>Xã hội</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <!-- Trigger the modal with a button -->
+                          <p><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Danh sách khối thi</button>
+                            <!-- Modal -->
+                          </p>
+                          <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button>
+                                  <h4 class="modal-title">Bảng tổ hợp môn xét tuyển Đại học, Cao đẳng</h4>
+                                  <div class="modal-body">
+                                    <table class="table-bordered" width="100%">
+                                      <tbody>
+                                        <tr>
+                                          <td align="center" width="5%"><strong>STT</strong></td>
+                                          <td align="center" width="70%"><strong>Tổ hợp</strong></td>
+                                          <td align="center" width="70%"><strong>Mã tổ hợp môn</strong></td>
+                                        </tr>
+                                        <tr>
+                                          <td colspan="3" align="center"><strong>Các tổ hợp môn theo khối thi truyền thống</strong></td>
+                                        </tr>
+                                        <tr>
+                                          <td>1</td>
+                                          <td>Toán, Vật lý, Hóa Học</td>
+                                          <td>A00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>2</td>
+                                          <td>Toán, Vật lý, Tiếng Anh</td>
+                                          <td>A01</td>
+                                        </tr>
+                                        <tr>
+                                          <td>3</td>
+                                          <td>Toán, Hóa Học, Sinh học</td>
+                                          <td>B00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>4</td>
+                                          <td>Ngữ văn, Lịch sử, Địa lí</td>
+                                          <td>C00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>5</td>
+                                          <td>Ngữ văn, Toán, Tiếng Anh</td>
+                                          <td>D01</td>
+                                        </tr>
+                                        <tr>
+                                          <td>6</td>
+                                          <td>Ngữ văn, Toán, Tiếng Nga</td>
+                                          <td>D02</td>
+                                        </tr>
+                                        <tr>
+                                          <td>7</td>
+                                          <td>Ngữ văn, Toán, Tiếng Pháp</td>
+                                          <td>D03</td>
+                                        </tr>
+                                        <tr>
+                                          <td>8</td>
+                                          <td>Ngữ văn, Toán, Tiếng Trung</td>
+                                          <td>D04</td>
+                                        </tr>
+                                        <tr>
+                                          <td>9</td>
+                                          <td>Ngữ văn, Toán, Tiếng Đức</td>
+                                          <td>D05</td>
+                                        </tr>
+                                        <tr>
+                                          <td>10</td>
+                                          <td>Ngữ văn, Toán, Tiếng Nhật</td>
+                                          <td>D06</td>
+                                        </tr>
+                                        <tr>
+                                          <td colspan="3" align="center"><strong>Tổ hợp các môn thi theo khối truyền thống các ngành năng khiếu</strong></td>
+                                        </tr>
+                                        <tr>
+                                          <td>1</td>
+                                          <td>Ngữ văn, Năng khiếu vẽ NT 1, Năng khiếu NT2</td>
+                                          <td>H00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>2</td>
+                                          <td>Toán, Ngữ văn, Vẽ MT</td>
+                                          <td>H01</td>
+                                        </tr>
+                                        <tr>
+                                          <td>3</td>
+                                          <td>Ngữ văn, Năng khiếu Âm nhạc 1, Năng khiếu Âm nhạc 2</td>
+                                          <td>N00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>4</td>
+                                          <td>Ngữ văn, Toán, Đọc diễn cảm, Hát</td>
+                                          <td>M00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>5</td>
+                                          <td>Ngữ văn, Sinh học, Năng khiếu THTT</td>
+                                          <td>T00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>6</td>
+                                          <td>Toán, Vật lí, Vẽ Mỹ thuật</td>
+                                          <td>V00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>7</td>
+                                          <td>Toán, Ngữ văn, Vẽ Mỹ thuật</td>
+                                          <td>V01</td>
+                                        </tr>
+                                        <tr>
+                                          <td>8</td>
+                                          <td>Ngữ văn, NK SKĐA 1, NK SKĐA 2</td>
+                                          <td>S00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>9</td>
+                                          <td>Ngữ văn, Lịch sử, Năng khiếu báo chí</td>
+                                          <td>R00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>10</td>
+                                          <td>Toán, Vật lí, Kỹ thuật nghề</td>
+                                          <td>K00</td>
+                                        </tr>
+                                        <tr>
+                                          <td colspan="3" align="center"><strong>Các tổ hợp môn mới</strong></td>
+                                        </tr>
+                                        <tr>
+                                          <td>1</td>
+                                          <td>Toán, Vật lí, Sinh học</td>
+                                          <td>A02</td>
+                                        </tr>
+                                        <tr>
+                                          <td>2</td>
+                                          <td>Toán, Vật lí, Lịch sử</td>
+                                          <td>A03</td>
+                                        </tr>
+                                        <tr>
+                                          <td>3</td>
+                                          <td>Toán, Vật lí, Địa lí</td>
+                                          <td>A04</td>
+                                        </tr>
+                                        <tr>
+                                          <td>4</td>
+                                          <td>Toán, Hóa học, Lịch sử</td>
+                                          <td>A05</td>
+                                        </tr>
+                                        <tr>
+                                          <td>5</td>
+                                          <td>Toán, Hóa học, Địa lí</td>
+                                          <td>A06</td>
+                                        </tr>
+                                        <tr>
+                                          <td>6</td>
+                                          <td>Toán, Lịch sử, Địa lí</td>
+                                          <td>A07</td>
+                                        </tr>
+                                        <tr>
+                                          <td>7</td>
+                                          <td>Toán, Sinh học, Lịch sử</td>
+                                          <td>B01</td>
+                                        </tr>
+                                        <tr>
+                                          <td>8</td>
+                                          <td>Toán, Sinh học, Địa lí</td>
+                                          <td>B02</td>
+                                        </tr>
+                                        <tr>
+                                          <td>9</td>
+                                          <td>Toán, Sinh học, Ngữ văn</td>
+                                          <td>B03</td>
+                                        </tr>
+                                        <tr>
+                                          <td>10</td>
+                                          <td>Ngữ văn, Toán, Vật lí</td>
+                                          <td>C01</td>
+                                        </tr>
+                                        <tr>
+                                          <td>11</td>
+                                          <td>Ngữ văn, Toán, Hóa học</td>
+                                          <td>C02</td>
+                                        </tr>
+                                        <tr>
+                                          <td>12</td>
+                                          <td>Ngữ văn, Toán, Lịch sử</td>
+                                          <td>C03</td>
+                                        </tr>
+                                        <tr>
+                                          <td>13</td>
+                                          <td>Ngữ văn, Toán, Địa lí</td>
+                                          <td>C04</td>
+                                        </tr>
+                                        <tr>
+                                          <td>14</td>
+                                          <td>Ngữ văn, Vật lí, Hóa học</td>
+                                          <td>C05</td>
+                                        </tr>
+                                        <tr>
+                                          <td>15</td>
+                                          <td>Ngữ văn, Vật lí, Sinh học</td>
+                                          <td>C06</td>
+                                        </tr>
+                                        <tr>
+                                          <td>16</td>
+                                          <td>Ngữ văn, Vật lí, Lịch sử</td>
+                                          <td>C07</td>
+                                        </tr>
+                                        <tr>
+                                          <td>17</td>
+                                          <td>Ngữ Văn, Hóa học, Sinh học</td>
+                                          <td>C08</td>
+                                        </tr>
+                                        <tr>
+                                          <td>18</td>
+                                          <td>Ngữ Văn, Vật lí, Địa lí</td>
+                                          <td>C09</td>
+                                        </tr>
+                                        <tr>
+                                          <td>19</td>
+                                          <td>Ngữ Văn, Hóa học, Lịch sử</td>
+                                          <td>C10</td>
+                                        </tr>
+                                        <tr>
+                                          <td>20</td>
+                                          <td>Ngữ Văn, Hóa học, Địa lí</td>
+                                          <td>C11</td>
+                                        </tr>
+                                        <tr>
+                                          <td>21</td>
+                                          <td>Ngữ Văn, Sinh học, Lịch sử</td>
+                                          <td>C12</td>
+                                        </tr>
+                                        <tr>
+                                          <td>22</td>
+                                          <td>Ngữ Văn, Sinh học, Địa lí</td>
+                                          <td>C13</td>
+                                        </tr>
+                                        <tr>
+                                          <td>23</td>
+                                          <td>Toán, Hóa học, Tiếng Anh</td>
+                                          <td>D07</td>
+                                        </tr>
+                                        <tr>
+                                          <td>24</td>
+                                          <td>Toán, Sinh học, Tiếng Anh</td>
+                                          <td>D08</td>
+                                        </tr>
+                                        <tr>
+                                          <td>25</td>
+                                          <td>Toán, Lịch sử, Tiếng Anh</td>
+                                          <td>D09</td>
+                                        </tr>
+                                        <tr>
+                                          <td>26</td>
+                                          <td>Toán, Địa lí, Tiếng Anh</td>
+                                          <td>D10</td>
+                                        </tr>
+                                        <tr>
+                                          <td>27</td>
+                                          <td>Ngữ văn, Vật lí, Tiếng Anh</td>
+                                          <td>D11</td>
+                                        </tr>
+                                        <tr>
+                                          <td>28</td>
+                                          <td>Ngữ văn, Hóa học, Tiếng Anh</td>
+                                          <td>D12</td>
+                                        </tr>
+                                        <tr>
+                                          <td>29</td>
+                                          <td>Ngữ văn, Sinh học, Tiếng Anh</td>
+                                          <td>D13</td>
+                                        </tr>
+                                        <tr>
+                                          <td>30</td>
+                                          <td>Ngữ văn, Lịch sử, Tiếng Anh</td>
+                                          <td>D14</td>
+                                        </tr>
+                                        <tr>
+                                          <td>31</td>
+                                          <td>Ngữ văn, Địa lí, Tiếng Anh</td>
+                                          <td>D15</td>
+                                        </tr>
+                                        <tr>
+                                          <td>32</td>
+                                          <td>Toán, Địa lí, Tiếng Đức</td>
+                                          <td>D16</td>
+                                        </tr>
+                                        <tr>
+                                          <td>33</td>
+                                          <td>Toán, Địa lí, Tiếng Nga</td>
+                                          <td>D17</td>
+                                        </tr>
+                                        <tr>
+                                          <td>34</td>
+                                          <td>Toán, Địa lí, Tiếng Nhật</td>
+                                          <td>D18</td>
+                                        </tr>
+                                        <tr>
+                                          <td>35</td>
+                                          <td>Toán, Địa lí, Tiếng Pháp</td>
+                                          <td>D19</td>
+                                        </tr>
+                                        <tr>
+                                          <td>36</td>
+                                          <td>Toán, &nbsp;Địa lí, Tiếng Trung</td>
+                                          <td>D20</td>
+                                        </tr>
+                                        <tr>
+                                          <td>37</td>
+                                          <td>Toán, Hóa Học, Tiếng Đức</td>
+                                          <td>D21</td>
+                                        </tr>
+                                        <tr>
+                                          <td>38</td>
+                                          <td>Toán, Hóa Học, Tiếng Nga</td>
+                                          <td>D22</td>
+                                        </tr>
+                                        <tr>
+                                          <td>39</td>
+                                          <td>Toán, Hóa Học, Tiếng Nhật</td>
+                                          <td>D23</td>
+                                        </tr>
+                                        <tr>
+                                          <td>40</td>
+                                          <td>Toán, Hóa Học, Tiếng Pháp</td>
+                                          <td>D24</td>
+                                        </tr>
+                                        <tr>
+                                          <td>41</td>
+                                          <td>Toán, Hóa học, Tiếng Trung</td>
+                                          <td>D25</td>
+                                        </tr>
+                                        <tr>
+                                          <td>42</td>
+                                          <td>Toán, Vật lí, Tiếng Đức</td>
+                                          <td>D26</td>
+                                        </tr>
+                                        <tr>
+                                          <td>43</td>
+                                          <td>Toán, Vật lí, Tiếng Nga</td>
+                                          <td>D27</td>
+                                        </tr>
+                                        <tr>
+                                          <td>44</td>
+                                          <td>Toán, Vật lí, Tiếng Nhật</td>
+                                          <td>D28</td>
+                                        </tr>
+                                        <tr>
+                                          <td>45</td>
+                                          <td>Toán, Vật lí, Tiếng Pháp</td>
+                                          <td>D29</td>
+                                        </tr>
+                                        <tr>
+                                          <td>46</td>
+                                          <td>Toán, Vật lí, Tiếng Trung</td>
+                                          <td>D30</td>
+                                        </tr>
+                                        <tr>
+                                          <td>47</td>
+                                          <td>Toán, Sinh học, Tiếng Đức</td>
+                                          <td>D31</td>
+                                        </tr>
+                                        <tr>
+                                          <td>48</td>
+                                          <td>Toán, Sinh học, Tiếng Nga</td>
+                                          <td>D32</td>
+                                        </tr>
+                                        <tr>
+                                          <td>49</td>
+                                          <td>Toán, Sinh học, Tiếng Nhật</td>
+                                          <td>D33</td>
+                                        </tr>
+                                        <tr>
+                                          <td>50</td>
+                                          <td>Toán, Sinh học, Tiếng Pháp</td>
+                                          <td>D34</td>
+                                        </tr>
+                                        <tr>
+                                          <td>51</td>
+                                          <td>Toán, Sinh học, Tiếng Trung</td>
+                                          <td>D35</td>
+                                        </tr>
+                                        <tr>
+                                          <td>52</td>
+                                          <td>Toán, Lịch sử, Tiếng Đức</td>
+                                          <td>D36</td>
+                                        </tr>
+                                        <tr>
+                                          <td>53</td>
+                                          <td>Toán, Lịch sử, Tiếng Nga</td>
+                                          <td>D37</td>
+                                        </tr>
+                                        <tr>
+                                          <td>54</td>
+                                          <td>Toán, Lịch sử, Tiếng Nhật</td>
+                                          <td>D38</td>
+                                        </tr>
+                                        <tr>
+                                          <td>55</td>
+                                          <td>Toán, Lịch sử, Tiếng Pháp</td>
+                                          <td>D39</td>
+                                        </tr>
+                                        <tr>
+                                          <td>56</td>
+                                          <td>Toán, Lịch sử, Tiếng Trung</td>
+                                          <td>D40</td>
+                                        </tr>
+                                        <tr>
+                                          <td>57</td>
+                                          <td>Ngữ văn, Địa lí, Tiếng Đức</td>
+                                          <td>D41</td>
+                                        </tr>
+                                        <tr>
+                                          <td>58</td>
+                                          <td>Ngữ văn, Địa lí, Tiếng Nga</td>
+                                          <td>D42</td>
+                                        </tr>
+                                        <tr>
+                                          <td>59</td>
+                                          <td>Ngữ văn, Địa lí, Tiếng Nhật</td>
+                                          <td>D43</td>
+                                        </tr>
+                                        <tr>
+                                          <td>60</td>
+                                          <td>Ngữ văn, Địa lí, Tiếng Pháp</td>
+                                          <td>D44</td>
+                                        </tr>
+                                        <tr>
+                                          <td>61</td>
+                                          <td>Ngữ văn, Địa lí, Tiếng Trung</td>
+                                          <td>D45</td>
+                                        </tr>
+                                        <tr>
+                                          <td>62</td>
+                                          <td>Ngữ văn, Hóa học, Tiếng Đức</td>
+                                          <td>D46</td>
+                                        </tr>
+                                        <tr>
+                                          <td>63</td>
+                                          <td>Ngữ văn, Hóa học, Tiếng Nga</td>
+                                          <td>D47</td>
+                                        </tr>
+                                        <tr>
+                                          <td>64</td>
+                                          <td>Ngữ văn, Hóa học, Tiếng Nhật</td>
+                                          <td>D48</td>
+                                        </tr>
+                                        <tr>
+                                          <td>65</td>
+                                          <td>Ngữ văn, Hóa học, Tiếng Pháp</td>
+                                          <td>D49</td>
+                                        </tr>
+                                        <tr>
+                                          <td>66</td>
+                                          <td>Ngữ văn, Hóa học, Tiếng Trung</td>
+                                          <td>D50</td>
+                                        </tr>
+                                        <tr>
+                                          <td>67</td>
+                                          <td>Ngữ văn, Vật lí, Tiếng Đức</td>
+                                          <td>D51</td>
+                                        </tr>
+                                        <tr>
+                                          <td>68</td>
+                                          <td>Ngữ văn, Vật lí, Tiếng Nga</td>
+                                          <td>D52</td>
+                                        </tr>
+                                        <tr>
+                                          <td>69</td>
+                                          <td>Ngữ văn, Vật lí, Tiếng Nhật</td>
+                                          <td>D53</td>
+                                        </tr>
+                                        <tr>
+                                          <td>70</td>
+                                          <td>Ngữ văn, Vật lí, Tiếng Pháp</td>
+                                          <td>D54</td>
+                                        </tr>
+                                        <tr>
+                                          <td>71</td>
+                                          <td>Ngữ văn, Vật lí, Tiếng Trung</td>
+                                          <td>D55</td>
+                                        </tr>
+                                        <tr>
+                                          <td>72</td>
+                                          <td>Ngữ văn, Sinh học, Tiếng Đức</td>
+                                          <td>D56</td>
+                                        </tr>
+                                        <tr>
+                                          <td>73</td>
+                                          <td>&nbsp;Ngữ văn, Sinh học, Tiếng Nga</td>
+                                          <td>D57</td>
+                                        </tr>
+                                        <tr>
+                                          <td>74</td>
+                                          <td>Ngữ văn, Sinh học, Tiếng Nhật</td>
+                                          <td>D58</td>
+                                        </tr>
+                                        <tr>
+                                          <td>75</td>
+                                          <td>Ngữ văn, Sinh học, Tiếng Pháp</td>
+                                          <td>D59</td>
+                                        </tr>
+                                        <tr>
+                                          <td>76</td>
+                                          <td>Ngữ văn, Sinh học, Tiếng Trung</td>
+                                          <td>D60</td>
+                                        </tr>
+                                        <tr>
+                                          <td>77</td>
+                                          <td>Ngữ văn, Lịch sử, Tiếng Đức</td>
+                                          <td>D61</td>
+                                        </tr>
+                                        <tr>
+                                          <td>78</td>
+                                          <td>Ngữ văn, Lịch sử, Tiếng Nga</td>
+                                          <td>D62</td>
+                                        </tr>
+                                        <tr>
+                                          <td>79</td>
+                                          <td>Ngữ văn, Lịch sử, Tiếng Nhật</td>
+                                          <td>D63</td>
+                                        </tr>
+                                        <tr>
+                                          <td>80</td>
+                                          <td>Ngữ văn, Lịch sử, Tiếng Pháp</td>
+                                          <td>D64</td>
+                                        </tr>
+                                        <tr>
+                                          <td>81</td>
+                                          <td>Ngữ văn, Lịch sử, Tiếng Trung</td>
+                                          <td>D65</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                  <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Trigger the modal with a button --><button data-target="#myModal1" data-toggle="modal" class="btn btn-success" type="button">Website các trường ĐH</button>
+                          <!-- Modal -->
+                          <div role="dialog" id="myModal1" class="modal fade">
+                            <div class="modal-dialog">
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header"><button data-dismiss="modal" class="close" type="button">×</button>
+                                  <h4 class="modal-title">Danh bạ websites các trường Đại học và Học viện</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Nhấn vào tiêu đề nhóm để xem danh sách cách trường trong nhóm</p>
+                                  <div class="panel-group">
+                                    <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="#collapse1" data-toggle="collapse" class="collapsed" aria-expanded="false">WEBSITES CÁC TRƯỜNG ĐẠI HỌC TẠI KHU VỰC TP. HÀ NỘI</a></h4>
+                                      </div>
+                                      <div class="panel-collapse collapse" id="collapse1" aria-expanded="false" style="height: 0px;">
+                                        <div class="panel-body">
+                                          <table width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td width="50%">
+                                                  <p><a href="http://vnu.edu.vn/home/">ĐẠI HỌC QUỐC GIA HÀ NỘI</a></p>
+                                                  <p><a href="http://uet.vnu.edu.vn/">Đại học Công nghệ (ĐHQG Hà Nội)</a></p>
+                                                  <p><a href="http://hus.vnu.edu.vn/">Đại học Khoa học Tự nhiên (ĐHQG Hà Nội)</a></p>
+                                                  <p><a href="http://ussh.vnu.edu.vn/">Đại học Khoa học XH và NV (ĐHQG Hà Nội)</a></p>
+                                                  <p><a href="http://ueb.vnu.edu.vn/">Đại học Kinh tế (ĐHQG Hà Nội)</a></p>
+                                                  <p><a href="http://ulis.vnu.edu.vn/">Đại học Ngoại ngữ (ĐHQG Hà Nội)</a></p>
+                                                  <p><a href="http://law.vnu.edu.vn/">Khoa Luật (ĐHQG Hà Nội)</a></p>
+                                                  <p><a href="http://www.education.vnu.edu.vn/">Đại học Giáo dục (ĐHQG Hà Nội)</a></p>
+                                                  <p><a href="http://www.is.vnu.edu.vn/">Khoa Quốc tế (ĐHQG Hà Nội)</a></p>
+                                                  <p><a href="http://hust.edu.vn/">Đại học Bách khoa Hà Nội</a></p>
+                                                  <p><a href="http://dhcd.edu.vn/">Đại học Công đoàn</a></p>
+                                                  <p><a href="http://utt.edu.vn/home/">Đại học Công nghệ Giao thông vận tải</a></p>
+                                                  <p><a href="http://www.utm.edu.vn/">Đại học Công nghệ và Quản lý Hữu nghị</a></p>
+                                                  <p><a href="http://www.haui.edu.vn/">Đại học Công nghiệp Hà Nội</a></p>
+                                                  <p><a href="http://viu.edu.vn/website/index.aspx">Đại học Công nghiệp Việt Hung</a></p>
+                                                  <p><a href="http://www.hup.edu.vn/">Đại học Dược Hà Nội</a></p>
+                                                  <p><a href="http://www.dainam.edu.vn/">Đại học Đại Nam</a></p>
+                                                  <p><a href="http://epu.edu.vn/">Đại học Điện lực</a></p>
+                                                  <p><a href="http://hdiu.edu.vn/">Đại học Đông Đô</a></p>
+                                                  <p><a href="http://www.fpt.edu.vn/">Đại học FPT</a></p>
+                                                  <p><a href="http://www.utc.edu.vn/">Đại học Giao thông vận tải</a></p>
+                                                  <p><a href="http://www.hanu.edu.vn/">Đại học Hà Nội</a></p>
+                                                  <p><a href="http://hbuniv.edu.vn/">Đại học Hòa Bình</a></p>
+                                                  <p><a href="http://usth.edu.vn/">Đại học Khoa học và Công nghệ Hà Nội</a></p>
+                                                  <p><a href="http://hubt.edu.vn/">Đại học Kinh doanh và Công nghệ Hà Nội</a></p>
+                                                  <p><a href="http://www.uneti.edu.vn/">Đại học Kinh tế Kỹ thuật Công nghiệp</a></p>
+                                                  <p><a href="http://www.neu.edu.vn/">Đại học Kinh tế Quốc dân</a></p>
+                                                  <p><a href="http://hau.edu.vn/">Đại học Kiến trúc Hà Nội</a></p>
+                                                  <p><a href="http://mta.edu.vn/">Đại học Kỹ thuật Lê Quý Đôn</a></p>
+                                                  <p><a href="http://ulsa.edu.vn/">Đại học Lao động Xã hội</a></p>
+                                                </td>
+                                                <td width="50%">
+                                                  <p><a href="http://www.vfu.edu.vn/">Đại học Lâm nghiệp</a></p>
+                                                  <p><a href="http://www.hlu.edu.vn/">Đại học Luật Hà Nội</a></p>
+                                                  <p><a href="http://www.humg.edu.vn/">Đại học Mỏ Địa chất Hà Nội</a></p>
+                                                  <p><a href="http://mythuatcongnghiep.edu.vn/">Đại học Mỹ thuật Công nghiệp</a></p>
+                                                  <p><a href="http://mythuatvietnam.edu.vn/">Đại học Mỹ thuật Việt Nam</a></p>
+                                                  <p><a href="http://www.ftu.edu.vn/">Đại học Ngoại thương</a></p>
+                                                  <p><a href="http://ntu.vn/">Đại học Nguyễn Trãi</a></p>
+                                                  <p><a href="http://www.truongnoivu.edu.vn/">Đại học Nội vụ Hà Nội</a></p>
+                                                  <p><a href="http://www.vnua.edu.vn/">Đại học Nông nghiệp Hà Nội</a></p>
+                                                  <p><a href="http://daihocpccc.edu.vn/">Đại học Phòng cháy chữa cháy</a></p>
+                                                  <p><a href="http://www.daihocphuongdong.edu.vn/">Đại học Phương Đông</a></p>
+                                                  <p><a href="http://www.bhiu.edu.vn/">Đại học Quốc tế Bắc Hà</a></p>
+                                                  <p><a href="http://skda.edu.vn/home/">Đại học Sân khấu Điện ảnh</a></p>
+                                                  <p><a href="http://www.dhsphn.edu.vn/">Đại học Sư phạm Hà Nội</a></p>
+                                                  <p><a href="http://www.spnttw.edu.vn/">Đại học Sư phạm Nghệ thuật Trung ương</a></p>
+                                                  <p><a href="http://dhsptdtthanoi.edu.vn/">Đại học Sư phạm Thể dục thể thao Hà Nội</a></p>
+                                                  <p><a href="http://fbu.edu.vn/">Đại học Tài chính Ngân hàng Hà Nội</a></p>
+                                                  <p><a href="http://hunre.edu.vn/">Đại học Tài nguyên và Môi trường Hà Nội</a></p>
+                                                  <p><a href="http://thanhdo.edu.vn/">Đại học Thành Đô</a></p>
+                                                  <p><a href="http://www.thanhtay.edu.vn/">Đại học Thành Tây</a></p>
+                                                  <p><a href="http://www.thanglong.edu.vn/">Đại học Thăng Long</a></p>
+                                                  <p><a href="http://www.tlu.edu.vn/">Đại học Thủy lợi</a></p>
+                                                  <p><a href="http://www.vcu.edu.vn/">Đại học Thương mại</a></p>
+                                                  <p><a href="http://www.huc.edu.vn/">Đại học Văn hóa Hà Nội</a></p>
+                                                  <p><a href="http://www.vnq.edu.vn/">Đại học Văn hóa Nghệ thuật Quân đội</a></p>
+                                                  <p><a href="http://nuce.edu.vn/">Đại học Xây dựng</a></p>
+                                                  <p><a href="http://www.hmu.edu.vn/">Đại học Y Hà Nội</a></p>
+                                                  <p><a href="http://www.hsph.edu.vn/">Đại học Y tế Công cộng</a></p>
+                                                  <p><a href="http://tsqpb.edu.vn/">Trường Sĩ quan Pháo binh</a></p>
+                                                  <p><a href="http://www.siquanphonghoa.edu.vn/">Trường Sĩ quan Phòng hóa</a></p>
+                                                  <p><a href="http://sqlq1.edu.vn/">Trường Sĩ quan Lục quân 1</a></p>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-group">
+                                    <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="#collapse2" data-toggle="collapse" class="collapsed" aria-expanded="false">WEBSITES CÁC TRƯỜNG ĐẠI HỌC TẠI KHU VỰC TP. HCM</a></h4>
+                                      </div>
+                                      <div class="panel-collapse collapse" id="collapse2" aria-expanded="false" style="height: 0px;">
+                                        <div class="panel-body">
+                                          <table width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td width="50%">
+                                                  <p><a href="http://www.vnuhcm.edu.vn/">ĐẠI HỌC QUỐC GIA TP. HỒ CHÍ MINH</a></p>
+                                                  <p><a href="http://www.hcmut.edu.vn/">Đại học Bách Khoa - ĐHQG TP.HCM</a></p>
+                                                  <p><a href="http://www.hcmus.edu.vn/">Đại học KH Tự nhiên - ĐHQG TPHCM</a></p>
+                                                  <p><a href="http://www.hcmussh.edu.vn/">Đại học KH XH và NV - ĐHQG TP.HCM</a></p>
+                                                  <p><a href="https://www.hcmiu.edu.vn/vn/">Đại học Quốc tế - ĐH Quốc gia TP.HCM</a></p>
+                                                  <p><a href="http://www.uit.edu.vn/">Đại học CN Thông tin - ĐHQG TP.HCM</a></p>
+                                                  <p><a href="http://www.uel.edu.vn/">Đại học Kinh tế - Luật - ĐHQG TP.HCM</a></p>
+                                                  <p><a href="http://www.medvnu.edu.vn/">Khoa Y - ĐHQG TP.HCM</a></p>
+                                                  <p><a href="http://www.pup.edu.vn/">Đại học Cảnh sát nhân dân</a></p>
+                                                  <p><a href="http://www.stu.edu.vn/">Đại học Công nghệ Sài Gòn</a></p>
+                                                  <p><a href="http://giadinh.edu.vn/">Đại học Công nghệ thông tin Gia Định</a></p>
+                                                  <p><a href="http://www.hui.edu.vn/">Đại học Công nghiệp TP.HCM</a></p>
+                                                  <p><a href="http://www.cntp.edu.vn/">Đại học Công nghiệp Thực phẩm TP.HCM</a></p>
+                                                  <p><a href="http://www.hcmutrans.edu.vn/">Đại học Giao thông vận tải TP.HCM</a></p>
+                                                  <p><a href="http://utc2.edu.vn/">Đại học Giao thông vận tải - Cơ sở 2</a></p>
+                                                  <p><a href="http://www.hoasen.edu.vn/">Đại học Hoa Sen</a></p>
+                                                  <p><a href="http://www.hungvuong.edu.vn/">Đại học Hùng Vương</a></p>
+                                                  <p><a href="http://www.uah.edu.vn/">Đại học Kiến trúc TP.HCM</a></p>
+                                                  <p><a href="http://www.uef.edu.vn/">Đại học Kinh tế - Tài chính TP.HCM</a></p>
+                                                  <p><a href="http://www.ueh.edu.vn/">Đại học Kinh tế TP.HCM</a></p>
+                                                  <p><a href="http://www.hutech.edu.vn/">Đại học Kỹ thuật - Công nghệ TP.HCM</a></p>
+                                                  <p><a href="http://www.ldxh.edu.vn/">Đại học Lao động xã hội - Cơ sở II</a></p>
+                                                  <p><a href="http://www.hcmulaw.edu.vn/">Đại học Luật TP.HCM</a></p>
+                                                  <p><a href="http://www.ou.edu.vn/">Đại học Mở TP.HCM</a></p>
+                                                </td>
+                                                <td width="50%">
+                                                  <p><a href="http://www.hcmufa.edu.vn/vn/">Đại học Mỹ thuật TP.HCM</a></p>
+                                                  <p><a href="http://buh.edu.vn/">Đại học Ngân hàng TP.HCM</a></p>
+                                                  <p><a href="http://www.huflit.edu.vn/home/">Đại học Ngoại ngữ - Tin học TP.HCM</a></p>
+                                                  <p><a href="http://cs2.ftu.edu.vn/">Đại học Ngoại thương - Cơ sở Tp.HCM</a></p>
+                                                  <p><a href="http://www.ntt.edu.vn/">Đại học Nguyễn Tất Thành</a></p>
+                                                  <p><a href="http://www.hcmuaf.edu.vn/">Đại học Nông Lâm TP.HCM</a></p>
+                                                  <p><a href="http://sgu.edu.vn/">Đại học Sài Gòn</a></p>
+                                                  <p><a href="http://skdahcm.edu.vn/">Đại học Sân khấu Điện ảnh TP.HCM</a></p>
+                                                  <p><a href="http://www.hcmute.edu.vn/">Đại học Sư phạm Kỹ thuật TP.HCM</a></p>
+                                                  <p><a href="http://www.hcmup.edu.vn/">Đại học Sư phạm TP.HCM</a></p>
+                                                  <p><a href="http://www.upes.edu.vn/">Đại học Sư phạm TDTT TP. HCM</a></p>
+                                                  <p><a href="http://ufm.edu.vn/">Đại học Tài chính – Marketing</a></p>
+                                                  <p><a href="http://www.hcmunre.edu.vn/">Đại học Tài nguyên và Môi trường Tp.HCM</a></p>
+                                                  <p><a href="http://www.dhtdtthcm.edu.vn/home/">Đại học Thể dục Thể thao TP.HCM</a></p>
+                                                  <p><a href="http://www.tdt.edu.vn/">Đại học Tôn Đức Thắng</a></p>
+                                                  <p><a href="http://www.hcmuc.edu.vn/">Đại học Văn hóa TP.HCM</a></p>
+                                                  <p><a href="http://www.yds.edu.vn/">Đại học Y Dược TP.HCM</a></p>
+                                                  <p><a href="http://www.pnt.edu.vn/">Đại học Y khoa Phạm Ngọc Thạch</a></p>
+                                                  <p><a href="http://hbu.edu.vn/">Đại học Quốc tế Hồng Bàng</a></p>
+                                                  <p><a href="http://www.siu.edu.vn/">Đại học Quốc tế Sài Gòn</a></p>
+                                                  <p><a href="http://vhu.edu.vn/">Đại học Văn Hiến</a></p>
+                                                  <p><a href="http://www.vanlanguni.edu.vn/">Đại học Văn Lang</a></p>
+                                                  <p><a href="http://www.vgu.edu.vn/vi/trang-chu/">Đại học Việt - Đức</a></p>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-group">
+                                    <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="#collapse3" data-toggle="collapse" class="collapsed" aria-expanded="false">WEBSITES CÁC TRƯỜNG ĐẠI HỌC TỪ HUẾ TRỞ RA</a></h4>
+                                      </div>
+                                      <div class="panel-collapse collapse" id="collapse3" aria-expanded="false" style="height: 0px;">
+                                        <div class="panel-body">
+                                          <table width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td width="50%">
+                                                  <p><a href="http://www.tnu.edu.vn/">ĐẠI HỌC THÁI NGUYÊN</a></p>
+                                                  <p><a href="http://tueba.edu.vn/">Đại học Kinh tế - QTKD (ĐH Thái Nguyên)</a></p>
+                                                  <p><a href="http://www.tnut.edu.vn/">ĐH Kỹ thuật Công nghiệp (ĐH Thái Nguyên)</a></p>
+                                                  <p><a href="http://tuaf.edu.vn/">Đại học Nông lâm (ĐH Thái Nguyên)</a></p>
+                                                  <p><a href="http://dhsptn.edu.vn/">Đại học Sư phạm (ĐH Thái Nguyên)</a></p>
+                                                  <p><a href="http://www.tnmc.edu.vn/webdhyd/">Đại học Y Dược (ĐH Thái Nguyên)</a></p>
+                                                  <p><a href="http://www.ictu.edu.vn/">Đại học CNTT và TT (ĐH Thái Nguyên)</a></p>
+                                                  <p><a href="http://www.tnu.edu.vn/dhkh/Pages/default.aspx">Đại học Khoa học (ĐH Thái Nguyên)</a></p>
+                                                  <p><a href="http://sfl.tnu.edu.vn/">Khoa Ngoại ngữ (ĐH Thái Nguyên)</a></p>
+                                                  <p><a href="http://www.cvauni.edu.vn/">Đại học Chu Văn An</a></p>
+                                                  <p><a href="http://www.datu.edu.vn/">Đại học Công nghệ Đông Á</a></p>
+                                                  <p><a href="http://vxut.edu.vn/">Đại học Công nghệ Vạn Xuân</a></p>
+                                                  <p><a href="http://qui.edu.vn/">Đại học Công nghiệp Quảng Ninh</a></p>
+                                                  <p><a href="http://vui.edu.vn/">Đại học Công nghiệp Việt Trì</a></p>
+                                                  <p><a href="http://www.hpu.edu.vn/">Đại học Dân lập Hải Phòng</a></p>
+                                                  <p><a href="http://ltvu.edu.vn/">Đại học Dân lập Lương Thế Vinh</a></p>
+                                                  <p><a href="http://www.ndun.edu.vn/">Đại học Điều dưỡng Nam Định</a></p>
+                                                  <p><a href="http://hahoatien.edu.vn/">Đại học Hà Hoa Tiên</a></p>
+                                                  <p><a href="http://www.htu.edu.vn/">Đại học Hà Tĩnh</a></p>
+                                                  <p><a href="http://www.dhhp.edu.vn/">Đại học Hải Phòng</a></p>
+                                                  <p><a href="http://www.vimaru.edu.vn/">Đại học Hàng hải</a></p>
+                                                  <p><a href="http://www.hluv.edu.vn/">Đại học Hoa Lư</a></p>
+                                                  <p><a href="http://www.hdu.edu.vn/">Đại học Hồng Đức</a></p>
+                                                  <p><a href="http://www.hvu.edu.vn/">Đại học Hùng Vương</a></p>
+                                                  <p><a href="http://ktkt-haiduong.edu.vn/">Đại học Kinh tế Kỹ thuật Hải Dương</a></p>
+                                                  <p><a href="http://www.hmtu.edu.vn/">Đại học Kỹ thuật Y tế Hải Dương</a></p>
+                                                  <p><a href="http://www.bafu.edu.vn/">Đại học Nông Lâm Bắc Giang</a></p>
+                                                  <p><a href="http://www.quangbinhuni.edu.vn/">Đại học Quảng Bình</a></p>
+                                                  <p><a href="http://saodo.edu.vn">Đại học Sao Đỏ</a></p>
+                                                </td>
+                                                <td width="50%">
+                                                  <p><a href="http://hpu2.edu.vn/">Đại học Sư phạm Hà Nội 2</a></p>
+                                                  <p><a href="http://www.utehy.edu.vn/">Đại học Sư phạm Kỹ thuật Hưng Yên</a></p>
+                                                  <p><a href="http://www.nute.edu.vn/">Đại học Sư phạm Kỹ thuật Nam Định</a></p>
+                                                  <p><a href="http://vuted.edu.vn/">Đại học Sư phạm Kỹ thuật Vinh</a></p>
+                                                  <p><a href="http://www.tcqtkd.edu.vn/">Đại học Tài chính - Quản trị kinh doanh</a></p>
+                                                  <p><a href="http://www.utb.edu.vn/">Đại học Tây Bắc</a></p>
+                                                  <p><a href="http://www.thanhdong.edu.vn/">Đại học Thành Đông</a></p>
+                                                  <p><a href="http://www.tbu.edu.vn/">Đại học Thái Bình</a></p>
+                                                  <p><a href="http://www.upes1.edu.vn/">Đại học Thể dục Thể thao Bắc Ninh</a></p>
+                                                  <p><a href="http://dhtv.edu.vn/">Đại học Trưng Vương</a></p>
+                                                  <p><a href="http://vietbac.edu.vn/">Đại học Việt Bắc</a></p>
+                                                  <p><a href="http://www.vinhuni.edu.vn/">Đại học Vinh</a></p>
+                                                  <p><a href="http://hpmu.edu.vn/">Đại học Y Hải Phòng</a></p>
+                                                  <p><a href="http://tbump.edu.vn/">Đại học Y Dược Thái Bình</a></p>
+                                                  <p><a href="http://vmu.edu.vn/">Đại học Y khoa Vinh</a></p>
+                                                  <p><a href="http://www.hueuni.edu.vn/hueuni/">ĐẠI HỌC HUẾ</a></p>
+                                                  <p><a href="http://khoagdtc.hueuni.edu.vn/">Khoa Giáo dục Thể chất - ĐH Huế</a></p>
+                                                  <p><a href="http://hat.hueuni.edu.vn/">Khoa Du lịch - ĐH Huế</a></p>
+                                                  <p><a href="http://hucfl.edu.vn/">Đại học Ngoại ngữ - ĐH Huế</a></p>
+                                                  <p><a href="http://www.hce.edu.vn/">Đại học Kinh tế - ĐH Huế</a></p>
+                                                  <p><a href="http://www.huaf.edu.vn/">Đại học Nông Lâm - ĐH Huế</a></p>
+                                                  <p><a href="http://www.hufa.edu.vn/">Đại học Nghệ thuật - ĐH Huế</a></p>
+                                                  <p><a href="http://www.dhsphue.edu.vn/">Đại học Sư phạm - ĐH Huế</a></p>
+                                                  <p><a href="http://www.husc.edu.vn/">Đại học Khoa học - ĐH Huế</a></p>
+                                                  <p><a href="http://www.huemed-univ.edu.vn/">Đại học Y Dược - ĐH Huế</a></p>
+                                                  <p><a href="http://www.phqt.edu.vn/">Phân hiệu ĐH Huế tại quảng Trị</a></p>
+                                                  <p><a href="http://law.hueuni.edu.vn/">Khoa Luật - ĐH Huế</a></p>
+                                                  <p><a href="http://hocvienamnhachue.vn/?c=home">Học viện Âm nhạc Huế</a></p>
+                                                  <p><a href="http://www.phuxuanuni.edu.vn/">Đại học Phú Xuân - Huế</a></p>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-group">
+                                    <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="#collapse4" data-toggle="collapse" class="collapsed" aria-expanded="false">WEBSITES CÁC TRƯỜNG ĐẠI HỌC TỪ ĐÀ NẴNG TRỞ VÀO</a></h4>
+                                      </div>
+                                      <div class="panel-collapse collapse" id="collapse4" aria-expanded="false" style="height: 0px;">
+                                        <div class="panel-body">
+                                          <table width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td width="50%">
+                                                  <p><a href="http://udn.vn/">ĐẠI HỌC ĐÀ NẴNG</a></p>
+                                                  <p><a href="http://ued.udn.vn/">Đại học Sư phạm - ĐH Đà nẵng</a></p>
+                                                  <p><a href="http://www.dut.udn.vn/">Đại học Bách Khoa - ĐH Đà Nẵg</a></p>
+                                                  <p><a href="http://www.due.edu.vn/">Đại học Kinh tế - ĐH Đà Nẵng</a></p>
+                                                  <p><a href="http://www.cfl.udn.vn/">Đại học Ngoại ngữ - ĐH Đà Nẵng</a></p>
+                                                  <p><a href="http://www.kontum.udn.vn/">Phân hiệu ĐH Đà Nẵng tại Kon Tum</a></p>
+                                                  <p><a href="http://www.agu.edu.vn/">Đại học An Giang</a></p>
+                                                  <p><a href="http://blu.edu.vn/">Đại học Bạc Liêu</a></p>
+                                                  <p><a href="http://www.bvu.edu.vn/">Đại học Bà Rịa - Vũng Tàu</a></p>
+                                                  <p><a href="http://www.bdu.edu.vn/">Đại học Bình Dương</a></p>
+                                                  <p><a href="http://www.ctu.edu.vn/">Đại học Cần Thơ</a></p>
+                                                  <p><a href="http://www.dntu.edu.vn/">Đại học Công nghệ Đồng Nai</a></p>
+                                                  <p><a href="http://mku.edu.vn/">Đại học Cửu Long</a></p>
+                                                  <p><a href="http://www.dtu.edu.vn/">Đại học Duy Tân</a></p>
+                                                  <p><a href="http://www.dlu.edu.vn/">Đại học Đà Lạt</a></p>
+                                                  <p><a href="http://donga.edu.vn/">Đại học Đông Á</a></p>
+                                                  <p><a href="http://www.dnpu.edu.vn/">Đại học Đồng Nai</a></p>
+                                                  <p><a href="http://www.dthu.edu.vn/">Đại học Đồng Tháp</a></p>
+                                                  <p><a href="http://www.vnkgu.edu.vn/">Đại học Kiên Giang</a></p>
+                                                  <p><a href="http://www.dau.edu.vn/">Đại học Kiến trúc Đà Nẵng</a></p>
+                                                  <p><a href="http://www.daihoclongan.edu.vn/">Đại học Kinh tế Công nghiệp Long An</a></p>
+                                                  <p><a href="http://www.ktkt.edu.vn/">Đại học Kinh tế Kỹ thuật Bình Dương</a></p>
+                                                  <p><a href="http://www.ctuet.edu.vn/">Đại học Kỹ thuật -Công nghệ Cần Thơ</a></p>
+                                                  <p><a href="http://www.lhu.edu.vn/">Đại học Lạc Hồng</a></p>
+                                                  <p><a href="http://www.ntu.edu.vn/">Đại học Nha Trang</a></p>
+                                                </td>
+                                                <td width="50%">
+                                                  <p><a href="http://www.pctu.edu.vn/">Đại học Phan Châu Trinh</a></p>
+                                                  <p><a href="http://www.upt.edu.vn/home/">Đại học Phan Thiết</a></p>
+                                                  <p><a href="http://pyu.edu.vn/">Đại học Phú Yên</a></p>
+                                                  <p><a href="http://www.pdu.edu.vn/">Đại học Phạm Văn Đồng</a></p>
+                                                  <p><a href="http://www.quangtrung.edu.vn/">Đại học Quang Trung</a></p>
+                                                  <p><a href="http://www.qnamuni.edu.vn/">Đại học Quảng Nam</a></p>
+                                                  <p><a href="http://www.eiu.edu.vn/">Đại học Quốc tế Miền Đông</a></p>
+                                                  <p><a href="http://www.qnu.edu.vn/">Đại học Quy Nhơn</a></p>
+                                                  <p><a href="http://www.vlute.edu.vn/">Đại học Sư phạm Kỹ thuật Vĩnh Long</a></p>
+                                                  <p><a href="http://www.tckt.edu.vn/">Đại học Tài chính Kế toán</a></p>
+                                                  <p><a href="http://ttu.edu.vn/index.php?language=vn">Đại học Tân Tạo</a></p>
+                                                  <p><a href="http://www.tdu.edu.vn/">Đại học Tây Đô</a></p>
+                                                  <p><a href="http://www.taynguyenuni.edu.vn/">Đại học Tây Nguyên</a></p>
+                                                  <p><a href="http://www.pou.edu.vn/">Đại học Thái Bình Dương</a></p>
+                                                  <p><a href="http://www.upes3.edu.vn/">Đại học Thể dục Thể thao Đà Nẵng</a></p>
+                                                  <p><a href="http://www.tcu.edu.vn/">Đại học Thông tin Liên lạc</a></p>
+                                                  <p><a href="http://www.thudaumot.edu.vn/">Đại học Thủ Dầu Một</a></p>
+                                                  <p><a href="http://www.tgu.edu.vn/">Đại học Tiền Giang</a></p>
+                                                  <p><a href="http://www.tvu.edu.vn/">Đại học Trà Vinh</a></p>
+                                                  <p><a href="http://www.vttu.edu.vn/">Đại học Võ Trường Toản</a></p>
+                                                  <p><a href="http://www.mtu.edu.vn/">Đại học Xây dựng miền Tây</a></p>
+                                                  <p><a href="http://www.cuc.edu.vn/">Đại học Xây dựng miền Trung</a></p>
+                                                  <p><a href="http://www.ctump.edu.vn/">Đại học Y Dược Cần Thơ</a></p>
+                                                  <p><a href="http://www.yersin.edu.vn/">Đại học Yersin Đà Lạt</a></p>
+                                                  <p><a href="http://www.tsqcb.edu.vn/">Trường Sĩ quan Công binh (ĐH Ngô Quyền)</a></p>
+                                                  <p><a href="http://tsqkq.vn/">Trường Sĩ quan Không quân</a></p>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel-group">
+                                    <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="#collapse5" data-toggle="collapse" class="collapsed" aria-expanded="false">WEBSITES CÁC VIỆN VÀ HỌC VIỆN TRONG CẢ NƯỚC</a></h4>
+                                      </div>
+                                      <div class="panel-collapse collapse" id="collapse5" aria-expanded="false" style="height: 0px;">
+                                        <div class="panel-body">
+                                          <table width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td width="50%">
+                                                  <p><a href="http://hocvienamnhachue.vn/?c=home">Học viện Âm nhạc Huế</a></p>
+                                                  <p><a href="http://vnam.edu.vn/">Học viện Âm nhạc Quốc gia Việt Nam</a></p>
+                                                  <p><a href="http://hvannd.edu.vn/">Học viện An ninh nhân dân</a></p>
+                                                  <p><a href="http://ajc.edu.vn/">Học viện Báo chí Tuyên truyền</a></p>
+                                                  <p><a href="http://www.hvcsnd.edu.vn/">Học viện Cảnh sát nhân dân</a></p>
+                                                  <p><a href="http://apd.edu.vn/">Học viện Chính sách và Phát triển</a></p>
+                                                  <p><a href="http://www.ptit.edu.vn/">Học viện Công nghệ Bưu chính Viễn thông</a></p>
+                                                  <p><a href="http://www.hocvienhaiquan.edu.vn/">Học viện Hải quân</a></p>
+                                                  <p><a href="http://www.napa.vn/">Học viện Hành chính Quốc gia</a></p>
+                                                  <p><a href="http://www.ptithcm.edu.vn/">Học viện CN Bưu chính VT - CS Tp.HCM</a></p>
+                                                  <p><a href="http://www.hocvienhangkhong.edu.vn/">Học viện Hàng không Việt Nam</a></p>
+                                                  <p><a href="http://www.hocvienhaucan.edu.vn/">Học viện Hậu cần</a></p>
+                                                  <p><a href="http://hvkhqs.edu.vn/">Học viện Khoa học quân sự</a></p>
+                                                </td>
+                                                <td width="50%">
+                                                  <p><a href="http://actvn.edu.vn/">Học viện Kỹ thuật Mật mã</a></p>
+                                                  <p><a href="http://www.hvnh.edu.vn/">Học viện Ngân hàng</a></p>
+                                                  <p><a href="http://www.dav.edu.vn/vi/">Học viện Ngoại giao</a></p>
+                                                  <p><a href="http://www.vnua.edu.vn/">Học viện Nông nghiệp Việt Nam</a></p>
+                                                  <p><a href="http://www.hocvienpkkq.com/news/">Học viện Phòng không Không quân</a></p>
+                                                  <p><a href="http://www.hvpnvn.edu.vn/">Học viện Phụ nữ Việt Nam</a></p>
+                                                  <p><a href="http://www.niem.edu.vn/">Học viện Quản lý Giáo dục</a></p>
+                                                  <p><a href="http://hocvienquany.vn/">Học viện Quân y</a></p>
+                                                  <p><a href="http://www.hvtc.edu.vn/">Học viện Tài chính</a></p>
+                                                  <p><a href="http://vya.edu.vn/vya/">Học viện Thanh Thiếu niên Việt Nam</a></p>
+                                                  <p><a href="http://www.vatm.edu.vn/">Học viện Y Dược học cổ truyền Việt Nam</a></p>
+                                                  <p><a href="http://hcmcons.vn/">Nhạc viện TP.HCM</a></p>
+                                                  <p><a href="http://www.hou.edu.vn/">Viện Đại học Mở Hà Nội</a></p>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="portlet_deda45f0657c45e6aadb7d42d06a8479" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>&nbsp; LIÊN KẾT
+      </span></div>
+                      </div>
+                      <div>
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                          </tbody>
+                        </table>
+                        <p><a href="http://khanhhoa.edu.vn/"><img src="/userfiles/image/SGD-khanh%20hoa.JPG" alt="" border="0" height="203" width="200"></a></p>
+                        <p><a href="http://giaoan.violet.vn/"><img src="/userfiles/image/violet.bmp" alt="" border="0" height="93" width="200"></a></p>
+                        <p><a href="http://www.moet.gov.vn/?page=9.6"><img src="/userfiles/image/bo%20gd.gif" alt="" border="0" height="71" width="200"></a></p>
+                        <table cellspacing="0" cellpadding="0" border="0" width="200">
+                          <tbody>
+                            <tr>
+                            </tr>
+                            <tr>
+                              <td><img alt="" src="http://khanhhoa.edu.vn/userfiles/image/banner.gif" border="0" height="63" width="200"></td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.chinhphu.vn/portal/page?_pageid=578,1&amp;_dad=portal&amp;_schema=PORTAL"><img alt="" src="http://khanhhoa.edu.vn/userfiles/image/b_vbpl_tw.gif" border="0" height="34" width="200"></a></td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.congbaokhanhhoa.gov.vn/"><img alt="" src="http://khanhhoa.edu.vn/userfiles/image/b_vbpl_dp.gif" border="0" height="29" width="200"></a></td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://luatvietnam.vn/"><img alt="" src="http://khanhhoa.edu.vn/userfiles/image/b_phapluatvn.gif" border="0" height="34" width="200"></a></td>
+                            </tr>
+                            <tr>
+                              <td><img alt="" src="http://khanhhoa.edu.vn/userfiles/image/banner_bottom.gif" border="0" height="8" width="200"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div id="portlet_cd66772461f1478eb0bdf61a51a719ac" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>&nbsp;   THỜI TIẾT</span></div>
+                      </div>
+                      <div>
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                          </tbody>
+                        </table>
+                        <p>
+                          <a href="http://www.accuweather.com/vi/vn/ninh-hoa/354226/weather-forecast/354226" class="aw-widget-legal">
+                            <!--
+By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
+-->
+                          </a>
+                        </p>
+                        <div id="awcc1477746706370" class="aw-widget-current" data-locationkey="354226" data-unit="c" data-language="vi" data-useip="false" data-uid="awcc1477746706370">&nbsp;</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div id="pnCenter">
+                  <div id="pnCenterDisplay" style="background-color:#ffffff;padding:0px 5px;width:590px">
+                    <div id="portlet_5a8e50461782409084d964ca61eb3cb0" style="">
+                      <div>
+                        <div style="text-align: center;">
+                          <h1 class="text-success">Hướng dẫn thi nghề phổ thông 03/2018</h1>
+                          <p><a href="https://drive.google.com/open?id=1P1U9uN782FeUlMAu_hArMwQ5G36YG2TH" class="btn btn-primary">Công văn 110</a> <a href="https://drive.google.com/open?id=1WXFLH1jcui778Qw4TZf1OUM2nDGCovf3" class="btn btn-success">Quyết định 375</a></p>
+                          <h1 class="text-primary">Phương thức tuyển sinh lớp 10 2018</h1>
+                          <p><a href="https://drive.google.com/open?id=1c8KEBvRYT4_W5Kmgkzm1skw3ZqzVweqs" class="btn btn-primary">Công văn 2699</a></p>
+                          <h1 class="text-danger">Cuộc thi giao thông học đường</h1>
+                          <p><a href="https://drive.google.com/open?id=1y3zECBhyEgnY7ATg3TLwmwwb-YW2ffA_" class="btn btn-danger">Kế hoạch</a> <a href="https://drive.google.com/open?id=1fgZV6HuDRqoiksYBGyLUT6lGMXqulta6" class="btn btn-primary">Bạn tổ chức</a></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="portlet_445c5dcf67724809ac8e5ae7a3637486" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>&nbsp; PHẦN MỀM
+      </span></div>
+                      </div>
+                      <div>
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div id="portlet_5d5130740e3d4aa99a728ddc685bdcc5" style="">
+                      <div>
+                        <h4 class="lead" style="text-align: center;"><strong class="text-primary">Phần mềm trộn đề thi trắc nghiệm</strong></h4>
+                        <table style="margin: 0px auto;">
+                          <tbody>
+                            <tr>
+                              <th rowspan="2"><img class="img-fluid" style="height: 140px; margin: 1rem;" src="https://hoanchan.github.io/assets/projects//hc-mix/logo.png" alt="HC-Mix"></th>
+                              <th><img style="height: 100px; margin-top: 1rem;" src="https://hoanchan.github.io/assets/projects//hc-mix/textlogo.png" alt="HC-Mix"></th>
+                            </tr>
+                            <tr>
+                              <td><a class="btn btn-default btn-danger" href="https://hoanchan.github.io/download/hc-mix.7z">Tải về phần mềm</a> <a class="btn btn-default btn-success" href="https://hoanchan.github.io/projects/hc-mix/installation/">Hướng dẫn cài đặt</a>                                <a class="btn btn-default btn-primary" href="https://hoanchan.github.io/download/hc-mix_demau.7z">Đề mẫu</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div id="portlet_2f19c3ba804c4d71b3b970452c1d1d61" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>&nbsp; HOẠT ĐỘNG
+      </span></div>
+                      </div>
+                      <div>
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div id="portlet_4c32b69a11424155bcf77be6fb6fbc64" style="">
+                      <div>
+                        <link href="../../PublicFolder/KhanhHoaImages/main.css" rel="stylesheet" type="text/css">
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr>
+                              <td><img height="1" alt="" width="1" border="0" src="PublicFolder/KhanhHoaImages/dot.gif"></td>
+                            </tr>
+                            <tr>
+                              <td style="BACKGROUND-POSITION: 100% 0%; BACKGROUND-IMAGE: url(PublicFolder/KhanhHoaImages/bg_body_news.gif); BACKGROUND-REPEAT: repeat-x; BACKGROUND-COLOR: #ffffff" valign="top" height="200">
+                                <div align="center">
+                                  <table cellpadding="2" width="96%" border="0">
+                                    <tbody>
+                                      <tr>
+                                        <td height="5"><img height="1" alt="" width="1" border="0" src="PublicFolder/KhanhHoaImages/dot.gif"></td>
+                                      </tr>
+                                      <tr>
+                                        <td align="left" style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #5b5b5b; FONT-FAMILY: arial">
+                                          <a id="portlet_4c32b69a11424155bcf77be6fb6fbc64_hplTitle" href="./?ArticleId=1b69de92-3230-4c7e-baa7-7e86a3e53234" style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #003399; FONT-FAMILY: arial; text-decoration:none">Khai giảng năm học mới 2017 - 2018</a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="left">
+                                          <font face="Arial" color="#5b5b5b" size="2"><span id="portlet_4c32b69a11424155bcf77be6fb6fbc64_lblDescription"><h1 class="lead" style="text-align: center;">Lễ khai giảng năm học mới 2017 - 2018</h1>
+<p style="margin-top:8.0pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;
+margin-bottom:.0001pt;text-align:justify;tab-stops:21.3pt"><span style="font-size:14.0pt;color:#002060" lang="VI">Hòa vào niềm vui cả nước chào mừng khai giảng năm học mới, sáng </span><span style="font-size:14.0pt;color:#002060;
+mso-ansi-language:EN-US">0</span><span style="font-size:14.0pt;
+color:#002060" lang="VI">5/9</span><span style="font-size:14.0pt;color:#002060;
+mso-ansi-language:EN-US">/2017</span><span style="font-size:14.0pt;
+color:#002060" lang="VI">, Trường THPT </span><span style="font-size:14.0pt;color:#002060;
+mso-ansi-language:EN-US">Trần Cao Vân</span><span style="font-size:
+14.0pt;color:#002060" lang="VI"> đã long trọng tổ chức Lễ khai giảng năm học mới 201</span><span style="font-size:14.0pt;color:#002060;mso-ansi-language:EN-US">7</span><span style="font-size:14.0pt;color:#002060" lang="VI">-201</span><span style="font-size:14.0pt;color:#002060;mso-ansi-language:EN-US">8</span>
+                                            <span
+                                              style="font-size:14.0pt;color:#002060" lang="VI">.</span>
+                                              </p>
+                                              <p><span style="font-size:14.0pt;color:#002060" lang="VI"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Đến dự lễ có ông </span><span style="font-size:14.0pt;color:#002060;mso-ansi-language:
+EN-US">Lê Đình Thuần</span><span style="font-size:14.0pt;color:#002060" lang="VI"> – </span><span style="font-size:14.0pt;color:#002060;mso-ansi-language:EN-US">Phó Giám đốc sở GD&amp;ĐT Khánh Hoà</span><span style="font-size:14.0pt;
+color:#002060" lang="VI">; </span><span style="font-size:14.0pt;color:#002060;mso-ansi-language:
+EN-US">bà</span><span style="font-size:14.0pt;color:#002060"> </span><span style="font-size:14.0pt;color:#002060;mso-ansi-language:EN-US">Nguyễn Thị Hồng Hải – Phó Chủ tịch hội đồng nhân dân thị xã Ninh Hoà</span></p>
+                                              <p><img src="/userfiles/image/2017-2018/khaigiang/11.jpg" alt="" width="100%"></p>
+                                              </span>
+                                          </font>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td height="24">
+                                          <p align="right">
+                                            <a id="portlet_4c32b69a11424155bcf77be6fb6fbc64_hplChitiet" href="./?ArticleId=1b69de92-3230-4c7e-baa7-7e86a3e53234"><img height="13" alt="" width="51" border="0" src="PublicFolder/KhanhHoaImages/b_xemtiep.gif"></a>
+                                          </p>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td height="24">
+                                          <hr color="#cecccb" size="1">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="left">
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;7d78ee0c-1cd4-4946-a1f3-7937374e472d&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=7d78ee0c-1cd4-4946-a1f3-7937374e472d">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">Hội khoẻ phù đổng cấp trường 12/03/2017</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(13/03/2017)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;4647578e-499b-48cb-b3c2-91538d9022f5&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=4647578e-499b-48cb-b3c2-91538d9022f5">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">Hình ảnh các sản phẩm dự thi "Tri ân người khai sáng"</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(18/11/2016)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;1bf1f93d-4116-42bb-a3e9-5d2563ab46ca&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=1bf1f93d-4116-42bb-a3e9-5d2563ab46ca">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">Hoạt động ngoài giờ tháng 10/2016</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(27/10/2016)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;c03ba70f-d097-4fe4-9c54-1d90e46659e8&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=c03ba70f-d097-4fe4-9c54-1d90e46659e8">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">ĐẠI HỘI CHI ĐOÀN GIÁO VIÊN</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(04/10/2016)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;08a3cb7d-d5c6-4584-991f-85bd13683142&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=08a3cb7d-d5c6-4584-991f-85bd13683142">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">ĐẠI HỘI ĐẠI BIỂU ĐOÀN TRƯỜNG</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(17/10/2015)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="8"> </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div id="portlet_5072f05779fc4e0a805fb5271943e4c4" style="">
+                      <div>
+                        <link href="../../PublicFolder/KhanhHoaImages/main.css" rel="stylesheet" type="text/css">
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr>
+                              <td><img height="1" alt="" width="1" border="0" src="PublicFolder/KhanhHoaImages/dot.gif"></td>
+                            </tr>
+                            <tr>
+                              <td style="BACKGROUND-POSITION: 100% 0%; BACKGROUND-IMAGE: url(PublicFolder/KhanhHoaImages/bg_body_news.gif); BACKGROUND-REPEAT: repeat-x; BACKGROUND-COLOR: #ffffff" valign="top" height="200">
+                                <div align="center">
+                                  <table cellpadding="2" width="96%" border="0">
+                                    <tbody>
+                                      <tr>
+                                        <td height="5"><img height="1" alt="" width="1" border="0" src="PublicFolder/KhanhHoaImages/dot.gif"></td>
+                                      </tr>
+                                      <tr>
+                                        <td align="left" style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #5b5b5b; FONT-FAMILY: arial">
+                                          <a id="portlet_5072f05779fc4e0a805fb5271943e4c4_hplTitle" href="./?ArticleId=3cf26bc1-4970-4b98-8d01-86c29fa0540f" style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #003399; FONT-FAMILY: arial; text-decoration:none">Giải bóng đá mini nam học sinh</a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="left">
+                                          <font face="Arial" color="#5b5b5b" size="2"><span id="portlet_5072f05779fc4e0a805fb5271943e4c4_lblDescription"><p><img src="/userfiles/image/2017-2018/BongDa/bia.jpg" width="100%" alt=""></p></span></font>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td height="24">
+                                          <p align="right">
+                                            <a id="portlet_5072f05779fc4e0a805fb5271943e4c4_hplChitiet" href="./?ArticleId=3cf26bc1-4970-4b98-8d01-86c29fa0540f"><img height="13" alt="" width="51" border="0" src="PublicFolder/KhanhHoaImages/b_xemtiep.gif"></a>
+                                          </p>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td height="24">
+                                          <hr color="#cecccb" size="1">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="left">
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;da0115af-6c92-4b57-8ccb-08b32848570a&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=da0115af-6c92-4b57-8ccb-08b32848570a">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">Hoạt động tình nguyện của hội LHTN Trường THPT Trần Cao Vân</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(13/05/2017)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;6b5e34e4-4258-4b06-af76-de8f9863b779&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=6b5e34e4-4258-4b06-af76-de8f9863b779">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">Hội trại 26/3</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(17/03/2017)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;430fcaa0-918a-4540-ad40-9302048a14c3&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=430fcaa0-918a-4540-ad40-9302048a14c3">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">Hình ảnh giao lưu Đoàn - Hội khối trường THPT chào mừng 20/11</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(15/11/2016)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;e763e05a-eace-48f0-ad47-37b029515010&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=e763e05a-eace-48f0-ad47-37b029515010">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">Sinh hoạt đội tiên phong TCV</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(01/11/2016)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="../../PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;54ab493a-86d9-416f-ab11-e2d22fe041a6&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=54ab493a-86d9-416f-ab11-e2d22fe041a6">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">Giao lưu hậu 20/10</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(24/10/2016)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="8"> </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div id="portlet_1a6b93fbf12d44a28f8422e9765e73df" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>&nbsp; Dành cho Giáo viên</span></div>
+                      </div>
+                      <div>
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                          <tbody>
+                            <tr></tr>
+                          </tbody>
+                        </table>
+                        <div align="center">
+                          <h1 class="text-success">Báo cáo sinh hoạt chuyên môn</h1>
+                          <p><a href="https://drive.google.com/open?id=1R4Gi7hab-vWwxc7KusneI0Ow5XvlDQvo" class="btn btn-primary">Kích hoạt sáng tạo</a> <a href="https://drive.google.com/open?id=1J0WOUwP2qvb5G0cNKkLLOHpV9TwlWkSt"
+                              class="btn btn-primary">HC-MIX</a> <a href="https://drive.google.com/open?id=1vivCUBkidl_aIC3FGyFh7vOQcJg4-DF6" class="btn btn-primary">PISA</a> <a href="https://drive.google.com/open?id=1Ct0O9fUxDVdZ29OTXIEaig8SNXOPogv4"
+                              class="btn btn-primary">Soạn TNKQ</a></p>
+                          <h6 class="lead" align="center">Tài liệu</h6>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlOUlQZG9faExELW8" class="btn btn-success">Tổng hợp tài liệu BDTX</a></p>
+                          <p><a href="https://drive.google.com/file/d/0Bw_EfTRojsJleDF6cG1KUTJEdDg" class="btn btn-success">Giải toán, lý, hoá, sinh với CASIO Fx 570VN Plus</a></p>
+                          <h6 class="lead" align="center">Văn bản</h6>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlWng2ektxWG5NZVU" class="btn btn-success">Công văn 68 - Sử dụng Sổ điểm điện tử</a></p>
+                          <p><a href="https://drive.google.com/open?id=1u-rxsFLDM4QPpjEbvkNXGPShAZCHLTNm" class="btn btn-danger">Quyết định 1186 - Quy chế sử dụng Sổ điểm điện tử</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlU21XcThIU3VLcUE" class="btn btn-success">Nghị định 56 - Đánh giá, phân loại CB - CC - VC</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlcVZjSWtYd2swTDdaNm9yMkdEU0l6OFNnX2xF" class="btn btn-success">Công văn 1974 - Thực hiện hồ sơ chuyên môn</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlclJDaDlZMHphd00" class="btn btn-success">Luật công chức, viên chức</a></p>
+                          <br>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlN29yRUFwc3p0bW9SZkYycW03bzl2bk15d3pj" class="btn btn-success">Kế hoạch phổ biến giáo dục pháp luật</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlMXVDRU9vYmdBd0g3a2Jvc2tDeGdiT0E1Rzlj" class="btn btn-success">Kế hoạch phát động phong trào thi đua ATGT</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlZ2RMeEViY1A3R2N3YVZVaGF1ZDMwQmNTdC1F" class="btn btn-success">Kế hoạch phòng chống tham nhũng</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlTW5sNTRvUlMyLTRDR0lhTVgtWVk5eWVqRFRz" class="btn btn-success">Thông tư 162 của Bộ Quốc phòng</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlOVNYNkNaa2ZSQ0E" class="btn btn-success">Phiếu nhận xét thực tập sư phạm</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlOFRNTktRT1ZlZVRCSERZNjF3bTFMZUxNdlFn" class="btn btn-success">Công văn 471 - Chuẩn bị thi thực hành nghề THPT</a></p>
+                          <h6 class="lead" align="center">Công văn dạy thêm</h6>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlblY0b0JfclRfRUk" class="btn btn-success">Chỉ thị 16</a> <a href="https://drive.google.com/open?id=0Bw_EfTRojsJlWFVZZ0RvNFJFejg" class="btn btn-success">Công văn 1242</a>                            <a href="https://drive.google.com/open?id=0Bw_EfTRojsJlcFN5R1RuZVRMc1k" class="btn btn-success">Thông tư 17</a> <a href="https://drive.google.com/open?id=0Bw_EfTRojsJlYW9LUXJ5X29aU28" class="btn btn-success">QĐ 14.2013</a></p>
+                          <h6 class="lead" align="center">Văn bản mới 2017 - 2018</h6>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlYzZKVmpuaTYyTjQ" class="btn btn-success">Công văn 1704 - Hưởng ứng cuộc thi tìm hiểu pháp luật năm 2017</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlQlhKYkNHaEtjMGc" class="btn btn-success">Công văn 1705 - Tuyên truyền kết nối fanpage Nha Trang ngày mới</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlTkpLYUR2X2tkdGs" class="btn btn-success">Công văn 1878 - Hướng dẫn thực hiện nhiệm vụ GD trung học</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlMG1OSHlTZ0dSa00" class="btn btn-success">Công văn 2233 - Hướng dẫn thực hiện chương trình GD PT hiện hành</a></p>
+                          <p><a href="https://drive.google.com/open?id=0Bw_EfTRojsJlMG1OSHlTZ0dSa00" class="btn btn-success">Công văn 2233 - Hướng dẫn thực hiện chương trình GD PT hiện hành</a></p>
+                          <p><a href="https://drive.google.com/open?id=1I0niu4uGSlgjrvH4LdBdwAvNyuKbjyYm" class="btn btn-danger">Triển khai thông tư 51</a></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="portlet_226db8d83fab4308afc28c2328038cfd" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>&nbsp; Các trường ĐH, CD, TC, HV đã về trường chiêu sinh</span></div>
+                      </div>
+                      <div>
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div id="pnRight">
+                  <div id="pnRightDisplay" style="width:200px;height:100%">
+                    <div id="portlet_ea5db4db0f064823a1fc61f47c93fc8d" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>
+  &nbsp;
+            Hội khuyến học</span></div>
+                      </div>
+                      <div>
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                            <tr>
+                              <td colspan="2" style="BACKGROUND-POSITION: 100% 0%; BACKGROUND-IMAGE: url(PublicFolder/KhanhHoaImages/bg_body_news.gif); BACKGROUND-REPEAT: repeat-x; BACKGROUND-COLOR: #ffffff" valign="top" height="200">
+                                <div align="center">
+                                  <table cellpadding="2" width="96%" border="0">
+                                    <tbody>
+                                      <tr>
+                                        <td height="5"><img height="1" alt="" width="1" border="0" src="PublicFolder/KhanhHoaImages/dot.gif"></td>
+                                      </tr>
+                                      <tr>
+                                        <td align="left">
+                                          <a id="portlet_ea5db4db0f064823a1fc61f47c93fc8d_hplTitle" href="./?ArticleId=b38460a6-d9b0-4396-90d8-234f932ba576" style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #003399; FONT-FAMILY: arial; text-decoration:none">
+                                            <font face="Arial" color="#000000" size="2" style="font-weight: bold; text-decoration:none">Thư ngỏ</font>
+                                          </a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="left">
+                                          <font face="Arial" color="#5b5b5b" size="2"><span id="portlet_ea5db4db0f064823a1fc61f47c93fc8d_lblDescription"><p><img src="/userfiles/image/2016-2017/HoiKhuyenHoc/Thu%20ngo.jpg" width="100%" alt=""></p></span></font>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <div align="right">
+                                            <a id="portlet_ea5db4db0f064823a1fc61f47c93fc8d_hplChitiet" href="./?ArticleId=b38460a6-d9b0-4396-90d8-234f932ba576"><img height="13" alt="" width="51" border="0" src="PublicFolder/KhanhHoaImages/b_xemtiep.gif"></a>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          <hr color="#cecccb" size="1">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="left">
+                                          <div>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td height="24" align="left">
+                                                    <img height="4" alt="" width="4" border="0" src="PublicFolder/KhanhHoaImages/rec_orange.gif">
+                                                    <font color="#005482"></font>
+                                                    <font color="#565245">
+                                                      <a style="TEXT-DECORATION: none" onmouseover="DisplayToolTip(event,&quot;29aba62a-261d-47af-a820-a6f4679739e7&quot;)" onmousemove="MovePanelDisplayTooltip(event);" onmouseout="HiddenTooltip();" href="?ArticleId=29aba62a-261d-47af-a820-a6f4679739e7">
+                                                        <font style="FONT-SIZE: 9pt" face="Arial" color="#005482">Quyết định thành lập hội khuyến học</font>&nbsp;&nbsp;
+                                                        <font style="FONT-SIZE: 8pt" face="Tahoma" color="#cecccb">(26/11/2016)</font>
+                                                      </a>
+                                                    </font>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div id="portlet_c978291a26604e48a358ea90bd11303c" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>
+    &nbsp;Số lượt truy cập</span></div>
+                      </div>
+                      <div>
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                            <tr>
+                              <td align="center" colspan="2" bgcolor="#e9e9e9">
+                                <br>
+                                <span id="portlet_c978291a26604e48a358ea90bd11303c_Label1">322293</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div id="portlet_c0b16d2055f04d51a211bd2427c31613" style="">
+                      <div class="c_tintuc">
+                        <div class="tintuc"><span>&nbsp; HÌNH ẢNH
+      </span></div>
+                      </div>
+                      <div>
+                        <table cellspacing="0" cellpadding="0" width="100%">
+                          <tbody>
+                            <tr></tr>
+                          </tbody>
+                        </table>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(2).jpg" alt=""></p>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(4).jpg" alt=""></p>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(7).jpg" alt=""></p>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(9).jpg" alt=""></p>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(10).jpg" alt=""></p>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(13).jpg" alt=""></p>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(14).jpg" alt=""></p>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(15).jpg" alt=""></p>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(16).jpg" alt=""></p>
+                        <p><img src="/userfiles/image/images%20hoat%20dong/Hinh%20anh%20noi%20bat/Image(17).jpg" alt=""></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <div id="pnBottom">
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="pnBottomDisplay" style="width:1000px">
+      <div id="portlet_7a5351670fc949d8b78f5ce317c33f07" style="">
+        <div>
+          <footer class="footer-distributed">
+            <div class="footer-left">
+              <h3>THPT&nbsp;<span>Trần Cao Vân</span></h3>
+              <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Đường Đinh Tiên Hoàng</span>Ninh Hoà, Khánh Hoà</p>
+              </div>
+              <div class="footer-icons">
+                <a href="https://www.facebook.com/TruongThptTranCaoVanKhanhHoa"><i class="fa fa-facebook"></i></a>
+                <a href="https://goo.gl/maps/1v2dyjXT9eE2"><i class="fa fa-map-marker"></i></a>
+              </div>
+              <p class="footer-company-name">Trường THPT Trần Cao Vân © 2016</p>
+            </div>
+            <div class="footer-center">
+              <p>Liên lạc:</p>
+              <div>
+                <i class="fa fa-phone"></i>
+                <p>(058) 3844219</p>
+              </div>
+              <div>
+                <i class="fa fa-fax"></i>
+                <p>(058) 3845754</p>
+              </div>
+              <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:c3tcvan@khanhhoa.edu.vn">c3tcvan@khanhhoa.edu.vn</a></p>
+              </div>
+            </div>
+            <div class="footer-right">
+              <p>Đóng góp bài viết:</p>
+              <p class="footer-company-about">
+                Các em học sinh và giáo viên có nhu cầu cung cấp thông tin, hình ảnh và bài viết cho Website, xin vui lòng gởi email về địa chỉ sau:
+              </p>
+              <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:web.tcvan@gmail.com">web.tcvan@gmail.com</a></p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <div id="portlet_51c87abfddb84451bcd6087615b5289c" style="">
+        <div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+<!--   Core JS Files   -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script async src="assets/js/myjs2.js"></script>
+<!-- <script async src="assets/js/tcv.main.js"></script> -->
+</html>
