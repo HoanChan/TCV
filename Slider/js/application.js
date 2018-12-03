@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function() {
   function showText() {
     var args = arguments;
@@ -11,15 +12,15 @@ $(document).ready(function() {
     var text = '';
     data.forEach(function(p) {
       text += showText(
-          `<li>
-              <img src="{0}" alt="{1}">
-              <div class="container-{3}">
-                <h1>{1}</h1>
-                <div class="contrast">
-                  <p>{2}</p>
-                </div>
-              </div>
-            </li>`, p.Image, p.Header, p.Content, p.Position);
+          '<li>' +
+              '<img src="{0}" alt="{1}">' +
+              '<div class="container-{3}">' +
+                '<h1>{1}</h1>' +
+                '<div class="contrast">' +
+                  '<p>{2}</p>' +
+                '</div>' +
+              '</div>' +
+            '</li>', p.Image, p.Header, p.Content, p.Position);
     });
     return text;
   }
