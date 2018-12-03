@@ -8,8 +8,8 @@ var jsonData = [
   {
     "Image": "images/tranhlangphi/2.jpg",
     "Header": "Bố trí phòng học",
-    "Content": "Bàn ghế trong phòng học phải được xếp ngay ngắn, thẳng hàng và được xếp thành 4 dãy, mỗi dãy cách nhau 40cm (1 viên gạch), riêng chính giữa cách nhau tối thiểu 60 phân (1,5 viên gạch).",
-    "Position": "bottom"
+    "Content": "Bàn ghế phải được xếp ngay ngắn, xếp thành 4 dãy, mỗi dãy cách nhau 40cm (1 viên gạch), riêng chính giữa cách nhau tối thiểu 60cm (1,5 viên gạch).",
+    "Position": "left"
   },
   {
     "Image": "images/tranhlangphi/3.jpg",
