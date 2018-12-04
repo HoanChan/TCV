@@ -9,13 +9,13 @@ var jsonData = [
     "Image": "images/tranhlangphi/2.jpg",
     "Header": "Bố trí phòng học",
     "Content": "Bàn ghế phải được xếp ngay ngắn, xếp thành 4 dãy, mỗi dãy cách nhau 40cm (1 viên gạch), riêng chính giữa cách nhau tối thiểu 60cm (1,5 viên gạch).",
-    "Position": "left"
+    "Position": "top"
   },
   {
     "Image": "images/tranhlangphi/3.jpg",
     "Header": "Vệ sinh môi trường",
     "Content": "Tất cả các dụng cụ làm vệ sinh phải để đúng nơi quy định và xếp gọn gàng",
-    "Position": "top"
+    "Position": "left"
   },
   {
     "Image": "images/tranhlangphi/4.jpg",
@@ -25,9 +25,9 @@ var jsonData = [
   },
   {
     "Image": "images/tranhlangphi/5.jpg",
-    "Header": "Tận dụng tối đa<br>ánh sáng tự nhiên",
+    "Header": "Tận dụng tối đa ánh sáng tự nhiên",
     "Content": "Trong các giờ học phải mở hết các cửa sổ, cửa đi để sử dụng ánh sáng tự nhiên, chỉ phải đóng cửa sổ khi bị nắng, mưa ảnh hưởng đến việc dạy và học.",
-    "Position": "right"
+    "Position": "bottom"
   },
   {
     "Image": "images/tranhlangphi/6.jpg",
