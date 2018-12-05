@@ -215,7 +215,7 @@ var css = {
 }
 
 var fx = {
-  slide: function(orientation, complete) {
+  slide: function(that, orientation, complete) {
     var $children = that.$container.children(),
         $target   = $children.eq(orientation.upcoming_slide);
 
@@ -252,8 +252,8 @@ var fx = {
       complete();
     });
   },
-  fade: function(orientation, complete) {
-    var that = this,
+  fade: function(that, orientation, complete) {
+    var //that = this,
         $children = that.$container.children(),
         $outgoing = $children.eq(orientation.outgoing_slide),
         $target = $children.eq(orientation.upcoming_slide);
@@ -615,7 +615,7 @@ Superslides.prototype = {
     }
     that.$el.trigger('animating.slides', [orientation]);
 
-    that.animation(orientation, function() {
+    var ani = that.animation(that, orientation, function() {
       that._findPositions(orientation.upcoming_slide, that);
 
       if (typeof userCallback === 'function') {
@@ -631,6 +631,7 @@ Superslides.prototype = {
         that.$container.fadeIn('fast');
       }
     });
+    ani.run();
   }
 };
 
