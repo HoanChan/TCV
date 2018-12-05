@@ -631,7 +631,7 @@ Superslides.prototype = {
         that.$container.fadeIn('fast');
       }
     });
-    ani.run();
+    // if(ani.run !== undefined && typeof ani.run === 'function') ani.run();
   }
 };
 
