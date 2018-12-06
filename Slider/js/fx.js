@@ -148,6 +148,9 @@ fx.HC ={};
             effectMode: 'out',
             after: function () {if (completed) completed();}
         }, opts);
+        this.children = that.$container.children(),
+        this.outgoing = this.children.eq(opts.outgoing_slide),
+        this.target = this.children.eq(opts.upcoming_slide);
         // We need to ensure transitions degrade gracefully if the transition is unsupported or not loaded
         if ((this.options.requires3d && !fx.HC.browser.supports3d) || !fx.HC.browser.supportsTransitions || this.options.fallback === true) {
             var _this = this;
@@ -168,9 +171,9 @@ fx.HC ={};
         constructor: fx.HC.transition,
         hasFinished: false, // This is a lock to ensure that the HCTransitionEnd event is only fired once per transition
         run: function () {            
-            // this.slider.imageContainer.css('overflow', this.options.requires3d ? 'visible' : 'hidden');
+            this.slider.$container.css('overflow', this.options.requires3d ? 'visible' : 'hidden');
             if (this.options.setup !== undefined) this.options.setup.call(this);
-            // if (this.options.effectMode === 'out') $outgoing.css({ 'background-image': 'none' });
+            // if (this.options.effectMode === 'out') this.outgoing.css({ 'background-image': 'none' });
             if (this.options.execute !== undefined) this.options.execute.call(this);
         },
         finished: function () {
@@ -199,31 +202,27 @@ fx.HC ={};
     $.fn.superslides.fx = $.extend(fx.HC.transitions, $.fn.superslides.fx);
 //=============================================================//
     fx.HC.transition_base = function (that, opts, completed) {
-        var //that = this,
-        $children = that.$container.children(),
-        $outgoing = $children.eq(opts.outgoing_slide),
-        $target = $children.eq(opts.upcoming_slide);
         return new fx.HC.transition(that, $.extend({
             columns: 7,
             rows: 7,
             forceSquare: false,
             perspective: 1000,
             setup: function () {
-                $outgoing.css({ 
+                this.outgoing.css({ 
                     zIndex: 2, 
                     display: 'block'
                 }).css3({
                     'perspective': this.options.perspective,
                     'perspective-origin': '50% 50%'
                 });
-                $target.css({
+                this.target.css({
                     zIndex: 0,
                     opacity: 1,
                     display: 'block'
                 });
 
-                var imgWidth = $outgoing.width(),
-                    imgHeight = $outgoing.height();
+                var imgWidth = this.outgoing.width(),
+                    imgHeight = this.outgoing.height();
 
                 var colWidth = imgWidth / this.options.columns,
                     rowHeight = imgHeight / this.options.rows;
@@ -246,7 +245,7 @@ fx.HC ={};
                             top: totalTop + 'px',
                             left: totalLeft + 'px'
                         });
-                        var targetImage = $outgoing.children('img').first();
+                        var targetImage = this.outgoing.children('img').first();
                         var imgLeft = (parseInt(targetImage.css("left"), 10) || 0);
                         var imgTop = (parseInt(targetImage.css("top"), 10) || 0);
                         this.options.renderTile.call(this, tile, i, j, thisColWidth, thisRowHeight, totalLeft - imgLeft, totalTop - imgTop);
@@ -255,8 +254,8 @@ fx.HC ={};
                 }
 
                 // Append the fragement to the surface
-                $outgoing.get(0).appendChild(fragment);
-                $outgoing.children().not($('.tile')).hide();
+                this.outgoing.get(0).appendChild(fragment);
+                this.outgoing.children().not($('.tile')).hide();
             },
             execute: function () {
 
@@ -270,15 +269,11 @@ fx.HC ={};
 //=================[ Dissolve Effects ]=================//
 (function ($) {
     fx.HC.transitions.Dissolve = function (that, opts, completed) {
-        var //that = this,
-        $children = that.$container.children(),
-        $outgoing = $children.eq(opts.outgoing_slide),
-        $target = $children.eq(opts.upcoming_slide);
         return new fx.HC.transition(that, $.extend({
             duration: 2,
             ease: Quart.easeIn,
             setup: function () {
-                $target.css({ // thiết lập cho slide mới, chuẩn bị chạy hoạt hình
+                this.target.css({ // thiết lập cho slide mới, chuẩn bị chạy hoạt hình
                     zIndex: 2, // cho nó lên trên cái slide đang hiển thị
                     opacity: 0,// ẩn nó đi
                     display: 'block'
@@ -287,18 +282,18 @@ fx.HC ={};
             execute: function () {
                 var _this = this;
                 var complete = function() {
-                    $target.css({ zIndex: 0 });
-                    $outgoing.css({
+                    _this.target.css({ zIndex: 0 });
+                    _this.outgoing.css({
                         opacity: 1,
                         display: 'none',
                         zIndex: 0
                     });                        
                     _this.finished();
                 };
-                $target.css({
+                this.target.css({
                   left: that.width
                 });
-                TweenMax.to($target, _this.options.duration, {
+                TweenMax.to(this.target, _this.options.duration, {
                     autoAlpha: 1,
                     ease: _this.options.ease,
                     onComplete: complete
@@ -311,31 +306,27 @@ fx.HC ={};
 //=================[ Swipe Effects ]=================//
 (function ($) {
     fx.HC.transitions.SwipeLeft = function (that, opts, completed) {
-        var //that = this,
-        $children = that.$container.children(),
-        $outgoing = $children.eq(opts.outgoing_slide),
-        $target = $children.eq(opts.upcoming_slide);
         return new fx.HC.transition(that, $.extend({
             duration: 2,
             ease: Sine.easeOut,
             direction: 'left',
             size: 140,
             setup: function () {
-                $outgoing.css({ 
+                this.outgoing.css({ 
                     zIndex: 2, 
                     display: 'block'
                 }); 
-                $target.css({
+                this.target.css({
                     zIndex: 0,
                     opacity: 1,
                     display: 'block'
                 });
-                var sizePer = 100 * (this.options.size / $outgoing.width() / 3) / 2;
+                var sizePer = 100 * (this.options.size / this.outgoing.width() / 3) / 2;
                 var rec = this.options.direction === 'right' || this.options.direction === 'down';
                 var rec1 = rec ? 0 : 1;
                 var rec2 = rec ? 1 : 0;
                 var dir = this.options.direction === 'up' || this.options.direction === 'down' ? 'top' : 'left';
-                var targetImage = $outgoing.children('img').first();
+                var targetImage = this.outgoing.children('img').first();
                 var mask = $('<div id="mask"/>').css({
                     width: targetImage.width(),
                     height: targetImage.height(),
@@ -350,21 +341,21 @@ fx.HC ={};
                 });//.attr("style", targetImage.attr("style")).addClass(targetImage.attr("class"));
 
                 var timer = $('<div id="timer"/>').css({ width: '0px' });
-                $outgoing.append(mask).append(timer);
+                this.outgoing.append(mask).append(timer);
                 //targetImage.hide();
-                $outgoing.children().not(mask).hide();
+                this.outgoing.children().not(mask).hide();
             },
             execute: function () {
                 var _this = this,
-                    mask = $outgoing.find('div#mask'),
-                    timer = $outgoing.find('div#timer');
+                    mask = this.outgoing.find('div#mask'),
+                    timer = this.outgoing.find('div#timer');
                 var complete = function () {
-                    $outgoing.show(0);
-                    $outgoing.css({
+                    _this.outgoing.show(0);
+                    _this.outgoing.css({
                         zIndex: 0,
                         display: 'none'
                     }); 
-                    $outgoing.children().show();
+                    _this.outgoing.children().show();
                     mask.remove();
                     timer.remove();
                     _this.finished();
@@ -407,10 +398,6 @@ fx.HC ={};
 //=======================================================[ Zip Effects ]========================================================//
 (function ($) {
     fx.HC.transitions.ZipLeft = function (that, opts, completed) {
-        var //that = this,
-        $children = that.$container.children(),
-        $outgoing = $children.eq(opts.outgoing_slide),
-        $target = $children.eq(opts.upcoming_slide);
         return new fx.HC.transition_base(that, $.extend({
             forceSquare: false,
             columns: 16,
@@ -422,7 +409,7 @@ fx.HC ={};
             ease: Linear.easeIn,
             calcDelay: function (rowIndex, colIndex) { return colIndex * this.options.delayBetweenBarsX + rowIndex * this.options.delayBetweenBarsY; },
             renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
-                var targetImage = $outgoing.children('img').first();
+                var targetImage = this.outgoing.children('img').first();
                 $(elem).css({
                     'background-size': 'cover',
                     'background-image': 'url("' + targetImage.attr('src') + '")',
@@ -431,23 +418,23 @@ fx.HC ={};
             },
             execute: function () {
                 var _this = this;
-                var bars = $outgoing.find('div.tile');
+                var bars = this.outgoing.find('div.tile');
                 var count = 0;
                 var complete = function () {
                     count++;
                     if (count >= bars.length) {
-                        $target.show(0);
+                        _this.target.show(0);
                         bars.empty().remove();
                         _this.finished();
-                        $outgoing.css({ 
+                        _this.outgoing.css({ 
                             zIndex: 0, 
                             display: 'none'
                         })
-                        $outgoing.children().show();
+                        _this.outgoing.children().show();
                     }
                 };
-                var height = $outgoing.height();
-                var width = $outgoing.width();
+                var height = this.outgoing.height();
+                var width = this.outgoing.width();
                 bars.each(function (index, bar) {
                     var rowIndex = index % _this.options.rows;              // In the base transition, web loop in rows
                     var colIndex = (index - rowIndex) / _this.options.rows; // first => calc from rows
