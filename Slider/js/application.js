@@ -26,11 +26,12 @@ $(document).ready(function() {
   }
   var html = CreateHTML(jsonData);
   $('#slides-content').html(html);
-  $('#slides').superslides({
-    play: 8000,
-    animation: 'fade',
-    animation_easing: 'easeInOutCubic',
-    animation_speed: 800,
+  var slider = $('#slides');
+  slider.superslides({
+    play: slider.data('speed'),
+    animation: slider.data('animation'),
+    // animation_easing: 'easeInOutCubic',
+    // animation_speed: slider.data('animation-speed'),
     // pagination: true,
     // hashchange: true,
     scrollable: true

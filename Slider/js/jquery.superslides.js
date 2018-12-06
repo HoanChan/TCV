@@ -631,7 +631,7 @@ Superslides.prototype = {
         that.$container.fadeIn('fast');
       }
     });
-    // if(ani.run !== undefined && typeof ani.run === 'function') ani.run();
+    try{ ani.run(); }catch(err){ }
   }
 };
 

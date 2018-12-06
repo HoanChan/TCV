@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
-  <div id="slides">
+  <div id="slides" data-animation="Random" data-speed=3000>
     <ul id="slides-content" class="slides-container">
       
     </ul>
@@ -22,16 +22,15 @@
   </div>
   <script type="text/javascript">
     var mp3snd = "music/LucidDream.mp3";
-    document.write('<audio loop autoplay="autoplay">');
-    document.write('<source src="'+mp3snd+'" type="audio/mpeg">');
-    document.write('<!--[if lt IE 9]>');
-    document.write('<bgsound src="'+mp3snd+'">'); // loop="1">
-    document.write('<![endif]-->');
-    document.write('</audio>');
+    document.write('<audio loop autoplay="autoplay">'
+    + '<source src="'+mp3snd+'" type="audio/mpeg">'
+    + '<!--[if lt IE 9]>'
+    + '<bgsound src="'+mp3snd+'">' // loop="1"
+    + '<![endif]-->'
+    + '</audio>');
   </script>
-  <script src="http://code.jquery.com/jquery-latest.min.js "></script>
+  <script src="https://code.jquery.com/jquery-latest.min.js "></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-
   <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/jquery.animate-enhanced.min.js"></script>
   <script src="js/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
