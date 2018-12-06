@@ -172,6 +172,18 @@ fx.HC ={};
         hasFinished: false, // This is a lock to ensure that the HCTransitionEnd event is only fired once per transition
         run: function () {            
             this.slider.$container.css('overflow', this.options.requires3d ? 'visible' : 'hidden');
+            this.outgoing.css({ 
+                zIndex: 2, 
+                display: 'block'
+            }); 
+            this.target.css({
+                zIndex: 0,
+                opacity: 1,
+                display: 'block'
+            });
+            this.target.css({
+              left: this.outgoing.css("left")
+            });  
             if (this.options.setup !== undefined) this.options.setup.call(this);
             // if (this.options.effectMode === 'out') this.outgoing.css({ 'background-image': 'none' });
             if (this.options.execute !== undefined) this.options.execute.call(this);
@@ -180,6 +192,13 @@ fx.HC ={};
             if (this.hasFinished) return;
             this.hasFinished = true;
             // this.slider.setupImages();
+            this.target.css({ zIndex: 0 });
+            this.outgoing.css({
+                opacity: 1,
+                display: 'none',
+                zIndex: 0
+            });
+            this.outgoing.children().show(); // hiện lại khi đã ẩn ở settup
             if (this.options.after) this.options.after.call(this);
         },
         fallbackSetup: function () {
@@ -207,20 +226,16 @@ fx.HC ={};
             rows: 7,
             forceSquare: false,
             perspective: 1000,
+            customSetup: function(){},
             setup: function () {
-                this.outgoing.css({ 
-                    zIndex: 2, 
-                    display: 'block'
-                }).css3({
+                this.outgoing.css3({
                     'perspective': this.options.perspective,
                     'perspective-origin': '50% 50%'
                 });
                 this.target.css({
-                    zIndex: 0,
-                    opacity: 1,
-                    display: 'block'
+                  left: this.outgoing.css("left")
                 });
-
+                if (this.options.customSetup !== undefined) this.options.customSetup.call(this);
                 var imgWidth = this.outgoing.width(),
                     imgHeight = this.outgoing.height();
 
@@ -248,6 +263,11 @@ fx.HC ={};
                         var targetImage = this.outgoing.children('img').first();
                         var imgLeft = (parseInt(targetImage.css("left"), 10) || 0);
                         var imgTop = (parseInt(targetImage.css("top"), 10) || 0);
+                        var imgWidth = (parseInt(targetImage.css("width"), 10) || 0);
+                        var imgHeight = (parseInt(targetImage.css("height"), 10) || 0);
+                        tile.css({
+                            'background-size': imgWidth +'px ' + imgHeight + 'px'
+                        });
                         this.options.renderTile.call(this, tile, i, j, thisColWidth, thisRowHeight, totalLeft - imgLeft, totalTop - imgTop);
                         fragment.appendChild(tile.get(0));
                     }
@@ -273,26 +293,15 @@ fx.HC ={};
             duration: 2,
             ease: Quart.easeIn,
             setup: function () {
-                this.target.css({ // thiết lập cho slide mới, chuẩn bị chạy hoạt hình
-                    zIndex: 2, // cho nó lên trên cái slide đang hiển thị
-                    opacity: 0,// ẩn nó đi
-                    display: 'block'
-                });           
+                // this.target.css({
+                //   left: this.outgoing.css("left")
+                // });      
             },
             execute: function () {
                 var _this = this;
                 var complete = function() {
-                    _this.target.css({ zIndex: 0 });
-                    _this.outgoing.css({
-                        opacity: 1,
-                        display: 'none',
-                        zIndex: 0
-                    });                        
                     _this.finished();
                 };
-                this.target.css({
-                  left: that.width
-                });
                 TweenMax.to(this.target, _this.options.duration, {
                     autoAlpha: 1,
                     ease: _this.options.ease,
@@ -312,28 +321,21 @@ fx.HC ={};
             direction: 'left',
             size: 140,
             setup: function () {
-                this.outgoing.css({ 
-                    zIndex: 2, 
-                    display: 'block'
-                }); 
-                this.target.css({
-                    zIndex: 0,
-                    opacity: 1,
-                    display: 'block'
-                });
                 var sizePer = 100 * (this.options.size / this.outgoing.width() / 3) / 2;
                 var rec = this.options.direction === 'right' || this.options.direction === 'down';
                 var rec1 = rec ? 0 : 1;
                 var rec2 = rec ? 1 : 0;
                 var dir = this.options.direction === 'up' || this.options.direction === 'down' ? 'top' : 'left';
                 var targetImage = this.outgoing.children('img').first();
+                var imgWidth = (parseInt(targetImage.css("width"), 10) || 0);
+                var imgHeight = (parseInt(targetImage.css("height"), 10) || 0);
                 var mask = $('<div id="mask"/>').css({
                     width: targetImage.width(),
                     height: targetImage.height(),
                     position: 'absolute',
                     left: targetImage.css("left"),
                     top: targetImage.css("top"),
-                    'background-size': 'cover',
+                    'background-size': imgWidth +'px ' + imgHeight + 'px',
                     'background-image': 'url("' + targetImage.attr('src') + '")'
                 }).css3({
                     'mask-image': '-webkit-linear-gradient(' + dir + ', rgba(0,0,0,' + rec1 + ') 0%, rgba(0,0,0,' + rec1 + ') ' + (50 - sizePer) + '%, rgba(0,0,0,' + rec2 + ') ' + (50 + sizePer) + '%, rgba(0,0,0,' + rec2 + ') 100%)',
@@ -355,7 +357,6 @@ fx.HC ={};
                         zIndex: 0,
                         display: 'none'
                     }); 
-                    _this.outgoing.children().show();
                     mask.remove();
                     timer.remove();
                     _this.finished();
@@ -411,7 +412,7 @@ fx.HC ={};
             renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
                 var targetImage = this.outgoing.children('img').first();
                 $(elem).css({
-                    'background-size': 'cover',
+                    //'background-size': 'cover',
                     'background-image': 'url("' + targetImage.attr('src') + '")',
                     'background-position': '-' + leftOffset + 'px -' + topOffset + 'px'
                 });
@@ -426,11 +427,6 @@ fx.HC ={};
                         _this.target.show(0);
                         bars.empty().remove();
                         _this.finished();
-                        _this.outgoing.css({ 
-                            zIndex: 0, 
-                            display: 'none'
-                        })
-                        _this.outgoing.children().show();
                     }
                 };
                 var height = this.outgoing.height();
@@ -497,3 +493,100 @@ fx.HC ={};
         }, opts), completed);
     };
 })(window.jQuery);
+//======================================================[ Spiral Effects ]======================================================//
+(function ($) {
+    fx.HC.transitions.SpiralOut = function (that, opts, completed) {
+        return new fx.HC.transition_base(that, $.extend({
+            effectMode: 'out',
+            forceSquare: false,
+            columns: 9,
+            rows: 6,
+            delay: 0.08,
+            duration: 0.8,
+            scale: 0.1,
+            ease: Linear.easeIn,
+            initArray: function () {
+                var width = this.options.columns;
+                var height = this.options.rows;
+                var arr = new Array(width * height + 1);
+                var left = 0;
+                var right = width - 1;
+                var top = 0;
+                var bot = height - 1;
+                var vector = "right";
+                var rowindex = 0;
+                var colindex = 0;
+                for (var index = 0; index < width * height; index++) {
+                    arr[rowindex * width + colindex] = index;
+                    if (vector == "right") {
+                        if (colindex < right) colindex++; else { vector = "down"; top++; rowindex++; }
+                    }
+                    else if (vector == "down") {
+                        if (rowindex < bot) rowindex++; else { vector = "left"; right--; colindex--; }
+                    }
+                    else if (vector == "left") {
+                        if (colindex > left) colindex--; else { vector = "up"; bot--; rowindex--; }
+                    }
+                    else if (vector == "up") {
+                        if (rowindex > top) rowindex--; else { vector = "right"; left++; colindex++; }
+                    }
+                }
+                this.timeArray = arr;
+            },
+            calcDelay: function (rowIndex, colIndex) { return this.timeArray[colIndex * this.options.columns + rowIndex] * this.options.delay; },
+            renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
+                var targetImage = (this.options.effectMode === 'out' ? this.outgoing: this.target).children('img').first();
+                $(elem).css({
+                    //'background-size': 'cover',
+                    'background-image': 'url("' + targetImage.attr('src') + '")',
+                    'background-position': '-' + leftOffset + 'px -' + topOffset + 'px'
+                });
+                if (this.options.effectMode === 'in') {
+                    TweenMax.set(elem, {
+                        rotationZ: -90,
+                        scale: this.options.scale,
+                        autoAlpha: 0,
+                    });
+                }
+            },
+            execute: function () {
+                var _this = this;
+                var bars = this.outgoing.find('div.tile');
+                var count = 0;
+                var complete = function () {
+                    count++;
+                    if (count >= bars.length) {
+                        _this.target.show(0);
+                        bars.empty().remove();
+                        _this.finished();
+                    }
+                };
+                this.options.initArray.call(this);
+                var height = this.outgoing.height();
+                var width = this.outgoing.width();
+                bars.each(function (index, bar) {
+                    var rowIndex = index % _this.options.rows;              // In the base transition, web loop in rows
+                    var colIndex = (index - rowIndex) / _this.options.rows; // first => calc from rows
+                    var wait = _this.options.calcDelay.call(_this, colIndex, rowIndex);
+                    TweenMax.to(bar, _this.options.duration, {
+                        delay: wait,
+                        rotationZ: _this.options.effectMode === 'in' ? 0 : 90,
+                        scale: _this.options.effectMode === 'in' ? 1 : _this.options.scale,
+                        autoAlpha: _this.options.effectMode === 'in' ? 1 : 0,
+                        ease: _this.options.ease,
+                        onComplete: complete
+                    });
+                });
+            }
+        }, opts), completed);
+    };
+    fx.HC.transitions.SpiralIn = function (that, opts, completed) {
+        return new fx.HC.transitions.SpiralOut(that, $.extend({
+            effectMode: 'in',
+            customSetup: function(){
+                this.target.css({ zIndex: 2 });
+                this.outgoing.css({ zIndex: 0 });
+            },
+        }, opts), completed);
+    };
+})(window.jQuery); 
