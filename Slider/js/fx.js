@@ -224,10 +224,10 @@ fx.HC ={};
 //=============================================================//
     fx.HC.transition_base = function (that, opts, completed) {
         return new fx.HC.transition(that, $.extend({
-            columns: 7,
-            rows: 7,
-            forceSquare: false,
-            perspective: 1000,
+            columns: 16,
+            rows: 9,
+            forceSquare: false, // chia thành các ô vuông
+            perspective: 1000, // góc nhìn ở chế độ 3D
             customSetup: function(){},
             setup: function () {
                 this.outgoing.css3({
