@@ -151,6 +151,7 @@ fx.HC ={};
         this.children = that.$container.children(),
         this.outgoing = this.children.eq(opts.outgoing_slide),
         this.target = this.children.eq(opts.upcoming_slide);
+        this.currentImage = (this.options.effectMode === 'out' ? this.outgoing : this.target).children('img').first();
         // We need to ensure transitions degrade gracefully if the transition is unsupported or not loaded
         if ((this.options.requires3d && !fx.HC.browser.supports3d) || !fx.HC.browser.supportsTransitions || this.options.fallback === true) {
             var _this = this;
@@ -239,10 +240,10 @@ fx.HC ={};
                 var colWidth = imgWidth / this.options.columns,
                     rowHeight = imgHeight / this.options.rows;
 
-                if (this.options.forceSquare) {
-                    this.options.rows = Math.floor(imgHeight / colWidth);
-                    rowHeight = imgHeight / this.options.rows;
-                }
+                // if (this.options.forceSquare) {
+                //     this.options.rows = Math.floor(imgHeight / colWidth);
+                //     rowHeight = imgHeight / this.options.rows;
+                // }
                 var fragment = document.createDocumentFragment();
                 for (var i = 0; i < this.options.columns; i++) {
                     for (var j = 0; j < this.options.rows; j++) {
@@ -400,7 +401,71 @@ fx.HC ={};
         }, opts), completed);
     };
 })(window.jQuery);
+//======================================================[ Blocks Effects ]======================================================//
+(function ($) {
+    fx.HC.transitions.BlocksRandom = function (that, opts, completed) {
+        return new fx.HC.transition_base(that, $.extend({
+            forceSquare: true,
+            delayBetweenBlocksX: 0.2,
+            delayBetweenBlocksY: 0.15,
+            duration: 0.4,
+            scale: 0.8,
+            ease: Linear.easeIn,
+            calcDelay: function (rowIndex, colIndex) { return Math.random() * 2 * this.options.duration; },
+            renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
+                var _this = this;
+                $(elem).css({
+                    'background-image': 'url("' + _this.currentImage.attr('src') + '")',
+                    'background-position': '-' + leftOffset + 'px -' + topOffset + 'px'
+                });
+            },
+            execute: function () {
+                var _this = this;
+                var blocks = this.outgoing.find('div.tile');
+                var count = 0;
+                var complete = function () {
+                    count++;
+                    if (count >= blocks.length) {
+                        blocks.empty().remove();
+                        _this.finished();
+                    }
+                };
+                blocks.each(function (index, block) {
+                    var rowIndex = index % _this.options.rows;              // In the base transition, web loop in rows
+                    var colIndex = (index - rowIndex) / _this.options.rows; // first => calc from rows
+                    var wait = _this.options.calcDelay.call(_this, colIndex, rowIndex);
+                    TweenMax.to(block, _this.options.duration, {
+                        delay: wait,
+                        scale: _this.options.scale,
+                        autoAlpha: 0,
+                        ease: _this.options.ease,
+                        onComplete: complete
+                    });
+                });
+            }
+        }, opts), completed);
+    };
+    fx.HC.transitions.BlocksTopLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.BlocksRandom(that, $.extend({
+            calcDelay: function (rowIndex, colIndex) { return colIndex * this.options.delayBetweenBlocksX + rowIndex * this.options.delayBetweenBlocksY; },
+        }, opts), completed);
+    };
+    fx.HC.transitions.BlocksBotRight = function (that, opts, completed) {
+        return new fx.HC.transitions.BlocksRandom(that, $.extend({
+            calcDelay: function (rowIndex, colIndex) { return (this.options.columns - colIndex) * this.options.delayBetweenBlocksX + (this.options.rows - rowIndex) * this.options.delayBetweenBlocksY; },
+        }, opts), completed);
+    };
+    fx.HC.transitions.BlocksMidMid = function (that, opts, completed) {
+        return new fx.HC.transitions.BlocksRandom(that, $.extend({
+            calcDelay: function (colIndex, rowIndex) {
+                var midCol = (this.options.columns - 1) / 2;
+                var midRow = (this.options.rows - 1) / 2;
+                return Math.abs(midCol - colIndex) * this.options.delayBetweenBlocksX + Math.abs(midRow - rowIndex) * this.options.delayBetweenBlocksY;
+            },
+        }, opts), completed);
+    };
 
+})(window.jQuery);
 //=======================================================[ Zip Effects ]========================================================//
 (function ($) {
     fx.HC.transitions.ZipLeft = function (that, opts, completed) {
@@ -415,10 +480,10 @@ fx.HC ={};
             ease: Linear.easeIn,
             calcDelay: function (rowIndex, colIndex) { return colIndex * this.options.delayBetweenBarsX + rowIndex * this.options.delayBetweenBarsY; },
             renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
-                var targetImage = (this.options.effectMode === 'out' ? this.outgoing : this.target).children('img').first();
+                var _this = this;
                 $(elem).css({
                     //'background-size': 'cover',
-                    'background-image': 'url("' + targetImage.attr('src') + '")',
+                    'background-image': 'url("' + _this.currentImage.attr('src') + '")',
                     'background-position': '-' + leftOffset + 'px -' + topOffset + 'px'
                 });
             },
@@ -540,10 +605,9 @@ fx.HC ={};
             },
             calcDelay: function (rowIndex, colIndex) { return this.timeArray[colIndex * this.options.columns + rowIndex] * this.options.delay; },
             renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
-                var targetImage = (this.options.effectMode === 'out' ? this.outgoing : this.target).children('img').first();
+                var _this = this;
                 $(elem).css({
-                    //'background-size': 'cover',
-                    'background-image': 'url("' + targetImage.attr('src') + '")',
+                    'background-image': 'url("' + _this.currentImage.attr('src') + '")',
                     'background-position': '-' + leftOffset + 'px -' + topOffset + 'px'
                 });
                 if (this.options.effectMode === 'in') {
@@ -561,7 +625,6 @@ fx.HC ={};
                 var complete = function () {
                     count++;
                     if (count >= bars.length) {
-                        // _this.target.show(0);
                         bars.empty().remove();
                         _this.finished();
                     }
