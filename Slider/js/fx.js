@@ -152,6 +152,9 @@ fx.HC ={};
         this.outgoing = this.children.eq(opts.outgoing_slide),
         this.target = this.children.eq(opts.upcoming_slide);
         this.currentImage = (this.options.effectMode === 'out' ? this.outgoing : this.target).children('img').first();
+        this.inImage = this.target.children('img').first();
+        this.outImage = this.outgoing.children('img').first();
+
         // We need to ensure transitions degrade gracefully if the transition is unsupported or not loaded
         if ((this.options.requires3d && !fx.HC.browser.supports3d) || !fx.HC.browser.supportsTransitions || this.options.fallback === true) {
             var _this = this;
@@ -186,6 +189,10 @@ fx.HC ={};
               left: this.outgoing.css("left")
             });
             if (this.options.effectMode === 'in') this.target.children().hide();
+            if (this.options.requires3d === true) {
+                this.outgoing.children().hide();
+                this.target.children().hide();
+            }
             if (this.options.setup !== undefined) this.options.setup.call(this);
             if (this.options.execute !== undefined) this.options.execute.call(this);
         },
@@ -210,7 +217,7 @@ fx.HC ={};
             this.finished();
         }
     };
-//==============================================================//
+//=============================================================//
     fx.HC.transitions = {}; // danh sách các hiệu ứng
     var randomProperty = function (obj) {
         var keys = Object.keys(obj)
@@ -227,10 +234,14 @@ fx.HC ={};
             columns: 16,
             rows: 9,
             forceSquare: false, // chia thành các ô vuông
-            perspective: 1000, // góc nhìn ở chế độ 3D
+            perspective: "100vw", // góc nhìn ở chế độ 3D bằng 100% chiều rộng màn hình
             customSetup: function(){},
             setup: function () {
                 this.outgoing.css3({
+                    'perspective': this.options.perspective,
+                    'perspective-origin': '50% 50%'
+                });
+                this.target.css3({
                     'perspective': this.options.perspective,
                     'perspective-origin': '50% 50%'
                 });
@@ -258,11 +269,10 @@ fx.HC ={};
                             top: totalTop + 'px',
                             left: totalLeft + 'px'
                         });
-                        var targetImage = this.outgoing.children('img').first();
-                        var imgLeft = (parseInt(targetImage.css("left"), 10) || 0);
-                        var imgTop = (parseInt(targetImage.css("top"), 10) || 0);
-                        var imgWidth = (parseInt(targetImage.css("width"), 10) || 0);
-                        var imgHeight = (parseInt(targetImage.css("height"), 10) || 0);
+                        var imgLeft = (parseInt(this.currentImage.css("left"), 10) || 0);
+                        var imgTop = (parseInt(this.currentImage.css("top"), 10) || 0);
+                        var imgWidth = (parseInt(this.currentImage.css("width"), 10) || 0);
+                        var imgHeight = (parseInt(this.currentImage.css("height"), 10) || 0);
                         tile.css({
                             'background-size': imgWidth +'px ' + imgHeight + 'px'
                         });
@@ -287,6 +297,756 @@ fx.HC ={};
             renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
 
             }
+        }, opts), completed);
+    };
+})(window.jQuery);
+//=================[ Tiles 3D Effects ]=================//
+(function ($) {
+    fx.HC.transitions.Tiles3DLeftTopLeft = function (that, opts, completed) {
+        return new fx.HC.transition_base(that, $.extend({
+            requires3d: true,
+            forceSquare: true,
+            columns: 5, // bug with 7 and 9 >"<
+            rows: 3,
+            disperseFactor: 10,
+            scaleFactor: 0.8,
+            duration: 1.5,
+            delayBetweenBarsX: 0.2,
+            delayBetweenBarsY: 0.15,
+            thickness: 15,
+            nextImgPos: 'back left',//'back left' 'back right' 'back top' 'back bot' 'left' 'right' 'top' 'bot' 'top bot' 'left right'
+            ease: Back.easeInOut,
+            renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
+                var arrPos = this.options.nextImgPos.split(' ');
+                if ($.inArray('back', arrPos) < 0) {
+                    if ($.inArray('left', arrPos) >= 0 ||
+                        $.inArray('right', arrPos) >= 0) this.options.thickness = colWidth;
+                    if ($.inArray('top', arrPos) >= 0 ||
+                        $.inArray('bot', arrPos) >= 0) this.options.thickness = rowHeight;
+                }
+
+                var haveImage = {
+                    'background-size': $(elem).css('background-size'),
+                    'background-image': 'url("' + this.inImage.attr('src') + '")',
+                    'background-position': '-' + leftOffset + 'px -' + topOffset + 'px',
+                    'background-repeat': 'no-repeat',
+                    'z-index': 200
+                };
+
+                var haveNoImage = {
+                    'background-image': '',
+                    background: '#222',
+                    'z-index': 190
+                }
+
+                var front = $('<div/>').css({
+                    width: colWidth + 'px',
+                    height: rowHeight + 'px',
+                    position: 'absolute',
+                    top: '0px',
+                    left: '0px',
+                    'z-index': 200,
+                    'background-size': $(elem).css('background-size'),
+                    'background-image': 'url("' + this.outImage.attr('src') + '")',
+                    'background-position': '-' + leftOffset + 'px -' + topOffset + 'px',
+                    'background-repeat': 'no-repeat',
+                }).css3({
+                    'transform': fx.HC.browser.translateZ(this.options.thickness / 2),
+                    'backface-visibility': 'hidden'
+                });
+
+                var bonus = $.inArray('up', arrPos) >= 0 ||
+                            $.inArray('down', arrPos) >= 0 ?
+                            ' ' + fx.HC.browser.rotateZ(180) + ' ' : ' ';
+                var back = $(front.get(0).cloneNode(false)).css3({
+                    'transform': fx.HC.browser.rotateY(180) + bonus + fx.HC.browser.translateZ(this.options.thickness / 2),
+                });
+
+                var top = $('<div/>').css({
+                    width: colWidth + 'px',
+                    height: this.options.thickness + 'px',
+                    position: 'absolute',
+                    top: -this.options.thickness / 2 + 'px',
+                    left: '0px',
+                }).css3({
+                    'transform': fx.HC.browser.rotateX(90),
+                    'backface-visibility': 'hidden'
+                });
+
+                var bot = $(top.get(0).cloneNode(false)).css({
+                    top: rowHeight - this.options.thickness / 2 - 1 + 'px'
+                }).css3({
+                    'transform': fx.HC.browser.rotateX(-90)
+                });
+                var left = $(top.get(0).cloneNode(false)).css({
+                    width: this.options.thickness + 'px',
+                    height: rowHeight + 'px',
+                    top: '0px',
+                    left: -this.options.thickness / 2 + 'px',
+                }).css3({
+                    'transform': fx.HC.browser.rotateY(-90)
+                });
+
+                var right = $(left.get(0).cloneNode(false)).css({
+                    left: colWidth - this.options.thickness / 2 - 1 + 'px'
+                }).css3({
+                    'transform': fx.HC.browser.rotateY(90)
+                });
+
+                if ($.inArray('back', arrPos) >= 0) back.css(haveImage); else back.css(haveNoImage);
+                if ($.inArray('top', arrPos) >= 0) top.css(haveImage); else top.css(haveNoImage);
+                if ($.inArray('bot', arrPos) >= 0) bot.css(haveImage); else bot.css(haveNoImage);
+                if ($.inArray('back', arrPos) < 0 && $.inArray('left', arrPos) >= 0) left.css(haveImage); else left.css(haveNoImage);
+                if ($.inArray('back', arrPos) < 0 && $.inArray('right', arrPos) >= 0) right.css(haveImage); else right.css(haveNoImage);
+
+                $(elem).css({
+                    'z-index': (colIndex > this.options.columns / 2 ? 500 - colIndex : 500) + (rowIndex > this.options.rows / 2 ? 500 - rowIndex : 500) // Fix for Chrome to ensure that the z-index layering is correct!
+                }).css3({
+                    'transform-style': 'preserve-3d',
+                    'transform': fx.HC.browser.translateZ(-this.options.thickness / 2),
+                }).append(front).append(back).append(left).append(right).append(top).append(bot);
+            },
+            calcDelay: function (colIndex, rowIndex) {
+                return colIndex * this.options.delayBetweenBarsX + rowIndex * this.options.delayBetweenBarsY;
+            },
+            calcRotation: function (index) {
+                return 1;
+            },
+            bonusFx: function (rotatefunc, tile, index, mid, arrPos) {
+                var move = this.options.disperseFactor * (index - mid);
+                if ($.inArray('back', arrPos) < 0) { // no bonus if this is title mode
+                    if (rotatefunc === 'rotationY') {
+                        TweenMax.to(tile, this.options.duration / 2, { top: '+=' + move, ease: Linear.easeNone })
+                        TweenMax.to(tile, this.options.duration / 2, { delay: this.options.duration / 2, top: '-=' + move, ease: Linear.easeNone });
+                    }
+                    else {
+                        TweenMax.to(tile, this.options.duration / 2, { left: '+=' + move, ease: Linear.easeNone })
+                        TweenMax.to(tile, this.options.duration / 2, { delay: this.options.duration / 2, left: '-=' + move, ease: Linear.easeNone });
+                    }
+
+                    TweenMax.to(tile, this.options.duration / 2, { scale: this.options.scaleFactor, ease: Linear.easeNone })
+                    TweenMax.to(tile, this.options.duration / 2, { delay: this.options.duration / 2, scale: 1, ease: Linear.easeNone }); 
+                }
+            },
+            mainFx: function (wait, tile, index, rotatefunc, rotateDeg, mid, arrPos, complete) {
+                var _this = this;
+                TweenMax.delayedCall(wait, function () {
+                    if (rotatefunc === 'rotationY')
+                        TweenMax.to(tile, _this.options.duration, {
+                            rotationY: _this.options.calcRotation.call(_this, index) * rotateDeg,
+                            z: -_this.options.thickness / 2,
+                            transformOrigin: "50% 50%",
+                            transformStyle: "preserve-3d",
+                            ease: _this.options.ease,
+                            onComplete: complete
+                        });
+                    else
+                        TweenMax.to(tile, _this.options.duration, {
+                            rotationX: _this.options.calcRotation.call(_this, index) * rotateDeg,
+                            z: -_this.options.thickness / 2,
+                            transformOrigin: "50% 50%",
+                            transformStyle: "preserve-3d",
+                            ease: _this.options.ease,
+                            onComplete: complete
+                        });
+                    _this.options.bonusFx.call(_this, rotatefunc, tile, index, mid, arrPos);
+                });
+            },
+            execute: function () {
+                var _this = this;
+                var arrPos = this.options.nextImgPos.split(' ');
+                var tiles = (this.options.effectMode === 'out' ? this.outgoing : this.target).find('div.tile');
+
+                //this.slider.image2.hide();
+
+                var count = 0;
+                var complete = function () {
+                    count++;
+                    if (count >= tiles.length) {
+                        //_this.slider.image2.show(0);
+                        tiles.empty().remove();
+                        _this.finished();
+                    }
+                }
+
+                var rotateDeg = 180;
+                var rotatefunc = 'rotationY';
+                if ($.inArray('back', arrPos) >= 0) {
+                    if ($.inArray('left', arrPos) >= 0) { rotateDeg = 180; rotatefunc = 'rotationY'; }
+                    if ($.inArray('right', arrPos) >= 0) { rotateDeg = -180; rotatefunc = 'rotationY'; }
+                    if ($.inArray('up', arrPos) >= 0) { rotateDeg = 180; rotatefunc = 'rotationX'; }
+                    if ($.inArray('down', arrPos) >= 0) { rotateDeg = -180; rotatefunc = 'rotationX'; }
+                }
+                else {
+                    if (this.options.nextImgPos === 'top') { rotateDeg = -90; rotatefunc = 'rotationX'; }
+                    if (this.options.nextImgPos === 'bot') { rotateDeg = 90; rotatefunc = 'rotationX'; }
+                    if (this.options.nextImgPos === 'left') { rotateDeg = 90; rotatefunc = 'rotationY'; }
+                    if (this.options.nextImgPos === 'right') { rotateDeg = -90; rotatefunc = 'rotationY'; }
+
+                    if ($.inArray('top', arrPos) >= 0 &&
+                        $.inArray('bot', arrPos) >= 0) { rotateDeg = 90; rotatefunc = 'rotationX'; }
+                    if ($.inArray('left', arrPos) >= 0 &&
+                        $.inArray('right', arrPos) >= 0) { rotateDeg = 90; rotatefunc = 'rotationY'; }
+                }
+                var mid = (tiles.length - 1) / 2;
+
+                tiles.each(function (index, tile) {
+                    var rowIndex = index % _this.options.rows;              // In the base transition, web loop in rows
+                    var colIndex = (index - rowIndex) / _this.options.rows; // first => calc from rows
+                    var wait = _this.options.calcDelay.call(_this, colIndex, rowIndex);
+                    _this.options.mainFx.call(_this, wait, tile, index, rotatefunc, rotateDeg, mid, arrPos, complete);
+                });
+            },
+        }, opts), completed);
+    };
+    fx.HC.transitions.Tiles3DLeftBotRight = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftTopLeft(that, $.extend({
+            calcDelay: function (colIndex, rowIndex) {
+                return (this.options.columns - colIndex) * this.options.delayBetweenBarsX + (this.options.rows - rowIndex) * this.options.delayBetweenBarsY;
+            },
+        }, opts), completed);
+    };
+    fx.HC.transitions.Tiles3DLeftMidMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftTopLeft(that, $.extend({
+            duration: 3,
+            delayBetweenBarsX: 0.4,
+            delayBetweenBarsY: 0.25,
+            calcDelay: function (colIndex, rowIndex) {
+                var midCol = (this.options.columns - 1) / 2;
+                var midRow = (this.options.rows - 1) / 2;
+                return Math.abs(midCol - colIndex) * this.options.delayBetweenBarsX + Math.abs(midRow - rowIndex) * this.options.delayBetweenBarsY;
+            },
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Tiles3DRightTopLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftTopLeft(that, $.extend({
+            nextImgPos: 'back right',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Tiles3DRightBotRight = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftBotRight(that, $.extend({
+            nextImgPos: 'back right',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Tiles3DRightMidMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftMidMid(that, $.extend({
+            nextImgPos: 'back right',
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Tiles3DUpTopLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftTopLeft(that, $.extend({
+            nextImgPos: 'back up',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Tiles3DUpBotRight = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftBotRight(that, $.extend({
+            nextImgPos: 'back up',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Tiles3DUpMidMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftMidMid(that, $.extend({
+            nextImgPos: 'back up',
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Tiles3DDownTopLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftTopLeft(that, $.extend({
+            nextImgPos: 'back down',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Tiles3DDownBotRight = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftBotRight(that, $.extend({
+            nextImgPos: 'back down',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Tiles3DDownMidMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftMidMid(that, $.extend({
+            nextImgPos: 'back down',
+        }, opts), completed);
+    };
+})(window.jQuery);
+//=================[ Bars 3D Effects ]=================//
+(function ($) {
+    fx.HC.transitions.Bars3DLeftTop = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftTopLeft(that, $.extend({
+            forceSquare: false,
+            columns: 1,
+            rows: 7,
+            duration: 2,
+            delayBetweenBarsX: 0.22,
+            delayBetweenBarsY: 0.22,
+            nextImgPos: 'left',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DLeftBot = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftBotRight(that, $.extend({
+            forceSquare: false,
+            columns: 1,
+            rows: 7,
+            duration: 2,
+            delayBetweenBarsX: 0.22,
+            delayBetweenBarsY: 0.22,
+            nextImgPos: 'left',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DLeftMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftMidMid(that, $.extend({
+            forceSquare: false,
+            columns: 1,
+            rows: 7,
+            duration: 2,
+            delayBetweenBarsX: 0.22,
+            delayBetweenBarsY: 0.22,
+            nextImgPos: 'left',
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Bars3DRightTop = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DLeftTop(that, $.extend({
+            nextImgPos: 'right',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DRightBot = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DLeftBot(that, $.extend({
+            nextImgPos: 'right',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DRightMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DLeftMid(that, $.extend({
+            nextImgPos: 'right',
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Bars3DUpLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DLeftTop(that, $.extend({
+            columns: 9,
+            rows: 1,
+            nextImgPos: 'bot',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DUpRight = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DLeftBot(that, $.extend({
+            columns: 9,
+            rows: 1,
+            nextImgPos: 'bot',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DUpMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DLeftMid(that, $.extend({
+            columns: 9,
+            rows: 1,
+            nextImgPos: 'bot',
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Bars3DDownLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DUpLeft(that, $.extend({
+            nextImgPos: 'top',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DDownRight = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DUpRight(that, $.extend({
+            nextImgPos: 'top',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DDownMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DUpMid(that, $.extend({
+            nextImgPos: 'top',
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Bars3DMixHLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DUpLeft(that, $.extend({
+            nextImgPos: 'top bot',
+            calcRotation: function (index) {
+                return index % 2 == 0 ? 1 : -1;
+            }
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DMixHRight = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DUpRight(that, $.extend({
+            nextImgPos: 'top bot',
+            calcRotation: function (index) {
+                return index % 2 == 0 ? 1 : -1;
+            }
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DMixHMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DUpMid(that, $.extend({
+            nextImgPos: 'top bot',
+            calcRotation: function (index) {
+                return index % 2 == 0 ? 1 : -1;
+            }
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Bars3DMixVUp = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DMixHLeft(that, $.extend({
+            columns: 1,
+            rows: 7,
+            nextImgPos: 'left right',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DMixVDown = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DMixHRight(that, $.extend({
+            columns: 1,
+            rows: 7,
+            nextImgPos: 'left right',
+        }, opts), completed);
+    };
+    fx.HC.transitions.Bars3DMixVMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DMixHMid(that, $.extend({
+            columns: 1,
+            rows: 7,
+            nextImgPos: 'left right',
+        }, opts), completed);
+    };
+    //=======================================================[ Cube Effects ]========================================================//
+    fx.HC.transitions.CubeUp = function (that, opts, completed) {
+        return new fx.HC.transitions.Bars3DUpLeft(that, $.extend({
+            columns: 1,
+            rows: 1,
+            scaleFactor: 0.9,
+        }, opts), completed);
+    };
+    fx.HC.transitions.CubeDown = function (that, opts, completed) {
+        return new fx.HC.transitions.CubeUp(that, $.extend({
+            nextImgPos: 'top',
+        }, opts), completed);
+    };
+    fx.HC.transitions.CubeLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.CubeUp(that, $.extend({
+            nextImgPos: 'right',
+        }, opts), completed);
+    };
+    fx.HC.transitions.CubeRight = function (that, opts, completed) {
+        return new fx.HC.transitions.CubeUp(that, $.extend({
+            nextImgPos: 'left',
+        }, opts), completed);
+    };
+})(window.jQuery);
+//=================[ Blinds 3D Effects ]=================//
+(function ($) {
+    fx.HC.transitions.Blinds3DLeftLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftTopLeft(that, $.extend({
+            forceSquare: false,
+            columns: 9,
+            rows: 1,
+            duration: 2,
+            delayBetweenBarsX: 0.22,
+            delayBetweenBarsY: 0.22,
+        }, opts), completed);
+    };
+    fx.HC.transitions.Blinds3DLeftRight = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftBotRight(that, $.extend({
+            forceSquare: false,
+            columns: 9,
+            rows: 1,
+            duration: 2,
+            delayBetweenBarsX: 0.22,
+            delayBetweenBarsY: 0.22,
+        }, opts), completed);
+    };
+    fx.HC.transitions.Blinds3DLeftMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Tiles3DLeftMidMid(that, $.extend({
+            forceSquare: false,
+            columns: 9,
+            rows: 1,
+            duration: 2,
+            delayBetweenBarsX: 0.22,
+            delayBetweenBarsY: 0.22,
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Blinds3DRightLeft = function (that, opts, completed) {
+        return new fx.HC.transitions.Blinds3DLeftLeft(that, $.extend({
+            nextImgPos: 'back right'
+        }, opts), completed);
+    };
+    fx.HC.transitions.Blinds3DRightRight = function (that, opts, completed) {
+        return new fx.HC.transitions.Blinds3DLeftRight(that, $.extend({
+            nextImgPos: 'back right'
+        }, opts), completed);
+    };
+    fx.HC.transitions.Blinds3DRightMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Blinds3DLeftMid(that, $.extend({
+            nextImgPos: 'back right'
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Blinds3DUpTop = function (that, opts, completed) {
+        return new fx.HC.transitions.Blinds3DLeftLeft(that, $.extend({
+            columns: 1,
+            rows: 7,
+            nextImgPos: 'back up'
+        }, opts), completed);
+    };
+    fx.HC.transitions.Blinds3DUpBot = function (that, opts, completed) {
+        return new fx.HC.transitions.Blinds3DLeftRight(that, $.extend({
+            columns: 1,
+            rows: 7,
+            nextImgPos: 'back up'
+        }, opts), completed);
+    };
+    fx.HC.transitions.Blinds3DUpMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Blinds3DLeftMid(that, $.extend({
+            columns: 1,
+            rows: 7,
+            nextImgPos: 'back up'
+        }, opts), completed);
+    };
+
+    fx.HC.transitions.Blinds3DDownTop = function (that, opts, completed) {
+        return new fx.HC.transitions.Blinds3DUpTop(that, $.extend({
+            nextImgPos: 'back down'
+        }, opts), completed);
+    };
+    fx.HC.transitions.Blinds3DDownBot = function (that, opts, completed) {
+        return new fx.HC.transitions.Blinds3DUpBot(that, $.extend({
+            nextImgPos: 'back down'
+        }, opts), completed);
+    };
+    fx.HC.transitions.Blinds3DDownMid = function (that, opts, completed) {
+        return new fx.HC.transitions.Blinds3DUpMid(that, $.extend({
+            nextImgPos: 'back down'
+        }, opts), completed);
+    };
+})(window.jQuery);
+//=================[ Book 3D Effects ]=================//
+(function ($) {
+    fx.HC.transitions.BookLeft = function (that, opts, completed) {
+        return new fx.HC.transition(that, $.extend({
+            requires3d: true,
+            perspective: "200vw",// góc nhìn ở chế độ 3D bằng 200% chiều rộng màn hình
+            duration: 2,
+            direction: 'left',
+            ease: Cubic.easeInOut,
+            setup: function () {
+                var imgWidth = (parseInt(this.currentImage.css("width"), 10) || 0);
+                var imgHeight = (parseInt(this.currentImage.css("height"), 10) || 0);
+                var tab = $('<div id="tab"></div>').css({
+                    width: '50%',
+                    height: '100%',
+                    position: 'absolute',
+                    top: '0px',
+                    left: this.options.direction == 'left' ? '50%' : '0%',
+                    'z-index': 101
+                }).css3({
+                    'perspective': this.options.perspective,
+                    'perspective-origin': '50% 50%',
+                    'transform-style': 'preserve-3d',
+                }),
+
+                front = $('<div/>').appendTo(tab).css({
+                    'background-size': imgWidth +'px ' + imgHeight + 'px',
+                    'background-image': 'url("' + this.outImage.attr('src') + '")',
+                    'background-position': (this.options.direction == 'left' ? '-' + (this.slider.$container.width() / 2) : 0) + 'px 0',
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                }).css3({
+                    'backface-visibility': 'hidden'
+                }),
+
+                back = $('<div/>').appendTo(tab).css({
+                    'background-size': imgWidth +'px ' + imgHeight + 'px',
+                    'background-image': 'url("' + this.inImage.attr('src') + '")',
+                    'background-position': (this.options.direction == 'left' ? 0 : '-' + (this.slider.$container.width() / 2)) + 'px 0',
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    top: '0',
+                    left: '0'
+                }).css3({
+                    transform: fx.HC.browser.rotateY(180),
+                    'backface-visibility': 'hidden'
+                }),
+
+                current = $('<div></div>').css({
+                    position: 'absolute',
+                    top: '0',
+                    left: this.options.direction == 'left' ? '0' : '50%',
+                    width: '50%',
+                    height: '100%',
+                    'background-size': imgWidth +'px ' + imgHeight + 'px',
+                    'background-image': 'url("' + this.outImage.attr('src') + '")',
+                    'background-position': (this.options.direction == 'left' ? 0 : '-' + (this.slider.$container.width() / 2)) + 'px 0',
+                    'z-index': 100
+                });
+                this.outgoing.children().hide();
+                this.target.children().show();
+                this.outgoing.css3({
+                    'perspective': '',
+                    'perspective-origin': ''
+                }).append(tab).append(current);
+            },
+            execute: function () {
+                var _this = this;
+                var tab = _this.outgoing.find('div#tab');
+                var complete = function () {
+                    _this.target.show(0);
+                    tab.empty().remove();
+                    _this.finished();
+                }
+                TweenMax.to(tab, _this.options.duration, {
+                    rotationY: _this.options.direction == 'left' ? -179 : 179,
+                    transformOrigin: _this.options.direction + ' center',
+                    ease: _this.options.ease,
+                    onComplete: complete
+                });
+            }
+        }, opts), completed);
+    };
+    fx.HC.transitions.BookRight = function (that, opts, completed) {
+        return new fx.HC.transitions.BookLeft(that, $.extend({
+            direction: 'right',
+        }, opts), completed);
+    };
+})(window.jQuery);
+//=================[ Concentric Effects ]=================//
+(function ($) {
+    fx.HC.transitions.Concentric = function (that, opts, completed) {
+        return new fx.HC.transition(that, $.extend({
+            duration: 2,
+            blockSize: 60,
+            delay: 0.2,
+            ease: Sine.easeOut,
+            alternate: false,
+            setup: function () {
+                var w = this.outgoing.width(),
+                    h = this.outgoing.height(),
+                    largestLength = Math.sqrt(w * w + h * h), // Largest length is the diagonal
+
+                    // How many blocks do we need?
+                    blockCount = Math.ceil(((largestLength - this.options.blockSize) / 2) / this.options.blockSize) + 1, // 1 extra to account for the round border
+                    fragment = document.createDocumentFragment();
+
+                var imgWidth = (parseInt(this.currentImage.css("width"), 10) || 0);
+                var imgHeight = (parseInt(this.currentImage.css("height"), 10) || 0);
+                for (var i = 0; i < blockCount; i++) {
+                    var thisBlockSize = (2 * i * this.options.blockSize) + this.options.blockSize;
+
+                    var block = $('<div></div>').attr('class', 'block block-' + i).css({
+                        width: thisBlockSize + 'px',
+                        height: thisBlockSize + 'px',
+                        position: 'absolute',
+                        top: ((h - thisBlockSize) / 2) + 'px',
+                        left: ((w - thisBlockSize) / 2) + 'px',
+                        'z-index': 100 + (blockCount - i),
+                        'background-size': imgWidth +'px ' + imgHeight + 'px',
+                        'background-image': 'url("' + this.currentImage.attr('src') + '")',
+                        'background-position': 'center center'
+                    }).css3({
+                        'border-radius': thisBlockSize + 'px',
+                    });
+
+                    fragment.appendChild(block.get(0));
+                }
+                this.outgoing.children().hide();
+                this.outgoing.get(0).appendChild(fragment);
+            },
+            execute: function () {
+                var _this = this;
+
+                var blocks = this.outgoing.find('div.block');
+                var count = 0;
+                var complete = function () {
+                    count++;
+                    if (count >= blocks.length) {
+                        //_this.slider.image2.show(0);
+                        blocks.empty().remove();
+                        _this.finished();
+                    }
+                }
+                blocks.each(function (index, block) {
+                    TweenMax.to(block, _this.options.duration, {
+                        delay: ((blocks.length - index - 1) * _this.options.delay),
+                        rotationZ: (!_this.options.alternate || index % 2 ? '' : '-') + '180',
+                        autoAlpha: 0,
+                        ease: _this.options.ease,
+                        onComplete: complete
+                    });
+                });
+            }
+        }, opts), completed);
+    };
+    fx.HC.transitions.Concentric2 = function (that, opts, completed) {
+        return new fx.HC.transitions.Concentric(that, $.extend({
+            alternate: true,
+        }, opts), completed);
+    };
+})(window.jQuery);
+//=================[ Swipe Effects ]=================//
+(function ($) {
+    fx.HC.transitions.SwipeLeft = function (that, opts, completed) {
+        return new fx.HC.transition(that, $.extend({
+            duration: 2,
+            ease: Sine.easeOut,
+            direction: 'left',
+            size: 140,
+            setup: function () {
+                var sizePer = 100 * (this.options.size / this.slider.image1.width() / 3) / 2;
+                var rec = this.options.direction === 'right' || this.options.direction === 'down';
+                var rec1 = rec ? 0 : 1;
+                var rec2 = rec ? 1 : 0;
+                var dir = this.options.direction === 'up' || this.options.direction === 'down' ? 'top' : 'left';
+                var mask = $('<div id="mask"/>').css({
+                    width: '100%',
+                    height: '100%',
+                    'background-image': this.slider.image1.css('background-image'),
+                    'background-position': 'center center'
+                }).css3({
+                    'mask-image': '-webkit-linear-gradient(' + dir + ', rgba(0,0,0,' + rec1 + ') 0%, rgba(0,0,0,' + rec1 + ') ' + (50 - sizePer) + '%, rgba(0,0,0,' + rec2 + ') ' + (50 + sizePer) + '%, rgba(0,0,0,' + rec2 + ') 100%)',
+                    'mask-size': '300%'
+                });
+                var timer = $('<div id="timer"/>').css({ width: '0px' });
+                this.slider.image1.append(mask).append(timer);
+            },
+            execute: function () {
+                var _this = this,
+                    mask = this.slider.image1.find('div#mask'),
+                    timer = this.slider.image1.find('div#timer');
+                var complete = function () {
+                    _this.slider.image2.show(0);
+                    mask.remove();
+                    timer.remove();
+                    _this.finished();
+                };
+                var update = function () {
+                    var per = _this.options.direction === 'right' || _this.options.direction === 'down' ? 100 - timer.width() : timer.width();
+                    mask.css3({
+                        'mask-position': _this.options.direction === 'up' || _this.options.direction === 'down' ? '0% ' + per + '%' : per + '% 0%'
+                    });
+                };
+                TweenMax.to(timer, _this.options.duration, {
+                    width: 100,
+                    ease: _this.options.ease,
+                    onUpdate: update,
+                    onComplete: complete
+                });
+            },
+            compatibilityCheck: function () {
+                return fx.HC.browser.supportsCSSProperty('MaskImage');
+            }
+        }, opts), completed);
+    };
+    fx.HC.transitions.SwipeRight = function (that, opts, completed) {
+        return new fx.HC.transitions.SwipeLeft(that, $.extend({
+            direction: 'right',
+        }, opts), completed);
+    };
+    fx.HC.transitions.SwipeUp = function (that, opts, completed) {
+        return new fx.HC.transitions.SwipeLeft(that, $.extend({
+            direction: 'up',
+        }, opts), completed);
+    };
+    fx.HC.transitions.SwipeDown = function (that, opts, completed) {
+        return new fx.HC.transitions.SwipeLeft(that, $.extend({
+            direction: 'down',
         }, opts), completed);
     };
 })(window.jQuery);
@@ -315,7 +1075,6 @@ fx.HC ={};
         }, opts), completed);
     };
 })(window.jQuery);
-
 //=================[ Swipe Effects ]=================//
 (function ($) {
     fx.HC.transitions.SwipeLeft = function (that, opts, completed) {
@@ -401,7 +1160,7 @@ fx.HC ={};
         }, opts), completed);
     };
 })(window.jQuery);
-//======================================================[ Blocks Effects ]======================================================//
+//=================[ Blocks Effects ]=================//
 (function ($) {
     fx.HC.transitions.BlocksRandom = function (that, opts, completed) {
         return new fx.HC.transition_base(that, $.extend({
@@ -464,9 +1223,8 @@ fx.HC ={};
             },
         }, opts), completed);
     };
-
 })(window.jQuery);
-//=======================================================[ Zip Effects ]========================================================//
+//=================[ Zip Effects ]=================//
 (function ($) {
     fx.HC.transitions.ZipLeft = function (that, opts, completed) {
         return new fx.HC.transition_base(that, $.extend({
@@ -563,7 +1321,7 @@ fx.HC ={};
         }, opts), completed);
     };
 })(window.jQuery);
-//======================================================[ Spiral Effects ]======================================================//
+//=================[ Spiral Effects ]=================//
 (function ($) {
     fx.HC.transitions.SpiralOut = function (that, opts, completed) {
         return new fx.HC.transition_base(that, $.extend({
