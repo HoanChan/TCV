@@ -173,19 +173,19 @@ fx.HC ={};
         run: function () {            
             this.slider.$container.css('overflow', this.options.requires3d ? 'visible' : 'hidden');
             this.outgoing.css({ 
-                zIndex: 2, 
+                zIndex: this.options.effectMode === 'out' ? 2 : 0, 
                 display: 'block'
             }); 
             this.target.css({
-                zIndex: 0,
+                zIndex: this.options.effectMode === 'in' ? 2 : 0,
                 opacity: 1,
                 display: 'block'
             });
             this.target.css({
               left: this.outgoing.css("left")
-            });  
+            });
+            if (this.options.effectMode === 'in') this.target.children().hide();
             if (this.options.setup !== undefined) this.options.setup.call(this);
-            // if (this.options.effectMode === 'out') this.outgoing.css({ 'background-image': 'none' });
             if (this.options.execute !== undefined) this.options.execute.call(this);
         },
         finished: function () {
@@ -199,6 +199,7 @@ fx.HC ={};
                 zIndex: 0
             });
             this.outgoing.children().show(); // hiện lại khi đã ẩn ở settup
+            this.target.children().show(); // hiện lại khi đã ẩn ở settup
             if (this.options.after) this.options.after.call(this);
         },
         fallbackSetup: function () {
@@ -232,10 +233,6 @@ fx.HC ={};
                     'perspective': this.options.perspective,
                     'perspective-origin': '50% 50%'
                 });
-                this.target.css({
-                  left: this.outgoing.css("left")
-                });
-                if (this.options.customSetup !== undefined) this.options.customSetup.call(this);
                 var imgWidth = this.outgoing.width(),
                     imgHeight = this.outgoing.height();
 
@@ -274,8 +271,14 @@ fx.HC ={};
                 }
 
                 // Append the fragement to the surface
-                this.outgoing.get(0).appendChild(fragment);
-                this.outgoing.children().not($('.tile')).hide();
+                if (this.options.effectMode === 'out') {
+                    this.outgoing.get(0).appendChild(fragment);
+                    this.outgoing.children().not($('.tile')).hide();
+                }
+                else {
+                    this.target.get(0).appendChild(fragment);
+                    this.target.children().not($('.tile')).hide();
+                }
             },
             execute: function () {
 
@@ -343,20 +346,22 @@ fx.HC ={};
                 });//.attr("style", targetImage.attr("style")).addClass(targetImage.attr("class"));
 
                 var timer = $('<div id="timer"/>').css({ width: '0px' });
-                this.outgoing.append(mask).append(timer);
-                //targetImage.hide();
-                this.outgoing.children().not(mask).hide();
+                if(this.options.effectMode === 'out'){
+                    this.outgoing.append(mask).append(timer);
+                    //targetImage.hide();
+                    this.outgoing.children().not(mask).hide();
+                }
+                else{
+                    this.target.append(mask).append(timer);
+                    //targetImage.hide();
+                    this.target.children().not(mask).hide();
+                }
             },
             execute: function () {
                 var _this = this,
                     mask = this.outgoing.find('div#mask'),
                     timer = this.outgoing.find('div#timer');
                 var complete = function () {
-                    _this.outgoing.show(0);
-                    _this.outgoing.css({
-                        zIndex: 0,
-                        display: 'none'
-                    }); 
                     mask.remove();
                     timer.remove();
                     _this.finished();
@@ -410,7 +415,7 @@ fx.HC ={};
             ease: Linear.easeIn,
             calcDelay: function (rowIndex, colIndex) { return colIndex * this.options.delayBetweenBarsX + rowIndex * this.options.delayBetweenBarsY; },
             renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
-                var targetImage = this.outgoing.children('img').first();
+                var targetImage = (this.options.effectMode === 'out' ? this.outgoing : this.target).children('img').first();
                 $(elem).css({
                     //'background-size': 'cover',
                     'background-image': 'url("' + targetImage.attr('src') + '")',
@@ -419,7 +424,7 @@ fx.HC ={};
             },
             execute: function () {
                 var _this = this;
-                var bars = this.outgoing.find('div.tile');
+                var bars = (this.options.effectMode === 'out' ? this.outgoing : this.target).find('div.tile');
                 var count = 0;
                 var complete = function () {
                     count++;
@@ -535,7 +540,7 @@ fx.HC ={};
             },
             calcDelay: function (rowIndex, colIndex) { return this.timeArray[colIndex * this.options.columns + rowIndex] * this.options.delay; },
             renderTile: function (elem, colIndex, rowIndex, colWidth, rowHeight, leftOffset, topOffset) {
-                var targetImage = (this.options.effectMode === 'out' ? this.outgoing: this.target).children('img').first();
+                var targetImage = (this.options.effectMode === 'out' ? this.outgoing : this.target).children('img').first();
                 $(elem).css({
                     //'background-size': 'cover',
                     'background-image': 'url("' + targetImage.attr('src') + '")',
@@ -551,12 +556,12 @@ fx.HC ={};
             },
             execute: function () {
                 var _this = this;
-                var bars = this.outgoing.find('div.tile');
+                var bars = (this.options.effectMode === 'out' ? this.outgoing : this.target).find('div.tile');
                 var count = 0;
                 var complete = function () {
                     count++;
                     if (count >= bars.length) {
-                        _this.target.show(0);
+                        // _this.target.show(0);
                         bars.empty().remove();
                         _this.finished();
                     }
@@ -582,11 +587,7 @@ fx.HC ={};
     };
     fx.HC.transitions.SpiralIn = function (that, opts, completed) {
         return new fx.HC.transitions.SpiralOut(that, $.extend({
-            effectMode: 'in',
-            customSetup: function(){
-                this.target.css({ zIndex: 2 });
-                this.outgoing.css({ zIndex: 0 });
-            },
+            effectMode: 'in'
         }, opts), completed);
     };
 })(window.jQuery); 
