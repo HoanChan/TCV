@@ -148,6 +148,7 @@ fx.HC ={};
             effectMode: 'out',
             after: function () {if (completed) completed();}
         }, opts);
+        that.resize(); // Cập nhật lại slide để hiển thị nội dung, không có cái này nó trắng bóc
         this.children = that.$container.children(),
         this.outgoing = this.children.eq(opts.outgoing_slide),
         this.target = this.children.eq(opts.upcoming_slide);

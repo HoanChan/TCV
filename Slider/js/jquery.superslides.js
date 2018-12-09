@@ -60,20 +60,7 @@ Superslides = function(el, options) {
     });
 
     $(window).on('resize', function() {
-      setTimeout(function() {
-        var $children = that.$container.children();
-
-        that.width  = that._findWidth();
-        that.height = that._findHeight();
-
-        $children.css({
-          width: that.width,
-          left: that.width
-        });
-
-        that.css.containers();
-        that.css.images();
-      }, 10);
+      that.resize();
     });
 
     if (that.options.hashchange) {
@@ -562,7 +549,23 @@ Superslides.prototype = {
 
     this.$el.trigger('started.slides');
   },
+  resize: function(){
+    var that = this;
+    setTimeout(function() {
+      var $children = that.$container.children();
 
+      that.width  = that._findWidth();
+      that.height = that._findHeight();
+
+      $children.css({
+        width: that.width,
+        left: that.width
+      });
+
+      that.css.containers();
+      that.css.images();
+    }, 10);
+  },
   animate: function(direction, userCallback) {
     var that = this,
         orientation = {};
