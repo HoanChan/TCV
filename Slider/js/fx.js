@@ -218,17 +218,8 @@ fx.HC ={};
             this.finished();
         }
     };
-//=============================================================//
+    
     fx.HC.transitions = {}; // danh sách các hiệu ứng
-    var randomProperty = function (obj) {
-        var keys = Object.keys(obj)
-        return obj[keys[ keys.length * Math.random() << 0]];
-    };
-    fx.HC.transitions.Random = function (that, opts, completed) {
-        return new randomProperty(fx.HC.transitions)(that, opts, completed);
-    };
-
-    $.fn.superslides.fx = $.extend(fx.HC.transitions, $.fn.superslides.fx);
 //=============================================================//
     fx.HC.transition_base = function (that, opts, completed) {
         return new fx.HC.transition(that, $.extend({
@@ -1412,4 +1403,26 @@ fx.HC ={};
             effectMode: 'in'
         }, opts), completed);
     };
+})(window.jQuery); 
+
+//=============================================================//
+(function ($) {
+    function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
+    fx.HC.randomIndex = 0;
+    var keys = shuffle(Object.keys(fx.HC.transitions));
+    var length = keys.length;
+    fx.HC.transitions.Random = function (that, opts, completed) {
+        fx.HC.randomIndex = (fx.HC.randomIndex + 1) % length;
+        return new fx.HC.transitions[keys[fx.HC.randomIndex]](that, opts, completed);
+    };
+    $.fn.superslides.fx = $.extend(fx.HC.transitions, $.fn.superslides.fx);
 })(window.jQuery); 
