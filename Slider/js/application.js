@@ -14,12 +14,13 @@ $(document).ready(function() {
       text += showText(
           '<li>' +
               '<img src="{0}" alt="{1}">' +
+              (p.Position ? 
               '<div class="container {3}">' +
                 '<h1 class="header">{1}</h1>' +
                 '<div class="content">' +
                   '<p>{2}</p>' +
                 '</div>' +
-              '</div>' +
+              '</div>' : "") +
             '</li>', p.Image, p.Header, p.Content, p.Position);
     });
     return text;
