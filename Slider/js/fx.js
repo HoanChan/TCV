@@ -972,87 +972,12 @@ fx.HC ={};
         }, opts), completed);
     };
 })(window.jQuery);
-//=================[ Swipe Effects ]=================//
-(function ($) {
-    fx.HC.transitions.SwipeLeft = function (that, opts, completed) {
-        return new fx.HC.transition(that, $.extend({
-            duration: 2,
-            ease: Sine.easeOut,
-            direction: 'left',
-            size: 140,
-            setup: function () {
-                var sizePer = 100 * (this.options.size / this.slider.image1.width() / 3) / 2;
-                var rec = this.options.direction === 'right' || this.options.direction === 'down';
-                var rec1 = rec ? 0 : 1;
-                var rec2 = rec ? 1 : 0;
-                var dir = this.options.direction === 'up' || this.options.direction === 'down' ? 'top' : 'left';
-                var mask = $('<div id="mask"/>').css({
-                    width: '100%',
-                    height: '100%',
-                    'background-image': this.slider.image1.css('background-image'),
-                    'background-position': 'center center'
-                }).css3({
-                    'mask-image': '-webkit-linear-gradient(' + dir + ', rgba(0,0,0,' + rec1 + ') 0%, rgba(0,0,0,' + rec1 + ') ' + (50 - sizePer) + '%, rgba(0,0,0,' + rec2 + ') ' + (50 + sizePer) + '%, rgba(0,0,0,' + rec2 + ') 100%)',
-                    'mask-size': '300%'
-                });
-                var timer = $('<div id="timer"/>').css({ width: '0px' });
-                this.slider.image1.append(mask).append(timer);
-            },
-            execute: function () {
-                var _this = this,
-                    mask = this.slider.image1.find('div#mask'),
-                    timer = this.slider.image1.find('div#timer');
-                var complete = function () {
-                    _this.slider.image2.show(0);
-                    mask.remove();
-                    timer.remove();
-                    _this.finished();
-                };
-                var update = function () {
-                    var per = _this.options.direction === 'right' || _this.options.direction === 'down' ? 100 - timer.width() : timer.width();
-                    mask.css3({
-                        'mask-position': _this.options.direction === 'up' || _this.options.direction === 'down' ? '0% ' + per + '%' : per + '% 0%'
-                    });
-                };
-                TweenMax.to(timer, _this.options.duration, {
-                    width: 100,
-                    ease: _this.options.ease,
-                    onUpdate: update,
-                    onComplete: complete
-                });
-            },
-            compatibilityCheck: function () {
-                return fx.HC.browser.supportsCSSProperty('MaskImage');
-            }
-        }, opts), completed);
-    };
-    fx.HC.transitions.SwipeRight = function (that, opts, completed) {
-        return new fx.HC.transitions.SwipeLeft(that, $.extend({
-            direction: 'right',
-        }, opts), completed);
-    };
-    fx.HC.transitions.SwipeUp = function (that, opts, completed) {
-        return new fx.HC.transitions.SwipeLeft(that, $.extend({
-            direction: 'up',
-        }, opts), completed);
-    };
-    fx.HC.transitions.SwipeDown = function (that, opts, completed) {
-        return new fx.HC.transitions.SwipeLeft(that, $.extend({
-            direction: 'down',
-        }, opts), completed);
-    };
-})(window.jQuery);
 //=================[ Dissolve Effects ]=================//
 (function ($) {
     fx.HC.transitions.Dissolve = function (that, opts, completed) {
         return new fx.HC.transition(that, $.extend({
             duration: 2,
             ease: Quart.easeIn,
-            setup: function () {
-                // this.target.css({
-                //   left: this.outgoing.css("left")
-                // });      
-            },
             execute: function () {
                 var _this = this;
                 var complete = function() {
@@ -1081,31 +1006,28 @@ fx.HC ={};
                 var rec1 = rec ? 0 : 1;
                 var rec2 = rec ? 1 : 0;
                 var dir = this.options.direction === 'up' || this.options.direction === 'down' ? 'top' : 'left';
-                var targetImage = this.outgoing.children('img').first();
-                var imgWidth = (parseInt(targetImage.css("width"), 10) || 0);
-                var imgHeight = (parseInt(targetImage.css("height"), 10) || 0);
+                var imgWidth = (parseInt(this.currentImage.css("width"), 10) || 0);
+                var imgHeight = (parseInt(this.currentImage.css("height"), 10) || 0);
                 var mask = $('<div id="mask"/>').css({
-                    width: targetImage.width(),
-                    height: targetImage.height(),
+                    width: this.currentImage.width(),
+                    height: this.currentImage.height(),
                     position: 'absolute',
-                    left: targetImage.css("left"),
-                    top: targetImage.css("top"),
+                    left: this.currentImage.css("left"),
+                    top: this.currentImage.css("top"),
                     'background-size': imgWidth +'px ' + imgHeight + 'px',
-                    'background-image': 'url("' + targetImage.attr('src') + '")'
+                    'background-image': 'url("' + this.currentImage.attr('src') + '")'
                 }).css3({
                     'mask-image': '-webkit-linear-gradient(' + dir + ', rgba(0,0,0,' + rec1 + ') 0%, rgba(0,0,0,' + rec1 + ') ' + (50 - sizePer) + '%, rgba(0,0,0,' + rec2 + ') ' + (50 + sizePer) + '%, rgba(0,0,0,' + rec2 + ') 100%)',
                     'mask-size': '300%'
-                });//.attr("style", targetImage.attr("style")).addClass(targetImage.attr("class"));
+                });
 
                 var timer = $('<div id="timer"/>').css({ width: '0px' });
                 if(this.options.effectMode === 'out'){
                     this.outgoing.append(mask).append(timer);
-                    //targetImage.hide();
                     this.outgoing.children().not(mask).hide();
                 }
                 else{
                     this.target.append(mask).append(timer);
-                    //targetImage.hide();
                     this.target.children().not(mask).hide();
                 }
             },
@@ -1404,7 +1326,6 @@ fx.HC ={};
         }, opts), completed);
     };
 })(window.jQuery); 
-
 //=============================================================//
 (function ($) {
     function shuffle(a) {
