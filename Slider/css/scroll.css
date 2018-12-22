@@ -1,0 +1,138 @@
+
+h1 {
+  font-size: 3.3em;
+  color: lightcoral;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2.25em;
+}
+
+h4 {
+  font-size: 1.8em;
+}
+
+h5 {
+  font-size: 1.4em;
+}
+
+h6 {
+  font-size: 1.125em;
+}
+html {
+  font-size: 11px;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/* Tablets */
+@media only screen and (min-width : 992px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* HD */
+@media only screen and (min-width : 1200px) {
+  html {
+    font-size: 20px;
+  }
+}
+/* FHD 2K */
+@media only screen and (min-width : 1900px) {
+  html {
+    font-size: 30px;
+  }
+}
+
+/* QHD */
+@media only screen and (min-width : 2500px) {
+  html {
+    font-size: 40px;
+  }
+}
+
+/* UHD 4K */
+@media only screen and (min-width : 3800px) {
+  html {
+    font-size: 60px;
+  }
+}
+/* 8K */
+@media only screen and (min-width : 7600px) {
+  html {
+    font-size: 120px;
+  }
+}
+
+
+a {
+  color: #002f4a;
+  text-decoration: none;
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  -o-transition: color 0.15s ease;
+  transition: color 0.15s ease;
+  text-shadow: none;
+}
+a:hover {
+  color: #00639c;
+}
+
+p, ul, ol, li {
+  font-size: 2rem;
+  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  text-shadow: 0 .075em .075em rgba(0, 0, 0, 0.8);
+  margin: .1em .1em;
+}
+ul {
+    list-style: none;
+    padding: 0px;
+}
+.page ul>li{
+    overflow: visible;
+    padding-left: 1em;
+    position: relative;
+}
+.page > ul > li:before
+{
+   content: '-';
+   left: 0;
+   position: absolute;
+}
+.page > ul > li > ul > li:before
+{
+   content: '+ ';
+   left: 0;
+   position: absolute;
+}
+.page > ul > li > ul > li> ul > li:before
+{
+   content: '\2713';
+   left: 0;
+   position: absolute;
+}
+.page > ol > li {
+  font-size: 2.2rem;
+  color: lightskyblue
+}
+html{
+  color: white;
+  background-color: #222;
+}
+
+.container{
+}
+
+.page{
+  margin: 1em 2em;
+}
