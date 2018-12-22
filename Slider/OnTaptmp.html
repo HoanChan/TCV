@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Default Slider</title>
+  <link rel="stylesheet" href="css/scroll.css">
+</head>
+
+<body>
+  <div class="container">
+    
+  </div>
+
+  <script type="text/javascript">
+    var mp3snd = "music/IntoTheSun.mp3";
+    document.write('<audio loop autoplay="autoplay">'
+      + '<source src="' + mp3snd + '" type="audio/mpeg">'
+      + '<!--[if lt IE 9]>'
+      + '<bgsound src="' + mp3snd + '">' // loop="1"
+      + '<![endif]-->'
+      + '</audio>');
+  </script>
+  <script src="https://code.jquery.com/jquery-latest.min.js "></script>
+  <!-- <script src="js/scroll.js" type="text/javascript" charset="utf-8"></script> -->
+</body>
+
+</html>
