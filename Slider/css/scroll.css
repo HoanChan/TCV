@@ -1,29 +1,106 @@
-.color0{color: rgba(255, 255, 255, 1);}
-.color1{color: rgba(255, 41, 44, 1);}
-.color2{color: rgba(0, 161, 255, 1);}
-.color3{color: rgba(119, 255, 0, 1);}
-.color4{color: rgb(255, 45, 255);}
-h1 {  font-size: 3.3em;  }
-h2 {  font-size: 3em;}
-h3 {  font-size: 2.25em;  }
-h4 {  font-size: 1.8em;}
-h5 {  font-size: 1.4em;}
-h6 {  font-size: 1.125em;}
-html {  font-size: 11px;}
+.color0 {
+  color: rgba(255, 255, 255, 1);
+}
+
+.color1 {
+  color: rgba(255, 41, 44, 1);
+}
+
+.color2 {
+  color: rgba(0, 161, 255, 1);
+}
+
+.color3 {
+  color: rgba(119, 255, 0, 1);
+}
+
+.color4 {
+  color: rgb(255, 45, 255);
+}
+
+h1 {
+  font-size: 3.3em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2.25em;
+}
+
+h4 {
+  font-size: 1.8em;
+}
+
+h5 {
+  font-size: 1.4em;
+}
+
+h6 {
+  font-size: 1.125em;
+}
+
+html {
+  font-size: 11px;
+}
+
 /* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {  html {    font-size: 13px;  }}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
 /* Tablets */
-@media only screen and (min-width : 992px) {  html {    font-size: 16px;  }}
+
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 /* HD */
-@media only screen and (min-width : 1200px) {  html {    font-size: 20px;  }}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+}
+
 /* FHD 2K */
-@media only screen and (min-width : 1900px) {  html {    font-size: 30px;  }}
+
+@media only screen and (min-width: 1900px) {
+  html {
+    font-size: 30px;
+  }
+}
+
 /* QHD */
-@media only screen and (min-width : 2500px) {  html {    font-size: 40px;  }}
+
+@media only screen and (min-width: 2500px) {
+  html {
+    font-size: 40px;
+  }
+}
+
 /* UHD 4K */
-@media only screen and (min-width : 3800px) {  html {    font-size: 60px;  }}
+
+@media only screen and (min-width: 3800px) {
+  html {
+    font-size: 60px;
+  }
+}
+
 /* 8K */
-@media only screen and (min-width : 7600px) {  html {    font-size: 120px;  }}
+
+@media only screen and (min-width: 7600px) {
+  html {
+    font-size: 120px;
+  }
+}
 
 a {
   color: #002f4a;
@@ -34,50 +111,62 @@ a {
   transition: color 0.15s ease;
   text-shadow: none;
 }
+
 a:hover {
   color: #00639c;
 }
 
-p, ul, ol, li {
+p,
+ul,
+ol,
+li,
+.list li:before {
   font-size: 2rem;
   font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
   text-shadow: 0 .075em .075em rgba(0, 0, 0, 0.8);
   margin: .1em .1em;
 }
-ul.list1,
-ul.list2,
-ul.list3{  
+
+ul.list,
+ul.list ul {
   list-style: none;
   padding: 0px;
 }
 
-ul.list1 > li,
-ul.list2 > li,
-ul.list3 > li{
+ul.list>li,
+ul.list ul>li {
   overflow: visible;
   padding-left: 1em;
   position: relative;
 }
-ul.list1 > li:before,
-ul.list2 > li:before,
-ul.list3 > li:before
-{
- left: 0;
- position: absolute;
+
+ul.list>li:before,
+ul.list ul>li:before {
+  left: 0;
+  position: absolute;
 }
-ul.list1 > li:before{ content: '-';}
-ul.list2 > li:before{ content: '+';}
-ul.list3 > li:before{ content: '\2713';}
-html{
+
+ul.list>li:before {
+  content: '-';
+}
+
+ul.list>li>ul>li:before {
+  content: '+';
+}
+
+ul.list>li>ul>li>ul>li:before {
+  content: '\2713';
+}
+
+html {
   color: white;
   background-color: #222;
 }
-li>ul{
+
+li>ul {
   color: white;
 }
-.container{
-}
 
-.page{
+.page {
   margin: 1em 2em;
 }
