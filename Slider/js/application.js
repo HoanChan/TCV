@@ -13,15 +13,16 @@ $(document).ready(function() {
     data.forEach(function(p) {
       text += showText(
           '<li>' +
-              '<img src="{0}" alt="{1}">' +
+              (p.Video?'<video controls autoplay src="' + p.Video + '">video not supported</video>'
+                :'<img src="' + p.Image + '" alt="{0}">') +
               (p.Position ? 
-              '<div class="container {3}">' +
-                '<h1 class="header">{1}</h1>' +
+              '<div class="container {2}">' +
+                '<h1 class="header">{0}</h1>' +
                 '<div class="content">' +
-                  '<p>{2}</p>' +
+                  '<p>{1}</p>' +
                 '</div>' +
               '</div>' : "") +
-            '</li>', p.Image, p.Header, p.Content, p.Position);
+            '</li>', p.Header, p.Content, p.Position);
     });
     return text;
   }
@@ -33,7 +34,7 @@ $(document).ready(function() {
     animation: slider.data('animation'),
     // animation_easing: 'easeInOutCubic',
     // animation_speed: slider.data('animation-speed'),
-    // pagination: true,
+    pagination: typeof IsUsePagination !== 'undefined' && IsUsePagination === false ? false : true,
     // hashchange: true,
     scrollable: true
   });

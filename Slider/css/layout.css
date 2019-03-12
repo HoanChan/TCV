@@ -48,6 +48,10 @@ img.keep-original {
   max-width: 100% !important;
   height: auto;
 }
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
 
 .container .header {
   font-weight: normal;
