@@ -2,22 +2,20 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Slider - Tránh lãng phí</title>
+  <title>Slider - ĐH Tôn Đức Thắng</title>
   <link rel="stylesheet" href="css/superslides.css">
   <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
-  <div id="slides" data-animation="fade" data-speed=8000>
+  <div id="slides" data-animation="fade" data-speed=5000>
     <ul id="slides-content" class="slides-container"></ul>
   </div>
-  <script type="text/javascript">
-    var mp3snd = "music/IntoTheSun.mp3";
-    document.write('<audio loop autoplay="autoplay">'
-    + '<source src="'+mp3snd+'" type="audio/mpeg">'
-    + '<!--[if lt IE 9]>'
-    + '<bgsound src="'+mp3snd+'">' // loop="1"
-    + '<![endif]-->'
-    + '</audio>');
+  <audio loop autoplay="autoplay" id="music">
+    <source src="music/IntoTheSun.mp3" type="audio/mpeg">
+    <!--[if lt IE 9]>
+    <bgsound src="music/IntoTheSun.mp3" loop=1>
+    <![endif]-->
+  </audio>
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
@@ -27,47 +25,47 @@
     var IsUsePagination = false;
     var jsonData = [
       {"Image": "images/TDT/S(1).jpg"},
-      {"Image": "images/TDT/S(2).jpg"},
-      {"Image": "images/TDT/S(3).jpg"},
-      {"Image": "images/TDT/S(4).jpg"},
-      {"Image": "images/TDT/S(5).jpg"},
-      {"Image": "images/TDT/S(6).jpg"},
-      {"Image": "images/TDT/S(7).jpg"},
-      {"Image": "images/TDT/S(8).jpg"},
-      {"Image": "images/TDT/S(9).jpg"},
-      {"Image": "images/TDT/S(10).jpg"},
-      {"Image": "images/TDT/S(11).jpg"},
-      {"Image": "images/TDT/S(12).jpg"},
-      {"Image": "images/TDT/S(13).jpg"},
-      {"Image": "images/TDT/S(14).jpg"},
-      {"Image": "images/TDT/S(15).jpg"},
-      {"Image": "images/TDT/S(16).jpg"},
-      {"Image": "images/TDT/S(17).jpg"},
-      {"Image": "images/TDT/S(18).jpg"},
-      {"Image": "images/TDT/S(19).jpg"},
-      {"Image": "images/TDT/S(20).jpg"},
-      {"Image": "images/TDT/S(21).jpg"},
-      {"Image": "images/TDT/S(22).jpg"},
-      {"Image": "images/TDT/S(23).jpg"},
-      {"Image": "images/TDT/S(24).jpg"},
-      {"Image": "images/TDT/S(25).jpg"},
-      {"Image": "images/TDT/S(26).jpg"},
-      {"Image": "images/TDT/S(27).jpg"},
-      {"Image": "images/TDT/S(28).jpg"},
-      {"Image": "images/TDT/S(29).jpg"},
-      {"Image": "images/TDT/S(30).jpg"},
-      {"Image": "images/TDT/S(1).jpg"},
-      {"Image": "images/TDT/S(32).jpg"},
-      {"Image": "images/TDT/S(33).jpg"},
-      {"Image": "images/TDT/S(34).jpg"},
-      {"Image": "images/TDT/S(35).jpg"},
-      {"Image": "images/TDT/S(36).jpg"},
-      {"Image": "images/TDT/S(37).jpg"},
-      {"Image": "images/TDT/S(38).jpg"},
-      {"Image": "images/TDT/S(39).jpg"},
-      {"Image": "images/TDT/S(40).jpg"},
-      // {"Video": "https://edu.viettel.vn/upload/38623/fck/files/Video-TDTU-info.mp4"},
-      // {"Video": "http://edu.viettel.vn/upload/38623/TDT2019/Video-TDTU-Flycam.mp4"},
+      // {"Image": "images/TDT/S(2).jpg"},
+      // {"Image": "images/TDT/S(3).jpg"},
+      // {"Image": "images/TDT/S(4).jpg"},
+      // {"Image": "images/TDT/S(5).jpg"},
+      // {"Image": "images/TDT/S(6).jpg"},
+      // {"Image": "images/TDT/S(7).jpg"},
+      // {"Image": "images/TDT/S(8).jpg"},
+      // {"Image": "images/TDT/S(9).jpg"},
+      // {"Image": "images/TDT/S(10).jpg"},
+      // {"Image": "images/TDT/S(11).jpg"},
+      // {"Image": "images/TDT/S(12).jpg"},
+      // {"Image": "images/TDT/S(13).jpg"},
+      // {"Image": "images/TDT/S(14).jpg"},
+      // {"Image": "images/TDT/S(15).jpg"},
+      // {"Image": "images/TDT/S(16).jpg"},
+      // {"Image": "images/TDT/S(17).jpg"},
+      // {"Image": "images/TDT/S(18).jpg"},
+      // {"Image": "images/TDT/S(19).jpg"},
+      // {"Image": "images/TDT/S(20).jpg"},
+      // {"Image": "images/TDT/S(21).jpg"},
+      // {"Image": "images/TDT/S(22).jpg"},
+      // {"Image": "images/TDT/S(23).jpg"},
+      // {"Image": "images/TDT/S(24).jpg"},
+      // {"Image": "images/TDT/S(25).jpg"},
+      // {"Image": "images/TDT/S(26).jpg"},
+      // {"Image": "images/TDT/S(27).jpg"},
+      // {"Image": "images/TDT/S(28).jpg"},
+      // {"Image": "images/TDT/S(29).jpg"},
+      // {"Image": "images/TDT/S(30).jpg"},
+      // {"Image": "images/TDT/S(1).jpg"},
+      // {"Image": "images/TDT/S(32).jpg"},
+      // {"Image": "images/TDT/S(33).jpg"},
+      // {"Image": "images/TDT/S(34).jpg"},
+      // {"Image": "images/TDT/S(35).jpg"},
+      // {"Image": "images/TDT/S(36).jpg"},
+      // {"Image": "images/TDT/S(37).jpg"},
+      // {"Image": "images/TDT/S(38).jpg"},
+      // {"Image": "images/TDT/S(39).jpg"},
+      // {"Image": "images/TDT/S(40).jpg"},
+      {"Video": "file://C:/Users/LeHoa/Desktop/TDTU1/Video-TDTU-info.mp4"},
+      {"Video": "file://C:/Users/LeHoa/Desktop/TDTU1/Video-TDTU-Flycam.mp4"},
     ];
   </script>
   <script src="js/application.js" type="text/javascript" charset="utf-8"></script>

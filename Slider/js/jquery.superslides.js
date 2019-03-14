@@ -544,35 +544,43 @@
             } else {
                 this.animate();
             }
-            this.run();
+            var run = function() {
+                if (that.options.play) {
+                    if (that.play_id) {
+                        that.stop();
+                    }
+                    var RunNext = function() {
+                        that.animate('next', function() {
+                            var next = that.$container.children().get(that.current);
+                            var video = $(next).find('video');
+                            if (video.length > 0) {
+                                video = video.get(0);
+                                video.load();
+                                video.currentTime = 0;
+                                var audio = $('#music');
+                                if (video.paused === true && video.ended !== true) {
+                                    if(audio.length > 0) audio.get(0).pause();
+                                    video.play().catch(function() {
+                                        // do something
+                                    });
+                                }
+                                video.onended = function(){
+                                  if(audio.length > 0) audio.get(0).play();
+                                  RunNext();
+                                };
+                            } else run();
+                        });
+                    };
+                    var video = $(that.$container.children().get(that.current)).find('video');
+                    if (video.length > 0) {
+                        //video.get(0).onended = RunNext;
+                    } else {
+                        that.play_id = setTimeout(RunNext, that.options.play);
+                    }
+                }
+            }
+            run();
             this.$el.trigger('started.slides');
-        },
-        run: function() {
-          var that = this;
-          if (this.options.play) {
-            if (this.play_id) {
-              this.stop();
-            }
-            var RunNext = function() {
-              that.play_id = setTimeout(function() {
-                that.animate('next', function() {
-                  var video = $(that.current).find('video');
-                  if (video.length > 0) {
-                    var vid = video.get(0);
-                    if(vid.paused) vid.play();
-                    vid.onended = that.run;
-                  }
-                  else that.run();
-                });
-              }, that.options.play);
-            };
-            var video = $(that.current).find('video');
-            if (video.length > 0) {
-              video.get(0).onended = RunNext;
-            } else {
-              RunNext();
-            }
-          }
         },
         resize: function() {
             var that = this;

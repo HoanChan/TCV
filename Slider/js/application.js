@@ -38,4 +38,12 @@ $(document).ready(function() {
     // hashchange: true,
     scrollable: true
   });
+  var audio = $('#music').get(0);
+  audio.play();
+  audio.ended = function(){
+    audio.load();
+    audio.currentTime = 0;
+    audio.play();
+  };
+  
 });
