@@ -7,16 +7,9 @@
   <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
-  <div id="slides" data-animation="fade" data-speed=5000>
+  <div id="slides" data-animation="fade" data-speed=8000>
     <ul id="slides-content" class="slides-container"></ul>
   </div>
-  <audio loop autoplay="autoplay" id="music">
-    <source src="music/IntoTheSun.mp3" type="audio/mpeg">
-    <!--[if lt IE 9]>
-    <bgsound src="music/IntoTheSun.mp3" loop=1>
-    <![endif]-->
-  </audio>
-  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/jquery.animate-enhanced.min.js"></script>
@@ -24,8 +17,9 @@
   <script>
     var IsUsePagination = false;
     var jsonData = [
-      {"Video": "file://C:/Users/LeHoa/Desktop/TDTU1/Video-TDTU-info.mp4"},
-      {"Video": "file://C:/Users/LeHoa/Desktop/TDTU1/Video-TDTU-Flycam.mp4"},
+      {"Video": "video/Video-TDTU-Flycam.mp4"},
+      {"Video": "video/Video-TDTU-info.mp4"},
+      {"Video": "video/Video-TDTU-Why.mp4"},
       {"Link": "TDT.html", Header:"Link nà"},
     ];
   </script>
