@@ -48,8 +48,10 @@ $(document).ready(function () {
   });
   var audio = $('#music').get(0);
   if (audio) {
-    audio.play();
-    audio.ended = function () {
+    audio.play().catch(function () {
+      console.log('audio autoplay blocked by web browser!')
+    });
+    audio.onended = function () {
       audio.load();
       audio.currentTime = 0;
       audio.play();

@@ -564,7 +564,7 @@
 								if (video.paused === true && video.ended !== true) {
 									if (audio.length > 0) audio.get(0).pause(); // tạm thời tắt nhạc nền
 									video.play().catch(function () { // chạy video
-										// do something
+										console.log('video autoplay blocked by web browser!')
 									});
 								}
 								video.onended = function () { // video kết thúc 
