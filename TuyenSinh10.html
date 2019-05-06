@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <style>
+    table, tr, td{
+      border: 1px solid rgb(110, 43, 3);
+      border-collapse: collapse;
+      text-align: center;
+      margin: auto;
+    }
+    td {
+      padding: 5px 10px; 
+      width: 5rem;
+    }
+    thead
+    {
+      background-color: rgb(186, 248, 157);
+    }
+    th{
+      font-weight: normal;
+    }
+    tfoot
+    {
+      background-color: rgb(186, 248, 157);
+    }
+    h2 {
+      text-align: center;
+    }
+    span{
+      font-weight: bold;
+      font-size: 1.1em;
+      color: rgb(230, 3, 3);
+    }
+    p{
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    var Data = {
+      Last: 630,
+      Count: 0,
+      Update: "9 giờ ngày 06/05/2019",
+      End: "2019-05-17 17:00:00",
+    }
+  </script>
+  <table>
+    <thead>
+      <tr>
+        <td colspan="2">Số hồ sơ đăng ký hiện tại:</td>
+        <td colspan="2"><span id="Current">xxxx</span></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2">Tỉ lệ chọi:</td>
+        <td colspan="2"><span id="Odds">zzzz</span></td>
+      </tr>
+      <tr>
+        <td colspan="2">Số lượng TS năm ngoái:</td>
+        <td colspan="2"><span id="Last">aaa</span></td>
+      </tr>
+      <tr>
+        <td colspan="4">Dự kiến tuyển sinh năm nay</td>
+      </tr>
+      <tr>
+        <td>NV1</td>
+        <td><span id="ASP1">bbb</span></td>
+        <td>NV2</td>
+        <td><span id="ASP2">ccc</span></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">Thời gian điều chỉnh: <span id="End"></span></td>
+      </tr>
+    </tfoot>
+  </table>
+  <p>(Số liệu được cập nhật lần cuối vào lúc <span id="Update">yyyyy</span>)</p>
+  <script>
+    // Fill Data
+    document.getElementById("Last").innerHTML = Data.Last;
+    document.getElementById("ASP1").innerHTML = Math.floor(Data.Last * 0.95);
+    document.getElementById("ASP2").innerHTML = Data.Last - Math.floor(Data.Last * 0.95);
+    document.getElementById("Current").innerHTML = Data.Count;
+    document.getElementById("Odds").innerHTML =  (Data.Count / Data.Last).toLocaleString();
+    document.getElementById("Update").innerHTML = Data.Update
+    // Set the date we're counting down to
+    var countDownDate = new Date(Data.End).getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+      // Get todays date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="End"
+      document.getElementById("End").innerHTML = days + " ngày " + hours + " giờ " +
+        minutes + " phút " + seconds + " giây ";
+
+      // If the count down is finished, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("End").innerHTML = "Đã hết hạn";
+      }
+    }, 1000);
+  </script>
+</body>
+
+</html>
